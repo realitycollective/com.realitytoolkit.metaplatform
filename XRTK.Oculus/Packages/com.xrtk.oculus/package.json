@@ -1,25 +1,37 @@
 {
-  "name": "com.xrtk.oculus",
-  "displayName": "XRTK.Oculus",
-  "description": "The Oculus platform components for the Mixed Reality Toolkit.",
-  "tags": [
-    "xrtk",
+  "name": "com.realitytoolkit.meta",
+  "displayName": "RealityToolkit.Meta",
+  "description": "The Meta platform module for the Reality Toolkit.",
+  "version": "0.3.0-preview.15",
+  "unity": "2020.3",
+  "keywords": [
     "vr",
+    "ar",
+    "xr",
     "mixed",
     "reality",
-    "oculus"
+    "immersive",
+    "unity",
+    "meta",
+    "oculus",
+    "quest"
   ],
-  "version": "0.3.0-preview.15",
-  "unity": "2019.4",
+  "homepage": "https://github.com/realitycollective",
+  "bugs": {
+    "url": "https://github.com/realitycollective/com.realitytoolkit.meta/issues"
+  },
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/XRTK/Oculus.git"
+    "url": "https://github.com/realitycollective/com.realitytoolkit.meta.git"
   },
-  "src": "Assets/XRTK.Oculus",
-  "author": "XRTK Team (https://github.com/XRTK)",
+  "author": {
+    "name": "Reality Collective",
+    "email": "realitycollectivedev@gmail.com",
+    "url": "https://github.com/realitycollective"
+  },
   "dependencies": {
-    "com.xrtk.core": "0.3.0-preview.49",
+    "com.realitytoolkit.core": "0.3.0-preview.57",
     "com.unity.xr.mock-hmd": "1.3.0-preview.1",
     "com.unity.xr.oculus": "1.11.2"
   },
