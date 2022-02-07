@@ -1,6 +1,6 @@
 # Reality Toolkit - Meta Platform Module
 
-The Pico platform components for the [Reality Toolkit](https://github.com/realitycollective/com.realitytoolkit.core). This package enables your Reality Toolkit based project to run on Meta devices.
+The Meta platform components for the [Reality Toolkit](https://github.com/realitycollective/com.realitytoolkit.core). This package enables your Reality Toolkit based project to run on Meta devices.
 
 ## What's included?
 
