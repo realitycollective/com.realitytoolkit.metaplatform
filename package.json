@@ -2,7 +2,7 @@
   "name": "com.realitytoolkit.meta",
   "displayName": "RealityToolkit.Meta",
   "description": "The Meta platform module for the Reality Toolkit.",
-  "version": "0.3.0-preview.15",
+  "version": "1.0.0-preview.1",
   "unity": "2020.3",
   "keywords": [
     "vr",
