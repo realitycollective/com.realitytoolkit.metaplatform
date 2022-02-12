@@ -36,8 +36,8 @@
   },
   "profiles": [
     {
-      "displayName": "Default Profiles",
-      "path": "Profiles~/"
+      "displayName": "Default Assets",
+      "path": "Assets~/"
     }
   ]
 }
