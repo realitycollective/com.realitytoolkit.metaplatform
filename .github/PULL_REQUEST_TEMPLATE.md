@@ -1,4 +1,4 @@
-# XRTK - Mixed Reality Toolkit Pull Request
+# Reality Collective - Reality Toolkit Pull Request
 
 ## Overview
 <!-- Please provide a clear and concise description of the pull request. -->
@@ -17,3 +17,14 @@
 
 <!--  Include any submodule related Pull Request links here -->
 - URL
+
+## Testing status
+<!-- Remove the options that do not apply -->
+* No tests have been added.
+* Includes unit tests.
+* Includes performance tests.
+* Includes integration tests.
+
+### Manual testing status
+<!-- Describe how you tested your implementation/fix. Try to mention all the cases and flows.  -->
+<!-- It will help the reviewer to understand if you missed any cases or test steps as well as will tell more about your feature or fix.   -->

@@ -18,7 +18,6 @@ The Meta platform components for the [Reality Toolkit](https://github.com/realit
 ## Requirements
 
 - [RealityToolkit.Core](https://github.com/realitycollective/com.realitytoolkit.core)
-- [RealityToolkit.SDK](https://github.com/realitycollective/com.realitytoolkit.sdk)
 - [Unity 2020.3 and above](https://unity.com/)
 
 ## Getting Started
@@ -28,3 +27,10 @@ The Meta platform components for the [Reality Toolkit](https://github.com/realit
 The simplest way to getting started using the Meta platform package in your project is via OpenUPM. Visit [OpenUPM](https://openupm.com/docs/) to learn more about it. Once you have the OpenUPM CLI set up use the following command to add the package to your project:
 
 `openupm add com.realitytoolkit.meta`
+
+# Build Status
+
+| branch | build status |
+| --- | --- |
+| main | [![main](https://github.com/realitycollective/com.realitytoolkit.meta/actions/workflows/buildupmpackages.yml/badge.svg?branch=main)](https://github.com/realitycollective/com.realitytoolkit.meta/actions/workflows/buildupmpackages.yml) |
+| development | [![development](https://github.com/realitycollective/com.realitytoolkit.meta/actions/workflows/buildupmpackages.yml/badge.svg?branch=rcdevelopment)](https://github.com/realitycollective/com.realitytoolkit.meta/actions/workflows/buildupmpackages.yml) |
