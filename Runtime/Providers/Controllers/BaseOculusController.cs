@@ -8,7 +8,6 @@ using XRTK.Definitions.Devices;
 using XRTK.Definitions.Utilities;
 using XRTK.Extensions;
 using XRTK.Interfaces.Providers.Controllers;
-using XRTK.Oculus.Extensions;
 using XRTK.Oculus.Plugins;
 using XRTK.Providers.Controllers;
 
@@ -242,11 +241,7 @@ namespace XRTK.Oculus.Providers.Controllers
                 TrackingState = TrackingState.NotApplicable;
             }
 
-#if XRTK_USE_LEGACYVR
-            currentControllerPose = OculusApi.GetNodePose(NodeType, OculusApi.stepType).ToMixedRealityPoseFlippedQuaternionXY(true);
-#else
             currentControllerPose = OculusApi.GetNodePose(NodeType, OculusApi.stepType).ToMixedRealityPoseFlippedQuaternionXY();
-#endif
             currentControllerVelocity = OculusApi.GetNodeState(NodeType, OculusApi.stepType);
             Velocity = currentControllerVelocity.Velocity.ToVector3FlippedZ();
             AngularVelocity = currentControllerVelocity.AngularVelocity.ToVector3FlippedZ();

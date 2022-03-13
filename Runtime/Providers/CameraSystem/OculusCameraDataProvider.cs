@@ -15,19 +15,7 @@ namespace XRTK.Oculus.Providers.CameraSystem
     {
         /// <inheritdoc />
         public OculusCameraDataProvider(string name, uint priority, BaseMixedRealityCameraDataProviderProfile profile, IMixedRealityCameraSystem parentService)
-            : base(name, priority, profile, parentService)
-        {
-        }
-
-#if XRTK_USE_LEGACYVR
-        /// <inheritdoc />
-        protected override void ApplySettingsForDefaultHeadHeight()
-        {
-            HeadHeight = OculusApi.EyeHeight;
-            ResetRigTransforms();
-            SyncRigTransforms();
-        }
-#endif
+            : base(name, priority, profile, parentService) { }
 
         /// <inheritdoc />
         public override void Update()
