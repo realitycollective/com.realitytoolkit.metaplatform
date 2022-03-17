@@ -13,8 +13,8 @@ using XRTK.Interfaces.InputSystem;
 using XRTK.Oculus.Plugins;
 using XRTK.Oculus.Profiles;
 using XRTK.Oculus.Utilities;
-using XRTK.Providers.Controllers.Hands;
 using XRTK.Services;
+using XRTK.Services.InputSystem.Controllers.Hands;
 
 namespace XRTK.Oculus.Providers.Controllers
 {

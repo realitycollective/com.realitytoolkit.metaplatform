@@ -10,7 +10,7 @@ using XRTK.Interfaces.InputSystem;
 using XRTK.Oculus.Extensions;
 using XRTK.Oculus.Plugins;
 using XRTK.Oculus.Profiles;
-using XRTK.Providers.Controllers;
+using XRTK.Services.InputSystem.Controllers;
 
 namespace XRTK.Oculus.Providers.Controllers
 {
