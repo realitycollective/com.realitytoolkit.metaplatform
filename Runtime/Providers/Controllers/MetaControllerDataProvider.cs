@@ -14,12 +14,12 @@ using XRTK.Services.InputSystem.Controllers;
 
 namespace XRTK.MetaPlatform.Providers.Controllers
 {
-    [RuntimePlatform(typeof(OculusPlatform))]
+    [RuntimePlatform(typeof(MetaPlatform))]
     [System.Runtime.InteropServices.Guid("0DE5DA40-FEB8-4891-B9B2-942EAFD041B9")]
-    public class OculusControllerDataProvider : BaseControllerDataProvider
+    public class MetaControllerDataProvider : BaseControllerDataProvider
     {
         /// <inheritdoc />
-        public OculusControllerDataProvider(string name, uint priority, OculusControllerDataProviderProfile profile, IMixedRealityInputSystem parentService)
+        public MetaControllerDataProvider(string name, uint priority, MetaControllerDataProviderProfile profile, IMixedRealityInputSystem parentService)
             : base(name, priority, profile, parentService)
         {
         }
@@ -29,7 +29,7 @@ namespace XRTK.MetaPlatform.Providers.Controllers
         /// <summary>
         /// Dictionary to capture all active controllers detected
         /// </summary>
-        private readonly Dictionary<OculusApi.Controller, BaseOculusController> activeControllers = new Dictionary<OculusApi.Controller, BaseOculusController>();
+        private readonly Dictionary<OculusApi.Controller, BaseMetaController> activeControllers = new Dictionary<OculusApi.Controller, BaseMetaController>();
 
         private int fixedUpdateCount = 0;
         private float deviceRefreshTimer;
@@ -80,7 +80,7 @@ namespace XRTK.MetaPlatform.Providers.Controllers
             activeControllers.Clear();
         }
 
-        private BaseOculusController GetOrAddController(OculusApi.Controller controllerMask, bool addController = true)
+        private BaseMetaController GetOrAddController(OculusApi.Controller controllerMask, bool addController = true)
         {
             //If a device is already registered with the ID provided, just return it.
             if (activeControllers.ContainsKey(controllerMask))
@@ -97,11 +97,11 @@ namespace XRTK.MetaPlatform.Providers.Controllers
             var handedness = controllerMask.ToHandedness();
             var nodeType = handedness.ToNode();
 
-            BaseOculusController detectedController;
+            BaseMetaController detectedController;
 
             try
             {
-                detectedController = Activator.CreateInstance(controllerType, this, TrackingState.NotTracked, handedness, GetControllerMappingProfile(controllerType, handedness), controllerMask, nodeType) as BaseOculusController;
+                detectedController = Activator.CreateInstance(controllerType, this, TrackingState.NotTracked, handedness, GetControllerMappingProfile(controllerType, handedness), controllerMask, nodeType) as BaseMetaController;
             }
             catch (Exception e)
             {
@@ -225,9 +225,9 @@ namespace XRTK.MetaPlatform.Providers.Controllers
                 case OculusApi.Controller.LTouch:
                 case OculusApi.Controller.RTouch:
                 case OculusApi.Controller.Touch:
-                    return typeof(OculusTouchController);
+                    return typeof(MetaTouchController);
                 case OculusApi.Controller.Remote:
-                    return typeof(OculusRemoteController);
+                    return typeof(MetaRemoteController);
                 default:
                     return null;
             }

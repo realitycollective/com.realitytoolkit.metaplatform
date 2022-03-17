@@ -18,12 +18,12 @@ using XRTK.Services.InputSystem.Controllers.Hands;
 
 namespace XRTK.MetaPlatform.Providers.Controllers
 {
-    [RuntimePlatform(typeof(OculusPlatform))]
+    [RuntimePlatform(typeof(MetaPlatform))]
     [System.Runtime.InteropServices.Guid("EA666456-BAEF-4412-A829-A4C7132E98C3")]
-    public class OculusHandControllerDataProvider : BaseHandControllerDataProvider
+    public class MetaHandControllerDataProvider : BaseHandControllerDataProvider
     {
         /// <inheritdoc />
-        public OculusHandControllerDataProvider(string name, uint priority, OculusHandControllerDataProviderProfile profile, IMixedRealityInputSystem parentService)
+        public MetaHandControllerDataProvider(string name, uint priority, MetaHandControllerDataProviderProfile profile, IMixedRealityInputSystem parentService)
             : base(name, priority, profile, parentService)
         {
             if (!MixedRealityToolkit.TryGetSystemProfile<IMixedRealityInputSystem, MixedRealityInputSystemProfile>(out var inputSystemProfile))
@@ -32,7 +32,7 @@ namespace XRTK.MetaPlatform.Providers.Controllers
             }
 
             MinConfidenceRequired = (OculusApi.TrackingConfidence)profile.MinConfidenceRequired;
-            handDataProvider = new OculusHandDataConverter();
+            handDataProvider = new MetaHandDataConverter();
 
             var isGrippingThreshold = profile.GripThreshold != inputSystemProfile.GripThreshold
                 ? profile.GripThreshold
@@ -44,7 +44,7 @@ namespace XRTK.MetaPlatform.Providers.Controllers
             };
         }
 
-        private readonly OculusHandDataConverter handDataProvider;
+        private readonly MetaHandDataConverter handDataProvider;
         private readonly HandDataPostProcessor postProcessor;
         private readonly Dictionary<Handedness, MixedRealityHandController> activeControllers = new Dictionary<Handedness, MixedRealityHandController>();
 

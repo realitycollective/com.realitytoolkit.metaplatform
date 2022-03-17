@@ -9,7 +9,7 @@ namespace XRTK.MetaPlatform.Profiles
     /// <summary>
     /// Configuration profile for Oculus hand controllers.
     /// </summary>
-    public class OculusHandControllerDataProviderProfile : BaseHandControllerDataProviderProfile
+    public class MetaHandControllerDataProviderProfile : BaseHandControllerDataProviderProfile
     {
         [SerializeField]
         [Tooltip("The minimum hand tracking confidence expected.")]

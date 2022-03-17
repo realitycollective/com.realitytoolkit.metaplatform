@@ -10,13 +10,13 @@ using XRTK.MetaPlatform.Plugins;
 namespace XRTK.MetaPlatform.Providers.Controllers
 {
     [System.Runtime.InteropServices.Guid("1898974A-DBCD-4C88-8E03-726689848D52")]
-    public class OculusTouchController : BaseOculusController
+    public class MetaTouchController : BaseMetaController
     {
         /// <inheritdoc />
-        public OculusTouchController() { }
+        public MetaTouchController() { }
 
         /// <inheritdoc />
-        public OculusTouchController(IMixedRealityControllerDataProvider controllerDataProvider, TrackingState trackingState, Handedness controllerHandedness, MixedRealityControllerMappingProfile controllerMappingProfile, OculusApi.Controller controllerType = OculusApi.Controller.None, OculusApi.Node nodeType = OculusApi.Node.None)
+        public MetaTouchController(IMixedRealityControllerDataProvider controllerDataProvider, TrackingState trackingState, Handedness controllerHandedness, MixedRealityControllerMappingProfile controllerMappingProfile, OculusApi.Controller controllerType = OculusApi.Controller.None, OculusApi.Node nodeType = OculusApi.Node.None)
             : base(controllerDataProvider, trackingState, controllerHandedness, controllerMappingProfile, controllerType, nodeType)
         {
         }

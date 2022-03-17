@@ -10,13 +10,13 @@ using XRTK.MetaPlatform.Plugins;
 namespace XRTK.MetaPlatform.Providers.Controllers
 {
     [System.Runtime.InteropServices.Guid("071048C6-31F3-460C-863F-5D3121F47654")]
-    public class OculusRemoteController : BaseOculusController
+    public class MetaRemoteController : BaseMetaController
     {
         /// <inheritdoc />
-        public OculusRemoteController() { }
+        public MetaRemoteController() { }
 
         /// <inheritdoc />
-        public OculusRemoteController(IMixedRealityControllerDataProvider controllerDataProvider, TrackingState trackingState, Handedness controllerHandedness, MixedRealityControllerMappingProfile controllerMappingProfile, OculusApi.Controller controllerType = OculusApi.Controller.None, OculusApi.Node nodeType = OculusApi.Node.None)
+        public MetaRemoteController(IMixedRealityControllerDataProvider controllerDataProvider, TrackingState trackingState, Handedness controllerHandedness, MixedRealityControllerMappingProfile controllerMappingProfile, OculusApi.Controller controllerType = OculusApi.Controller.None, OculusApi.Node nodeType = OculusApi.Node.None)
             : base(controllerDataProvider, trackingState, controllerHandedness, controllerMappingProfile, controllerType, nodeType)
         {
         }

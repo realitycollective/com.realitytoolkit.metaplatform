@@ -17,14 +17,14 @@ using XRTK.Utilities;
 namespace XRTK.MetaPlatform.Utilities
 {
     /// <summary>
-    /// Converts oculus hand data to <see cref="HandData"/>.
+    /// Converts Meta hand data to <see cref="HandData"/>.
     /// </summary>
-    public sealed class OculusHandDataConverter
+    public sealed class MetaHandDataConverter
     {
         /// <summary>
         /// Destructor.
         /// </summary>
-        ~OculusHandDataConverter()
+        ~MetaHandDataConverter()
         {
             if (!conversionProxyRootTransform.IsNull())
             {
@@ -277,13 +277,13 @@ namespace XRTK.MetaPlatform.Utilities
         /// That way we can make use of Unity APIs to translate coordinate spaces.
         /// </summary>
         /// <param name="handedness">Handedness of the hand the proxy <see cref="Transform"/> belongs to.</param>
-        /// <param name="boneId">The Oculus bone ID to lookup the proxy <see cref="Transform"/> for.</param>
+        /// <param name="boneId">The Meta bone ID to lookup the proxy <see cref="Transform"/> for.</param>
         /// <returns>The proxy <see cref="Transform"/>.</returns>
         private Transform GetProxyTransform(Handedness handedness, OculusApi.BoneId boneId)
         {
             if (conversionProxyRootTransform.IsNull())
             {
-                conversionProxyRootTransform = new GameObject("Oculus Hand Conversion Proxy").transform;
+                conversionProxyRootTransform = new GameObject("Meta Hand Conversion Proxy").transform;
                 conversionProxyRootTransform.transform.SetParent(RigTransform, false);
                 conversionProxyRootTransform.gameObject.SetActive(false);
             }
@@ -302,7 +302,7 @@ namespace XRTK.MetaPlatform.Utilities
                 return conversionProxyTransforms[boneId];
             }
 
-            var transform = new GameObject($"Oculus Hand {boneId} Proxy").transform;
+            var transform = new GameObject($"Meta Hand {boneId} Proxy").transform;
             conversionProxyTransforms.Add(boneId, transform);
 
             return transform;
@@ -319,11 +319,7 @@ namespace XRTK.MetaPlatform.Utilities
             var rootPosition = RigTransform.InverseTransformPoint(RigTransform.position + rigRotation * handState.RootPose.Position);
             var rootRotation = Quaternion.Inverse(rigRotation) * rigRotation * handState.RootPose.Orientation.ToQuaternionFlippedXY();
 
-#if XRTK_USE_LEGACYVR
-            return FixRotation(handedness, new MixedRealityPose(rootPosition + new Vector3(0f, OculusApi.EyeHeight, 0f), rootRotation));
-#else
             return FixRotation(handedness, new MixedRealityPose(rootPosition, rootRotation));
-#endif
         }
 
         /// <summary>

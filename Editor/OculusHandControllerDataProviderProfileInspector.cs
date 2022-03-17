@@ -11,9 +11,9 @@ using XRTK.MetaPlatform.Profiles;
 namespace XRTK.MetaPlatform.Editor
 {
     /// <summary>
-    /// Default inspector for <see cref="OculusHandControllerDataProviderProfile"/>.
+    /// Default inspector for <see cref="MetaHandControllerDataProviderProfile"/>.
     /// </summary>
-    [CustomEditor(typeof(OculusHandControllerDataProviderProfile))]
+    [CustomEditor(typeof(MetaHandControllerDataProviderProfile))]
     public class OculusHandControllerDataProviderProfileInspector : BaseMixedRealityHandControllerDataProviderProfileInspector
     {
         private SerializedProperty minConfidenceRequired;

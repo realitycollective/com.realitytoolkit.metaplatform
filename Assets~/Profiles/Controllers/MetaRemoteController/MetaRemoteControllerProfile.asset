@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d420c170b42dfe0438e2aa2a829775ed, type: 3}
-  m_Name: OculusRemoteControllerProfile
+  m_Name: MetaRemoteControllerProfile
   m_EditorClassIdentifier: 
   controllerType:
     reference: 071048c6-31f3-460c-863f-5d3121f47654
@@ -26,3 +26,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 57b8d52912d05d944a7bef8849e61746, type: 2}
   - {fileID: 11400000, guid: d4ccc6a88a36a9248b3e2f02baa5a07e, type: 2}
   - {fileID: 11400000, guid: 640f9efd0a00cb64db56fceb6cdf43fa, type: 2}
+  lightThemeLeftControllerTexture: {fileID: 0}
+  lightThemeLeftControllerTextureScaled: {fileID: 0}
+  darkThemeLeftControllerTexture: {fileID: 0}
+  darkThemeLeftControllerTextureScaled: {fileID: 0}
+  lightThemeRightControllerTexture: {fileID: 0}
+  lightThemeRightControllerTextureScaled: {fileID: 0}
+  darkThemeRightControllerTexture: {fileID: 0}
+  darkThemeRightControllerTextureScaled: {fileID: 0}

@@ -12,11 +12,11 @@ using XRTK.Services;
 
 namespace XRTK.MetaPlatform.Editor.BuildPipeline
 {
-    [RuntimePlatform(typeof(OculusPlatform))]
+    [RuntimePlatform(typeof(MetaPlatform))]
     public class OculusBuildInfo : AndroidBuildInfo
     {
         /// <inheritdoc />
-        public override IMixedRealityPlatform BuildPlatform => new OculusPlatform();
+        public override IMixedRealityPlatform BuildPlatform => new MetaPlatform();
 
         /// <inheritdoc />
         public override void OnPreProcessBuild(BuildReport report)
@@ -29,7 +29,7 @@ namespace XRTK.MetaPlatform.Editor.BuildPipeline
                 return;
             }
 
-            if (BuildPlatform.GetType() == typeof(OculusPlatform))
+            if (BuildPlatform.GetType() == typeof(MetaPlatform))
             {
                 // TODO generate manifest
             }

@@ -9,12 +9,12 @@ using XRTK.Services.CameraSystem.Providers;
 
 namespace XRTK.MetaPlatform.Providers.CameraSystem
 {
-    [RuntimePlatform(typeof(OculusPlatform))]
+    [RuntimePlatform(typeof(MetaPlatform))]
     [System.Runtime.InteropServices.Guid("83EFF552-ADF4-47C8-AD53-DF7406856D3F")]
-    public class OculusCameraDataProvider : BaseCameraDataProvider
+    public class MetaCameraDataProvider : BaseCameraDataProvider
     {
         /// <inheritdoc />
-        public OculusCameraDataProvider(string name, uint priority, BaseMixedRealityCameraDataProviderProfile profile, IMixedRealityCameraSystem parentService)
+        public MetaCameraDataProvider(string name, uint priority, BaseMixedRealityCameraDataProviderProfile profile, IMixedRealityCameraSystem parentService)
             : base(name, priority, profile, parentService)
         {
         }

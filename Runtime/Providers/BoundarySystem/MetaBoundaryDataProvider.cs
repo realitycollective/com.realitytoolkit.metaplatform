@@ -9,20 +9,19 @@ using XRTK.Attributes;
 using XRTK.Definitions;
 using XRTK.Definitions.BoundarySystem;
 using XRTK.Interfaces.BoundarySystem;
-using XRTK.MetaPlatform.Extensions;
 using XRTK.MetaPlatform.Plugins;
 using XRTK.Services;
 
 namespace XRTK.MetaPlatform.Providers.BoundarySystem
 {
-    [RuntimePlatform(typeof(OculusPlatform))]
+    [RuntimePlatform(typeof(MetaPlatform))]
     [Guid("8EF0CAB5-A37C-4912-AD5E-1E57E92A314D")]
-    public class OculusBoundaryDataProvider : BaseDataProvider, IMixedRealityBoundaryDataProvider
+    public class MetaBoundaryDataProvider : BaseDataProvider, IMixedRealityBoundaryDataProvider
     {
         private Vector3[] cachedPoints = new Vector3[0];
 
         /// <inheritdoc />
-        public OculusBoundaryDataProvider(string name, uint priority, BaseMixedRealityProfile profile, IMixedRealityBoundarySystem parentService)
+        public MetaBoundaryDataProvider(string name, uint priority, BaseMixedRealityProfile profile, IMixedRealityBoundarySystem parentService)
             : base(name, priority, profile, parentService)
         {
             boundarySystem = parentService;

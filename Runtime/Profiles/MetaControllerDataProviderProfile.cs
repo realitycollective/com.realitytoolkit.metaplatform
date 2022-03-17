@@ -7,15 +7,18 @@ using XRTK.MetaPlatform.Providers.Controllers;
 
 namespace XRTK.MetaPlatform.Profiles
 {
-    public class OculusControllerDataProviderProfile : BaseMixedRealityControllerDataProviderProfile
+    /// <summary>
+    /// Configuration profile for Meta controllers.
+    /// </summary>
+    public class MetaControllerDataProviderProfile : BaseMixedRealityControllerDataProviderProfile
     {
         public override ControllerDefinition[] GetDefaultControllerOptions()
         {
             return new[]
             {
-                new ControllerDefinition(typeof(OculusRemoteController)),
-                new ControllerDefinition(typeof(OculusTouchController), Handedness.Left),
-                new ControllerDefinition(typeof(OculusTouchController), Handedness.Right)
+                new ControllerDefinition(typeof(MetaRemoteController)),
+                new ControllerDefinition(typeof(MetaTouchController), Handedness.Left),
+                new ControllerDefinition(typeof(MetaTouchController), Handedness.Right)
             };
         }
     }

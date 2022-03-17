@@ -10,13 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d420c170b42dfe0438e2aa2a829775ed, type: 3}
-  m_Name: LeftOculusTouchControllerProfile
+  m_Name: LeftTouchControllerProfile
   m_EditorClassIdentifier: 
   controllerType:
     reference: 1898974a-dbcd-4c88-8e03-726689848d52
   handedness: 1
-  visualizationProfile: {fileID: 11400000, guid: 64083f0c076c83f49a716316f5ce901c,
-    type: 2}
+  visualizationProfile: {fileID: 11400000, guid: 64083f0c076c83f49a716316f5ce901c, type: 2}
   useCustomInteractions: 0
   interactionMappingProfiles:
   - {fileID: 11400000, guid: d3c46e95cd50b9347b3ae2b984258b3c, type: 2}
@@ -39,3 +38,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a28ef8a54b31cd7429a330d53d37bda4, type: 2}
   - {fileID: 11400000, guid: 4c2c7b74b24b9d946af40c80ee0d0e9a, type: 2}
   - {fileID: 11400000, guid: 44d1dac04942dba44ab0f01ee529dec8, type: 2}
+  lightThemeLeftControllerTexture: {fileID: 0}
+  lightThemeLeftControllerTextureScaled: {fileID: 0}
+  darkThemeLeftControllerTexture: {fileID: 0}
+  darkThemeLeftControllerTextureScaled: {fileID: 0}
+  lightThemeRightControllerTexture: {fileID: 0}
+  lightThemeRightControllerTextureScaled: {fileID: 0}
+  darkThemeRightControllerTexture: {fileID: 0}
+  darkThemeRightControllerTextureScaled: {fileID: 0}
