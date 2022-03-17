@@ -5,7 +5,7 @@ using XRTK.Attributes;
 using XRTK.Definitions.CameraSystem;
 using XRTK.Interfaces.CameraSystem;
 using XRTK.Oculus.Plugins;
-using XRTK.Providers.CameraSystem;
+using XRTK.Services.CameraSystem.Providers;
 
 namespace XRTK.Oculus.Providers.CameraSystem
 {
