@@ -5,8 +5,8 @@ using UnityEditor;
 using UnityEngine;
 using XRTK.Editor.Extensions;
 using XRTK.Editor.Profiles.InputSystem.Controllers;
-using XRTK.Oculus.Plugins;
-using XRTK.Oculus.Profiles;
+using XRTK.MetaPlatform.Plugins;
+using XRTK.MetaPlatform.Profiles;
 
 namespace XRTK.MetaPlatform.Editor
 {

@@ -8,7 +8,6 @@ using UnityEngine;
 using XRTK.Attributes;
 using XRTK.Editor.BuildPipeline;
 using XRTK.Interfaces;
-using XRTK.Oculus;
 using XRTK.Services;
 
 namespace XRTK.MetaPlatform.Editor.BuildPipeline

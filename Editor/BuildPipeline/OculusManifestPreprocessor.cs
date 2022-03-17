@@ -20,9 +20,10 @@ limitations under the License.
 ************************************************************************************/
 
 using System;
-using UnityEngine;
-using UnityEditor;
 using System.IO;
+using UnityEditor;
+using UnityEngine;
+using XRTK.Editor;
 using XRTK.Editor.Utilities;
 
 namespace XRTK.MetaPlatform.Editor.Build
@@ -45,7 +46,7 @@ namespace XRTK.MetaPlatform.Editor.Build
         /// Generates an Android Manifest that is valid for Oculus Store submissions and enables
         /// hand tracking on the Oculus Quest.
         /// </summary>
-        [MenuItem("Mixed Reality Toolkit/Tools/Oculus/Create Oculus Quest compatible AndroidManifest.xml", false, 100000)]
+        [MenuItem(MixedRealityPreferences.Editor_Menu_Keyword + "/Tools/Oculus/Create Oculus Quest compatible AndroidManifest.xml", false, 100000)]
         public static void GenerateManifestForSubmission()
         {
             var assetPath = PathFinderUtility.ResolvePath<IPathFinder>(typeof(OculusPathFinder));
@@ -113,7 +114,7 @@ namespace XRTK.MetaPlatform.Editor.Build
         /// <summary>
         /// Removes any existing Android Manifest if it exists.
         /// </summary>
-        [MenuItem("Mixed Reality Toolkit/Tools/Oculus/Remove AndroidManifest.xml", false, 100001)]
+        [MenuItem(MixedRealityPreferences.Editor_Menu_Keyword + "/Tools/Oculus/Remove AndroidManifest.xml", false, 100001)]
         public static void RemoveAndroidManifest()
         {
             AssetDatabase.DeleteAsset("Assets/Plugins/Android/AndroidManifest.xml");
