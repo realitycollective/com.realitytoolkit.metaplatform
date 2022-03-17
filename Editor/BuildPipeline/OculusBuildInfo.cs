@@ -6,11 +6,12 @@ using UnityEditor;
 using UnityEditor.Build.Reporting;
 using UnityEngine;
 using XRTK.Attributes;
+using XRTK.Editor.BuildPipeline;
 using XRTK.Interfaces;
 using XRTK.Oculus;
 using XRTK.Services;
 
-namespace XRTK.Editor.BuildPipeline
+namespace XRTK.MetaPlatform.Editor.BuildPipeline
 {
     [RuntimePlatform(typeof(OculusPlatform))]
     public class OculusBuildInfo : AndroidBuildInfo

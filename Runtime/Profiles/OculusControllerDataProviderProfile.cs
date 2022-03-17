@@ -3,9 +3,9 @@
 
 using XRTK.Definitions.Controllers;
 using XRTK.Definitions.Utilities;
-using XRTK.Oculus.Providers.Controllers;
+using XRTK.MetaPlatform.Providers.Controllers;
 
-namespace XRTK.Oculus.Profiles
+namespace XRTK.MetaPlatform.Profiles
 {
     public class OculusControllerDataProviderProfile : BaseMixedRealityControllerDataProviderProfile
     {

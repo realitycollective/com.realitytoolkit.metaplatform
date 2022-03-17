@@ -4,10 +4,10 @@
 using XRTK.Attributes;
 using XRTK.Definitions.CameraSystem;
 using XRTK.Interfaces.CameraSystem;
-using XRTK.Oculus.Plugins;
+using XRTK.MetaPlatform.Plugins;
 using XRTK.Services.CameraSystem.Providers;
 
-namespace XRTK.Oculus.Providers.CameraSystem
+namespace XRTK.MetaPlatform.Providers.CameraSystem
 {
     [RuntimePlatform(typeof(OculusPlatform))]
     [System.Runtime.InteropServices.Guid("83EFF552-ADF4-47C8-AD53-DF7406856D3F")]

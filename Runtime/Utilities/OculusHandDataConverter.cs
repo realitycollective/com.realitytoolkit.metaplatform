@@ -9,12 +9,12 @@ using XRTK.Definitions.Devices;
 using XRTK.Definitions.Utilities;
 using XRTK.Extensions;
 using XRTK.Interfaces.CameraSystem;
-using XRTK.Oculus.Extensions;
-using XRTK.Oculus.Plugins;
+using XRTK.MetaPlatform.Extensions;
+using XRTK.MetaPlatform.Plugins;
 using XRTK.Services;
 using XRTK.Utilities;
 
-namespace XRTK.Oculus.Utilities
+namespace XRTK.MetaPlatform.Utilities
 {
     /// <summary>
     /// Converts oculus hand data to <see cref="HandData"/>.

@@ -4,7 +4,7 @@
 using UnityEngine;
 using XRTK.Definitions.Controllers.Hands;
 
-namespace XRTK.Oculus.Profiles
+namespace XRTK.MetaPlatform.Profiles
 {
     /// <summary>
     /// Configuration profile for Oculus hand controllers.

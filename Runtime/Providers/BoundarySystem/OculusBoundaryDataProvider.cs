@@ -9,11 +9,11 @@ using XRTK.Attributes;
 using XRTK.Definitions;
 using XRTK.Definitions.BoundarySystem;
 using XRTK.Interfaces.BoundarySystem;
-using XRTK.Oculus.Extensions;
-using XRTK.Oculus.Plugins;
+using XRTK.MetaPlatform.Extensions;
+using XRTK.MetaPlatform.Plugins;
 using XRTK.Services;
 
-namespace XRTK.Oculus.Providers.BoundarySystem
+namespace XRTK.MetaPlatform.Providers.BoundarySystem
 {
     [RuntimePlatform(typeof(OculusPlatform))]
     [Guid("8EF0CAB5-A37C-4912-AD5E-1E57E92A314D")]

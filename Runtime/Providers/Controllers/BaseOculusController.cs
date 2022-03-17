@@ -8,10 +8,10 @@ using XRTK.Definitions.Devices;
 using XRTK.Definitions.Utilities;
 using XRTK.Extensions;
 using XRTK.Interfaces.InputSystem.Providers.Controllers;
-using XRTK.Oculus.Plugins;
+using XRTK.MetaPlatform.Plugins;
 using XRTK.Services.InputSystem.Controllers;
 
-namespace XRTK.Oculus.Providers.Controllers
+namespace XRTK.MetaPlatform.Providers.Controllers
 {
     public abstract class BaseOculusController : BaseController
     {

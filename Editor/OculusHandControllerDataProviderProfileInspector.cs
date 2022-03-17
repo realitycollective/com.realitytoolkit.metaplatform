@@ -8,7 +8,7 @@ using XRTK.Editor.Profiles.InputSystem.Controllers;
 using XRTK.Oculus.Plugins;
 using XRTK.Oculus.Profiles;
 
-namespace XRTK.Oculus.Editor
+namespace XRTK.MetaPlatform.Editor
 {
     /// <summary>
     /// Default inspector for <see cref="OculusHandControllerDataProviderProfile"/>.

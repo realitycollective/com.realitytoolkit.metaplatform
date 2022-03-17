@@ -4,9 +4,9 @@
 using UnityEngine;
 using XRTK.Definitions.Platforms;
 using XRTK.Interfaces;
-using XRTK.Oculus.Plugins;
+using XRTK.MetaPlatform.Plugins;
 
-namespace XRTK.Oculus
+namespace XRTK.MetaPlatform
 {
     [System.Runtime.InteropServices.Guid("DB1ACC26-EC8D-4BC6-AFCA-C51351B2DA2E")]
     public class OculusPlatform : BasePlatform

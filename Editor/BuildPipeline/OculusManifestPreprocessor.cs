@@ -25,7 +25,7 @@ using UnityEditor;
 using System.IO;
 using XRTK.Editor.Utilities;
 
-namespace XRTK.Oculus.Editor.Build
+namespace XRTK.MetaPlatform.Editor.Build
 {
     /// <summary>
     /// https://developer.oculus.com/documentation/native/android/mobile-native-manifest/

@@ -10,13 +10,13 @@ using XRTK.Definitions.Devices;
 using XRTK.Definitions.InputSystem;
 using XRTK.Definitions.Utilities;
 using XRTK.Interfaces.InputSystem;
-using XRTK.Oculus.Plugins;
-using XRTK.Oculus.Profiles;
-using XRTK.Oculus.Utilities;
+using XRTK.MetaPlatform.Plugins;
+using XRTK.MetaPlatform.Profiles;
+using XRTK.MetaPlatform.Utilities;
 using XRTK.Services;
 using XRTK.Services.InputSystem.Controllers.Hands;
 
-namespace XRTK.Oculus.Providers.Controllers
+namespace XRTK.MetaPlatform.Providers.Controllers
 {
     [RuntimePlatform(typeof(OculusPlatform))]
     [System.Runtime.InteropServices.Guid("EA666456-BAEF-4412-A829-A4C7132E98C3")]

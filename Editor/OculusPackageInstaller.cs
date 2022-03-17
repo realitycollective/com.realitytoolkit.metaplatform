@@ -7,7 +7,7 @@ using XRTK.Editor;
 using XRTK.Extensions;
 using XRTK.Editor.Utilities;
 
-namespace XRTK.Oculus.Editor
+namespace XRTK.MetaPlatform.Editor
 {
     [InitializeOnLoad]
     internal static class OculusPackageInstaller
