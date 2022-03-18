@@ -3,7 +3,7 @@
 
 using XRTK.Definitions.Controllers;
 using XRTK.Definitions.Utilities;
-using XRTK.MetaPlatform.Providers.Controllers;
+using XRTK.MetaPlatform.InputSystem.Controllers;
 
 namespace XRTK.MetaPlatform.Profiles
 {
