@@ -16,7 +16,7 @@ using XRTK.MetaPlatform.Utilities;
 using XRTK.Services;
 using XRTK.Services.InputSystem.Controllers.Hands;
 
-namespace XRTK.MetaPlatform.Providers.Controllers
+namespace XRTK.MetaPlatform.InputSystem.Controllers
 {
     [RuntimePlatform(typeof(MetaPlatform))]
     [System.Runtime.InteropServices.Guid("EA666456-BAEF-4412-A829-A4C7132E98C3")]

@@ -7,7 +7,7 @@ using XRTK.Definitions.Utilities;
 using XRTK.Interfaces.InputSystem.Providers.Controllers;
 using XRTK.MetaPlatform.Plugins;
 
-namespace XRTK.MetaPlatform.Providers.Controllers
+namespace XRTK.MetaPlatform.InputSystem.Controllers
 {
     [System.Runtime.InteropServices.Guid("1898974A-DBCD-4C88-8E03-726689848D52")]
     public class MetaTouchController : BaseMetaController

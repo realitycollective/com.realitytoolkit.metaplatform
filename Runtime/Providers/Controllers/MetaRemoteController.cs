@@ -7,7 +7,7 @@ using XRTK.Definitions.Utilities;
 using XRTK.Interfaces.InputSystem.Providers.Controllers;
 using XRTK.MetaPlatform.Plugins;
 
-namespace XRTK.MetaPlatform.Providers.Controllers
+namespace XRTK.MetaPlatform.InputSystem.Controllers
 {
     [System.Runtime.InteropServices.Guid("071048C6-31F3-460C-863F-5D3121F47654")]
     public class MetaRemoteController : BaseMetaController

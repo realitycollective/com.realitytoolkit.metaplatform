@@ -12,7 +12,7 @@ using XRTK.MetaPlatform.Plugins;
 using XRTK.MetaPlatform.Profiles;
 using XRTK.Services.InputSystem.Controllers;
 
-namespace XRTK.MetaPlatform.Providers.Controllers
+namespace XRTK.MetaPlatform.InputSystem.Controllers
 {
     [RuntimePlatform(typeof(MetaPlatform))]
     [System.Runtime.InteropServices.Guid("0DE5DA40-FEB8-4891-B9B2-942EAFD041B9")]

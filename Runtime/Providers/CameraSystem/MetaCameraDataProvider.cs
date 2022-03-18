@@ -7,7 +7,7 @@ using XRTK.Interfaces.CameraSystem;
 using XRTK.MetaPlatform.Plugins;
 using XRTK.Services.CameraSystem.Providers;
 
-namespace XRTK.MetaPlatform.Providers.CameraSystem
+namespace XRTK.MetaPlatform.CameraSystem.Providers
 {
     [RuntimePlatform(typeof(MetaPlatform))]
     [System.Runtime.InteropServices.Guid("83EFF552-ADF4-47C8-AD53-DF7406856D3F")]

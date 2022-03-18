@@ -11,7 +11,7 @@ using XRTK.Interfaces.InputSystem.Providers.Controllers;
 using XRTK.MetaPlatform.Plugins;
 using XRTK.Services.InputSystem.Controllers;
 
-namespace XRTK.MetaPlatform.Providers.Controllers
+namespace XRTK.MetaPlatform.InputSystem.Controllers
 {
     public abstract class BaseMetaController : BaseController
     {
