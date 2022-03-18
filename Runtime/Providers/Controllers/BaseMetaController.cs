@@ -7,20 +7,19 @@ using XRTK.Definitions.Controllers;
 using XRTK.Definitions.Devices;
 using XRTK.Definitions.Utilities;
 using XRTK.Extensions;
-using XRTK.Interfaces.Providers.Controllers;
-using XRTK.Oculus.Extensions;
-using XRTK.Oculus.Plugins;
-using XRTK.Providers.Controllers;
+using XRTK.Interfaces.InputSystem.Providers.Controllers;
+using XRTK.MetaPlatform.Plugins;
+using XRTK.Services.InputSystem.Controllers;
 
-namespace XRTK.Oculus.Providers.Controllers
+namespace XRTK.MetaPlatform.InputSystem.Controllers
 {
-    public abstract class BaseOculusController : BaseController
+    public abstract class BaseMetaController : BaseController
     {
         /// <inheritdoc />
-        protected BaseOculusController() { }
+        protected BaseMetaController() { }
 
         /// <inheritdoc />
-        protected BaseOculusController(IMixedRealityControllerDataProvider controllerDataProvider, TrackingState trackingState, Handedness controllerHandedness, MixedRealityControllerMappingProfile controllerMappingProfile, OculusApi.Controller controllerType = OculusApi.Controller.None, OculusApi.Node nodeType = OculusApi.Node.None)
+        protected BaseMetaController(IMixedRealityControllerDataProvider controllerDataProvider, TrackingState trackingState, Handedness controllerHandedness, MixedRealityControllerMappingProfile controllerMappingProfile, OculusApi.Controller controllerType = OculusApi.Controller.None, OculusApi.Node nodeType = OculusApi.Node.None)
             : base(controllerDataProvider, trackingState, controllerHandedness, controllerMappingProfile)
         {
             ControllerType = controllerType;
@@ -28,7 +27,7 @@ namespace XRTK.Oculus.Providers.Controllers
         }
 
         /// <summary>
-        /// The Oculus Node Type.
+        /// The Meta Node Type.
         /// </summary>
         private OculusApi.Node NodeType { get; }
 
@@ -105,7 +104,7 @@ namespace XRTK.Oculus.Providers.Controllers
 
             if (Interactions == null)
             {
-                Debug.LogError($"No interaction configuration for Oculus Controller {ControllerHandedness}");
+                Debug.LogError($"No interaction configuration for Meta Controller {ControllerHandedness}");
                 Enabled = false;
             }
 

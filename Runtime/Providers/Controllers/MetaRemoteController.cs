@@ -4,19 +4,19 @@
 using XRTK.Definitions.Controllers;
 using XRTK.Definitions.Devices;
 using XRTK.Definitions.Utilities;
-using XRTK.Interfaces.Providers.Controllers;
-using XRTK.Oculus.Plugins;
+using XRTK.Interfaces.InputSystem.Providers.Controllers;
+using XRTK.MetaPlatform.Plugins;
 
-namespace XRTK.Oculus.Providers.Controllers
+namespace XRTK.MetaPlatform.InputSystem.Controllers
 {
     [System.Runtime.InteropServices.Guid("071048C6-31F3-460C-863F-5D3121F47654")]
-    public class OculusRemoteController : BaseOculusController
+    public class MetaRemoteController : BaseMetaController
     {
         /// <inheritdoc />
-        public OculusRemoteController() { }
+        public MetaRemoteController() { }
 
         /// <inheritdoc />
-        public OculusRemoteController(IMixedRealityControllerDataProvider controllerDataProvider, TrackingState trackingState, Handedness controllerHandedness, MixedRealityControllerMappingProfile controllerMappingProfile, OculusApi.Controller controllerType = OculusApi.Controller.None, OculusApi.Node nodeType = OculusApi.Node.None)
+        public MetaRemoteController(IMixedRealityControllerDataProvider controllerDataProvider, TrackingState trackingState, Handedness controllerHandedness, MixedRealityControllerMappingProfile controllerMappingProfile, OculusApi.Controller controllerType = OculusApi.Controller.None, OculusApi.Node nodeType = OculusApi.Node.None)
             : base(controllerDataProvider, trackingState, controllerHandedness, controllerMappingProfile, controllerType, nodeType)
         {
         }

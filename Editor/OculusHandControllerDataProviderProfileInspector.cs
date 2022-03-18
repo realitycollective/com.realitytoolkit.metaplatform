@@ -5,15 +5,15 @@ using UnityEditor;
 using UnityEngine;
 using XRTK.Editor.Extensions;
 using XRTK.Editor.Profiles.InputSystem.Controllers;
-using XRTK.Oculus.Plugins;
-using XRTK.Oculus.Profiles;
+using XRTK.MetaPlatform.Plugins;
+using XRTK.MetaPlatform.Profiles;
 
-namespace XRTK.Oculus.Editor
+namespace XRTK.MetaPlatform.Editor
 {
     /// <summary>
-    /// Default inspector for <see cref="OculusHandControllerDataProviderProfile"/>.
+    /// Default inspector for <see cref="MetaHandControllerDataProviderProfile"/>.
     /// </summary>
-    [CustomEditor(typeof(OculusHandControllerDataProviderProfile))]
+    [CustomEditor(typeof(MetaHandControllerDataProviderProfile))]
     public class OculusHandControllerDataProviderProfileInspector : BaseMixedRealityHandControllerDataProviderProfileInspector
     {
         private SerializedProperty minConfidenceRequired;

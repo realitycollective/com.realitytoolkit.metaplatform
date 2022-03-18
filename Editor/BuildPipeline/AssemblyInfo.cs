@@ -3,7 +3,7 @@
 
 using System.Reflection;
 
-[assembly: AssemblyVersion("0.3.0")]
-[assembly: AssemblyTitle("com.xrtk.oculus.editor.buildpipeline")]
-[assembly: AssemblyCompany("XRTK")]
-[assembly: AssemblyCopyright("Copyright (c) XRTK. All rights reserved.")]
+[assembly: AssemblyVersion("1.0.0")]
+[assembly: AssemblyTitle("com.realitytoolkit.metaplatform.editor.buildpipeline")]
+[assembly: AssemblyCompany("Reality Collective")]
+[assembly: AssemblyCopyright("Copyright (c) Reality Collective. All rights reserved.")] 
