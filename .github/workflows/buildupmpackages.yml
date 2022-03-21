@@ -51,7 +51,7 @@ jobs:
     with:
       build-target: windows
       unityversion: ${{ needs.Setup-Unity.outputs.unityeditorversion }}
-      dependencies: '{"rcdevelopment": "github.com/realitycollective/com.realitytoolkit.core.git"}'
+      dependencies: '{"development": "github.com/realitycollective/com.realitytoolkit.core.git"}'
     secrets:
       GIT_USER_NAME: ${{ secrets.GIT_USER_NAME }}
       GIT_PAT: ${{ secrets.GIT_PAT }}
