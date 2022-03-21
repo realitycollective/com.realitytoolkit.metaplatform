@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - 'main'
-      - 'rcdevelopment'
+      - 'development'
       - 'feature/*'
 
   # Allows you to run this workflow manually from the Actions tab
