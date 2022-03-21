@@ -34,9 +34,9 @@ namespace XRTK.MetaPlatform.InputSystem.Controllers
             MinConfidenceRequired = (OculusApi.TrackingConfidence)profile.MinConfidenceRequired;
             handDataProvider = new MetaHandDataConverter();
 
-            var isGrippingThreshold = profile.GripThreshold != inputSystemProfile.GripThreshold
+            var isGrippingThreshold = profile.GripThreshold != inputSystemProfile.HandControllerSettings.GripThreshold
                 ? profile.GripThreshold
-                : inputSystemProfile.GripThreshold;
+                : inputSystemProfile.HandControllerSettings.GripThreshold;
 
             postProcessor = new HandDataPostProcessor(TrackedPoses, isGrippingThreshold)
             {
