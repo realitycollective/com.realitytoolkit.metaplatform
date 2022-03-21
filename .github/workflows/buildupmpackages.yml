@@ -1,4 +1,4 @@
-name: Build and test UPM packages for platforms
+name: UPM Build
 
 on:
   push:
