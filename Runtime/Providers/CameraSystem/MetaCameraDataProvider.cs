@@ -4,18 +4,20 @@
 using XRTK.Attributes;
 using XRTK.Definitions.CameraSystem;
 using XRTK.Interfaces.CameraSystem;
-using XRTK.Oculus.Plugins;
-using XRTK.Providers.CameraSystem;
+using XRTK.MetaPlatform.Plugins;
+using XRTK.Services.CameraSystem.Providers;
 
-namespace XRTK.Oculus.Providers.CameraSystem
+namespace XRTK.MetaPlatform.CameraSystem.Providers
 {
-    [RuntimePlatform(typeof(OculusPlatform))]
+    [RuntimePlatform(typeof(MetaPlatform))]
     [System.Runtime.InteropServices.Guid("83EFF552-ADF4-47C8-AD53-DF7406856D3F")]
-    public class OculusCameraDataProvider : BaseCameraDataProvider
+    public class MetaCameraDataProvider : BaseCameraDataProvider
     {
         /// <inheritdoc />
-        public OculusCameraDataProvider(string name, uint priority, BaseMixedRealityCameraDataProviderProfile profile, IMixedRealityCameraSystem parentService)
-            : base(name, priority, profile, parentService) { }
+        public MetaCameraDataProvider(string name, uint priority, BaseMixedRealityCameraDataProviderProfile profile, IMixedRealityCameraSystem parentService)
+            : base(name, priority, profile, parentService)
+        {
+        }
 
         /// <inheritdoc />
         public override void Update()

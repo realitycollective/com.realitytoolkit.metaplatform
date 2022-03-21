@@ -3,9 +3,9 @@
 
 using UnityEngine;
 using XRTK.Definitions.Utilities;
-using XRTK.Oculus.Plugins;
+using XRTK.MetaPlatform.Plugins;
 
-namespace XRTK.Oculus.Extensions
+namespace XRTK.MetaPlatform.Extensions
 {
     public static class HandednessExtensions
     {
