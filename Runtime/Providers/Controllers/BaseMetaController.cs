@@ -35,7 +35,7 @@ namespace XRTK.MetaPlatform.InputSystem.Controllers
         protected override MixedRealityPose GripPoseOffset => new MixedRealityPose(Vector3.zero, Quaternion.Euler(0f, 0f, -90f));
 
         /// <summary>
-        /// The Oculus Controller Type.
+        /// The Meta Controller Type.
         /// </summary>
         private OculusApi.Controller ControllerType { get; }
 
@@ -88,7 +88,6 @@ namespace XRTK.MetaPlatform.InputSystem.Controllers
 
         private MixedRealityPose currentPointerPose = MixedRealityPose.ZeroIdentity;
         private MixedRealityPose lastControllerPose = MixedRealityPose.ZeroIdentity;
-        private MixedRealityPose currentControllerPose = MixedRealityPose.ZeroIdentity;
         private OculusApi.PoseStatef currentControllerVelocity = new OculusApi.PoseStatef();
         private float singleAxisValue = 0.0f;
         private Vector2 dualAxisPosition = Vector2.zero;
@@ -159,7 +158,7 @@ namespace XRTK.MetaPlatform.InputSystem.Controllers
         private void UpdateControllerData()
         {
             var lastState = TrackingState;
-            lastControllerPose = currentControllerPose;
+            lastControllerPose = Pose;
             previousState = currentState;
 
             currentState = OculusApi.GetControllerState4((uint)ControllerType);
@@ -241,11 +240,7 @@ namespace XRTK.MetaPlatform.InputSystem.Controllers
                 TrackingState = TrackingState.NotApplicable;
             }
 
-#if XRTK_USE_LEGACYVR
-            currentControllerPose = OculusApi.GetNodePose(NodeType, OculusApi.stepType).ToMixedRealityPoseFlippedQuaternionXY(true);
-#else
-            currentControllerPose = OculusApi.GetNodePose(NodeType, OculusApi.stepType).ToMixedRealityPoseFlippedQuaternionXY();
-#endif
+            Pose = OculusApi.GetNodePose(NodeType, OculusApi.stepType).ToMixedRealityPoseFlippedQuaternionXY();
             currentControllerVelocity = OculusApi.GetNodeState(NodeType, OculusApi.stepType);
             Velocity = currentControllerVelocity.Velocity.ToVector3FlippedZ();
             AngularVelocity = currentControllerVelocity.AngularVelocity.ToVector3FlippedZ();
@@ -256,19 +251,19 @@ namespace XRTK.MetaPlatform.InputSystem.Controllers
                 InputSystem?.RaiseSourceTrackingStateChanged(InputSource, this, TrackingState);
             }
 
-            if (TrackingState == TrackingState.Tracked && lastControllerPose != currentControllerPose)
+            if (TrackingState == TrackingState.Tracked && lastControllerPose != Pose)
             {
                 if (IsPositionAvailable && IsRotationAvailable)
                 {
-                    InputSystem?.RaiseSourcePoseChanged(InputSource, this, currentControllerPose);
+                    InputSystem?.RaiseSourcePoseChanged(InputSource, this, Pose);
                 }
                 else if (IsPositionAvailable && !IsRotationAvailable)
                 {
-                    InputSystem?.RaiseSourcePositionChanged(InputSource, this, currentControllerPose.Position);
+                    InputSystem?.RaiseSourcePositionChanged(InputSource, this, Pose.Position);
                 }
                 else if (!IsPositionAvailable && IsRotationAvailable)
                 {
-                    InputSystem?.RaiseSourceRotationChanged(InputSource, this, currentControllerPose.Rotation);
+                    InputSystem?.RaiseSourceRotationChanged(InputSource, this, Pose.Rotation);
                 }
             }
         }
@@ -381,8 +376,8 @@ namespace XRTK.MetaPlatform.InputSystem.Controllers
         {
             Debug.Assert(interactionMapping.AxisType == AxisType.SixDof);
             interactionMapping.PoseData = new MixedRealityPose(
-                currentControllerPose.Position + currentControllerPose.Rotation * GripPoseOffset.Position,
-                currentControllerPose.Rotation * GripPoseOffset.Rotation);
+                Pose.Position + Pose.Rotation * GripPoseOffset.Position,
+                Pose.Rotation * GripPoseOffset.Rotation);
         }
 
         private void UpdateDualAxisData(MixedRealityInteractionMapping interactionMapping)
@@ -436,7 +431,7 @@ namespace XRTK.MetaPlatform.InputSystem.Controllers
                 return;
             }
 
-            currentPointerPose = currentControllerPose;
+            currentPointerPose = Pose;
 
             // Update the interaction data source
             interactionMapping.PoseData = currentPointerPose;
