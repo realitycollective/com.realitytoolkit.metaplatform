@@ -1,14 +1,14 @@
 ﻿// Copyright (c) XRTK. All rights reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
+using RealityToolkit.Editor.Extensions;
+using RealityToolkit.Editor.Profiles.InputSystem.Controllers;
+using RealityToolkit.MetaPlatform.Plugins;
+using RealityToolkit.MetaPlatform.Profiles;
 using UnityEditor;
 using UnityEngine;
-using XRTK.Editor.Extensions;
-using XRTK.Editor.Profiles.InputSystem.Controllers;
-using XRTK.MetaPlatform.Plugins;
-using XRTK.MetaPlatform.Profiles;
 
-namespace XRTK.MetaPlatform.Editor
+namespace RealityToolkit.MetaPlatform.Editor
 {
     /// <summary>
     /// Default inspector for <see cref="MetaHandControllerDataProviderProfile"/>.

@@ -2,15 +2,15 @@
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
 using System.Linq;
+using RealityToolkit.Attributes;
+using RealityToolkit.Editor.BuildPipeline;
+using RealityToolkit.Interfaces;
+using RealityToolkit.Services;
 using UnityEditor;
 using UnityEditor.Build.Reporting;
 using UnityEngine;
-using XRTK.Attributes;
-using XRTK.Editor.BuildPipeline;
-using XRTK.Interfaces;
-using XRTK.Services;
 
-namespace XRTK.MetaPlatform.Editor.BuildPipeline
+namespace RealityToolkit.MetaPlatform.Editor.BuildPipeline
 {
     [RuntimePlatform(typeof(MetaPlatform))]
     public class OculusBuildInfo : AndroidBuildInfo

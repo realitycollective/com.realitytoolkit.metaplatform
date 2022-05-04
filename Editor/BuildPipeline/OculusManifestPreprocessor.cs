@@ -21,12 +21,12 @@ limitations under the License.
 
 using System;
 using System.IO;
+using RealityToolkit.Editor;
+using RealityToolkit.Editor.Utilities;
 using UnityEditor;
 using UnityEngine;
-using XRTK.Editor;
-using XRTK.Editor.Utilities;
 
-namespace XRTK.MetaPlatform.Editor.Build
+namespace RealityToolkit.MetaPlatform.Editor.Build
 {
     /// <summary>
     /// https://developer.oculus.com/documentation/native/android/mobile-native-manifest/

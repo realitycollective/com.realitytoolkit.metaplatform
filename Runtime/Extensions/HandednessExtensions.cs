@@ -1,11 +1,11 @@
 ﻿// Copyright (c) XRTK. All rights reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
+using RealityToolkit.Definitions.Utilities;
+using RealityToolkit.MetaPlatform.Plugins;
 using UnityEngine;
-using XRTK.Definitions.Utilities;
-using XRTK.MetaPlatform.Plugins;
 
-namespace XRTK.MetaPlatform.Extensions
+namespace RealityToolkit.MetaPlatform.Extensions
 {
     public static class HandednessExtensions
     {

@@ -2,12 +2,12 @@
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
 using System.IO;
+using RealityToolkit.Editor;
+using RealityToolkit.Editor.Utilities;
 using UnityEditor;
-using XRTK.Editor;
-using XRTK.Extensions;
-using XRTK.Editor.Utilities;
+using RealityToolkit.Extensions;
 
-namespace XRTK.MetaPlatform.Editor
+namespace RealityToolkit.MetaPlatform.Editor
 {
     [InitializeOnLoad]
     internal static class OculusPackageInstaller

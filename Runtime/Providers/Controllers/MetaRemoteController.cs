@@ -1,13 +1,13 @@
 ﻿// Copyright (c) XRTK. All rights reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
-using XRTK.Definitions.Controllers;
-using XRTK.Definitions.Devices;
-using XRTK.Definitions.Utilities;
-using XRTK.Interfaces.InputSystem.Providers.Controllers;
-using XRTK.MetaPlatform.Plugins;
+using RealityToolkit.Definitions.Controllers;
+using RealityToolkit.Definitions.Devices;
+using RealityToolkit.Definitions.Utilities;
+using RealityToolkit.Interfaces.InputSystem.Providers.Controllers;
+using RealityToolkit.MetaPlatform.Plugins;
 
-namespace XRTK.MetaPlatform.InputSystem.Controllers
+namespace RealityToolkit.MetaPlatform.InputSystem.Controllers
 {
     [System.Runtime.InteropServices.Guid("071048C6-31F3-460C-863F-5D3121F47654")]
     public class MetaRemoteController : BaseMetaController

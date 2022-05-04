@@ -3,18 +3,18 @@
 
 using System;
 using System.Collections.Generic;
+using RealityToolkit.Definitions.Controllers.Hands;
+using RealityToolkit.Definitions.Devices;
+using RealityToolkit.Definitions.Utilities;
+using RealityToolkit.Interfaces.CameraSystem;
+using RealityToolkit.MetaPlatform.Plugins;
+using RealityToolkit.Services;
+using RealityToolkit.Utilities;
 using UnityEngine;
-using XRTK.Definitions.Controllers.Hands;
-using XRTK.Definitions.Devices;
-using XRTK.Definitions.Utilities;
-using XRTK.Extensions;
-using XRTK.Interfaces.CameraSystem;
-using XRTK.MetaPlatform.Extensions;
-using XRTK.MetaPlatform.Plugins;
-using XRTK.Services;
-using XRTK.Utilities;
+using RealityToolkit.Extensions;
+using RealityToolkit.MetaPlatform.Extensions;
 
-namespace XRTK.MetaPlatform.Utilities
+namespace RealityToolkit.MetaPlatform.Utilities
 {
     /// <summary>
     /// Converts Meta hand data to <see cref="HandData"/>.

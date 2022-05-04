@@ -1,10 +1,10 @@
 ﻿// Copyright (c) XRTK. All rights reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
+using RealityToolkit.Definitions.Controllers.Hands;
 using UnityEngine;
-using XRTK.Definitions.Controllers.Hands;
 
-namespace XRTK.MetaPlatform.Profiles
+namespace RealityToolkit.MetaPlatform.Profiles
 {
     /// <summary>
     /// Configuration profile for Oculus hand controllers.
