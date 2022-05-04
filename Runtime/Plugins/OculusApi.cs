@@ -3,10 +3,10 @@
 
 using System;
 using System.Runtime.InteropServices;
+using RealityToolkit.Definitions.Utilities;
 using UnityEngine;
-using XRTK.Definitions.Utilities;
 
-namespace XRTK.MetaPlatform.Plugins
+namespace RealityToolkit.MetaPlatform.Plugins
 {
     public static class OculusApi
     {

@@ -3,16 +3,16 @@
 
 using System;
 using System.Collections.Generic;
+using RealityToolkit.Attributes;
+using RealityToolkit.Definitions.Devices;
+using RealityToolkit.Interfaces.InputSystem;
+using RealityToolkit.MetaPlatform.Plugins;
+using RealityToolkit.MetaPlatform.Profiles;
+using RealityToolkit.Services.InputSystem.Controllers;
 using UnityEngine;
-using XRTK.Attributes;
-using XRTK.Definitions.Devices;
-using XRTK.Interfaces.InputSystem;
-using XRTK.MetaPlatform.Extensions;
-using XRTK.MetaPlatform.Plugins;
-using XRTK.MetaPlatform.Profiles;
-using XRTK.Services.InputSystem.Controllers;
+using RealityToolkit.MetaPlatform.Extensions;
 
-namespace XRTK.MetaPlatform.InputSystem.Controllers
+namespace RealityToolkit.MetaPlatform.InputSystem.Controllers
 {
     [RuntimePlatform(typeof(MetaPlatform))]
     [System.Runtime.InteropServices.Guid("0DE5DA40-FEB8-4891-B9B2-942EAFD041B9")]

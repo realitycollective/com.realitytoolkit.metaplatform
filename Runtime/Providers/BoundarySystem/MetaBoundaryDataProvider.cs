@@ -4,15 +4,15 @@
 using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
+using RealityToolkit.Attributes;
+using RealityToolkit.Definitions;
+using RealityToolkit.Definitions.BoundarySystem;
+using RealityToolkit.Interfaces.BoundarySystem;
+using RealityToolkit.MetaPlatform.Plugins;
+using RealityToolkit.Services;
 using UnityEngine;
-using XRTK.Attributes;
-using XRTK.Definitions;
-using XRTK.Definitions.BoundarySystem;
-using XRTK.Interfaces.BoundarySystem;
-using XRTK.MetaPlatform.Plugins;
-using XRTK.Services;
 
-namespace XRTK.MetaPlatform.BoundarySystem.Providers
+namespace RealityToolkit.MetaPlatform.BoundarySystem.Providers
 {
     [RuntimePlatform(typeof(MetaPlatform))]
     [Guid("8EF0CAB5-A37C-4912-AD5E-1E57E92A314D")]

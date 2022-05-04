@@ -5,12 +5,12 @@ using System.Linq;
 using UnityEditor;
 using UnityEditor.Build.Reporting;
 using UnityEngine;
-using XRTK.Attributes;
-using XRTK.Editor.BuildPipeline;
-using XRTK.Interfaces;
-using XRTK.Services;
+using RealityToolkit.Attributes;
+using RealityToolkit.Editor.BuildPipeline;
+using RealityToolkit.Interfaces;
+using RealityToolkit.Services;
 
-namespace XRTK.MetaPlatform.Editor.BuildPipeline
+namespace RealityToolkit.MetaPlatform.Editor.BuildPipeline
 {
     [RuntimePlatform(typeof(MetaPlatform))]
     public class OculusBuildInfo : AndroidBuildInfo
