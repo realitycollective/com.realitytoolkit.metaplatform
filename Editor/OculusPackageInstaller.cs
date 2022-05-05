@@ -4,6 +4,7 @@
 using System.IO;
 using RealityToolkit.Editor;
 using RealityToolkit.Editor.Utilities;
+using RealityToolkit.Extensions;
 using UnityEditor;
 
 namespace RealityToolkit.MetaPlatform.Editor
