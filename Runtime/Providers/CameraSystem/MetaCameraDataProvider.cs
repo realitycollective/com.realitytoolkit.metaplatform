@@ -1,13 +1,13 @@
 ﻿// Copyright (c) XRTK. All rights reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
-using XRTK.Attributes;
-using XRTK.Definitions.CameraSystem;
-using XRTK.Interfaces.CameraSystem;
-using XRTK.MetaPlatform.Plugins;
-using XRTK.Services.CameraSystem.Providers;
+using RealityToolkit.Attributes;
+using RealityToolkit.Definitions.CameraSystem;
+using RealityToolkit.Interfaces.CameraSystem;
+using RealityToolkit.MetaPlatform.Plugins;
+using RealityToolkit.Services.CameraSystem.Providers;
 
-namespace XRTK.MetaPlatform.CameraSystem.Providers
+namespace RealityToolkit.MetaPlatform.CameraSystem.Providers
 {
     [RuntimePlatform(typeof(MetaPlatform))]
     [System.Runtime.InteropServices.Guid("83EFF552-ADF4-47C8-AD53-DF7406856D3F")]

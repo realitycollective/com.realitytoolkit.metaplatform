@@ -2,16 +2,16 @@
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
 using System;
+using RealityToolkit.Definitions.Controllers;
+using RealityToolkit.Definitions.Devices;
+using RealityToolkit.Definitions.Utilities;
+using RealityToolkit.Interfaces.InputSystem.Providers.Controllers;
+using RealityToolkit.MetaPlatform.Plugins;
+using RealityToolkit.Services.InputSystem.Controllers;
 using UnityEngine;
-using XRTK.Definitions.Controllers;
-using XRTK.Definitions.Devices;
-using XRTK.Definitions.Utilities;
-using XRTK.Extensions;
-using XRTK.Interfaces.InputSystem.Providers.Controllers;
-using XRTK.MetaPlatform.Plugins;
-using XRTK.Services.InputSystem.Controllers;
+using RealityToolkit.Extensions;
 
-namespace XRTK.MetaPlatform.InputSystem.Controllers
+namespace RealityToolkit.MetaPlatform.InputSystem.Controllers
 {
     public abstract class BaseMetaController : BaseController
     {
@@ -232,12 +232,12 @@ namespace XRTK.MetaPlatform.InputSystem.Controllers
                 IsRotationAvailable = OculusApi.GetNodeOrientationTracked(NodeType);
 
                 // Devices are considered tracked if we receive position OR rotation data from the sensors.
-                TrackingState = (IsPositionAvailable || IsRotationAvailable) ? TrackingState.Tracked : TrackingState.NotTracked;
+                TrackingState = (IsPositionAvailable || IsRotationAvailable) ? Definitions.Devices.TrackingState.Tracked : Definitions.Devices.TrackingState.NotTracked;
             }
             else
             {
                 // The input source does not support tracking.
-                TrackingState = TrackingState.NotApplicable;
+                TrackingState = Definitions.Devices.TrackingState.NotApplicable;
             }
 
             Pose = OculusApi.GetNodePose(NodeType, OculusApi.stepType).ToMixedRealityPoseFlippedQuaternionXY();
@@ -251,7 +251,7 @@ namespace XRTK.MetaPlatform.InputSystem.Controllers
                 InputSystem?.RaiseSourceTrackingStateChanged(InputSource, this, TrackingState);
             }
 
-            if (TrackingState == TrackingState.Tracked && lastControllerPose != Pose)
+            if (TrackingState == Definitions.Devices.TrackingState.Tracked && lastControllerPose != Pose)
             {
                 if (IsPositionAvailable && IsRotationAvailable)
                 {

@@ -1,12 +1,12 @@
 ﻿// Copyright (c) XRTK. All rights reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
+using RealityToolkit.Definitions.Platforms;
+using RealityToolkit.Interfaces;
+using RealityToolkit.MetaPlatform.Plugins;
 using UnityEngine;
-using XRTK.Definitions.Platforms;
-using XRTK.Interfaces;
-using XRTK.MetaPlatform.Plugins;
 
-namespace XRTK.MetaPlatform
+namespace RealityToolkit.MetaPlatform
 {
     [System.Runtime.InteropServices.Guid("DB1ACC26-EC8D-4BC6-AFCA-C51351B2DA2E")]
     public class MetaPlatform : BasePlatform

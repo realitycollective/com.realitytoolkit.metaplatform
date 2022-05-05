@@ -20,9 +20,9 @@ limitations under the License.
 ************************************************************************************/
 
 using UnityEngine;
-using XRTK.Editor.Utilities;
+using RealityToolkit.Editor.Utilities;
 
-namespace XRTK.MetaPlatform.Editor
+namespace RealityToolkit.MetaPlatform.Editor
 {
     /// <summary>
     /// Dummy scriptable object used to find the relative path of the com.xrtk.oculus.

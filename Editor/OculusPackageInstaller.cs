@@ -3,11 +3,11 @@
 
 using System.IO;
 using UnityEditor;
-using XRTK.Editor;
-using XRTK.Extensions;
-using XRTK.Editor.Utilities;
+using RealityToolkit.Editor;
+using RealityToolkit.Extensions;
+using RealityToolkit.Editor.Utilities;
 
-namespace XRTK.MetaPlatform.Editor
+namespace RealityToolkit.MetaPlatform.Editor
 {
     [InitializeOnLoad]
     internal static class OculusPackageInstaller
