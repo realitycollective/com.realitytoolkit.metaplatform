@@ -232,12 +232,12 @@ namespace RealityToolkit.MetaPlatform.InputSystem.Controllers
                 IsRotationAvailable = OculusApi.GetNodeOrientationTracked(NodeType);
 
                 // Devices are considered tracked if we receive position OR rotation data from the sensors.
-                TrackingState = (IsPositionAvailable || IsRotationAvailable) ? TrackingState.Tracked : TrackingState.NotTracked;
+                TrackingState = (IsPositionAvailable || IsRotationAvailable) ? Definitions.Devices.TrackingState.Tracked : Definitions.Devices.TrackingState.NotTracked;
             }
             else
             {
                 // The input source does not support tracking.
-                TrackingState = TrackingState.NotApplicable;
+                TrackingState = Definitions.Devices.TrackingState.NotApplicable;
             }
 
             Pose = OculusApi.GetNodePose(NodeType, OculusApi.stepType).ToMixedRealityPoseFlippedQuaternionXY();
@@ -251,7 +251,7 @@ namespace RealityToolkit.MetaPlatform.InputSystem.Controllers
                 InputSystem?.RaiseSourceTrackingStateChanged(InputSource, this, TrackingState);
             }
 
-            if (TrackingState == TrackingState.Tracked && lastControllerPose != Pose)
+            if (TrackingState == Definitions.Devices.TrackingState.Tracked && lastControllerPose != Pose)
             {
                 if (IsPositionAvailable && IsRotationAvailable)
                 {
