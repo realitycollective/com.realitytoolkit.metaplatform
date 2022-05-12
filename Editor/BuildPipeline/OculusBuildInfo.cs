@@ -1,14 +1,14 @@
 // Copyright (c) XRTK. All rights reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
+using RealityToolkit.Editor.BuildPipeline;
+using RealityToolkit.ServiceFramework.Attributes;
+using RealityToolkit.ServiceFramework.Interfaces;
+using RealityToolkit.Services;
 using System.Linq;
 using UnityEditor;
 using UnityEditor.Build.Reporting;
 using UnityEngine;
-using RealityToolkit.Attributes;
-using RealityToolkit.Editor.BuildPipeline;
-using RealityToolkit.Interfaces;
-using RealityToolkit.Services;
 
 namespace RealityToolkit.MetaPlatform.Editor.BuildPipeline
 {
@@ -16,7 +16,7 @@ namespace RealityToolkit.MetaPlatform.Editor.BuildPipeline
     public class OculusBuildInfo : AndroidBuildInfo
     {
         /// <inheritdoc />
-        public override IMixedRealityPlatform BuildPlatform => new MetaPlatform();
+        public override IPlatform BuildPlatform => new MetaPlatform();
 
         /// <inheritdoc />
         public override void OnPreProcessBuild(BuildReport report)

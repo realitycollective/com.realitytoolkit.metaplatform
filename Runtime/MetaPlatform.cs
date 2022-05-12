@@ -1,9 +1,9 @@
 ﻿// Copyright (c) XRTK. All rights reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
-using RealityToolkit.Definitions.Platforms;
-using RealityToolkit.Interfaces;
 using RealityToolkit.MetaPlatform.Plugins;
+using RealityToolkit.ServiceFramework.Definitions.Platforms;
+using RealityToolkit.ServiceFramework.Interfaces;
 using UnityEngine;
 
 namespace RealityToolkit.MetaPlatform
@@ -18,7 +18,7 @@ namespace RealityToolkit.MetaPlatform
             !Application.isEditor && OculusApi.Version > NoVersion && OculusApi.Initialized;
 
         /// <inheritdoc />
-        public override IMixedRealityPlatform[] PlatformOverrides { get; } =
+        public override IPlatform[] PlatformOverrides { get; } =
         {
             new AndroidPlatform(),
             new WindowsStandalonePlatform()

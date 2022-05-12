@@ -1,27 +1,27 @@
 // Copyright (c) XRTK. All rights reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
-using System;
-using System.Collections.Generic;
-using System.Runtime.InteropServices;
-using RealityToolkit.Attributes;
-using RealityToolkit.Definitions;
 using RealityToolkit.Definitions.BoundarySystem;
 using RealityToolkit.Interfaces.BoundarySystem;
 using RealityToolkit.MetaPlatform.Plugins;
-using RealityToolkit.Services;
+using RealityToolkit.ServiceFramework.Attributes;
+using RealityToolkit.ServiceFramework.Definitions;
+using RealityToolkit.ServiceFramework.Providers;
+using System;
+using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using UnityEngine;
 
 namespace RealityToolkit.MetaPlatform.BoundarySystem.Providers
 {
     [RuntimePlatform(typeof(MetaPlatform))]
     [Guid("8EF0CAB5-A37C-4912-AD5E-1E57E92A314D")]
-    public class MetaBoundaryDataProvider : BaseDataProvider, IMixedRealityBoundaryDataProvider
+    public class MetaBoundaryDataProvider : BaseServiceDataProvider, IMixedRealityBoundaryDataProvider
     {
         private Vector3[] cachedPoints = new Vector3[0];
 
         /// <inheritdoc />
-        public MetaBoundaryDataProvider(string name, uint priority, BaseMixedRealityProfile profile, IMixedRealityBoundarySystem parentService)
+        public MetaBoundaryDataProvider(string name, uint priority, BaseProfile profile, IMixedRealityBoundarySystem parentService)
             : base(name, priority, profile, parentService)
         {
             boundarySystem = parentService;
