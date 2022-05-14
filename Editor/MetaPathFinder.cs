@@ -28,9 +28,9 @@ namespace RealityToolkit.MetaPlatform.Editor
     /// Dummy scriptable object used to find the relative path of the com.xrtk.oculus.
     /// </summary>
     /// <inheritdoc cref="IPathFinder" />
-    public class OculusPathFinder : ScriptableObject, IPathFinder
+    public class MetaPathFinder : ScriptableObject, IPathFinder
     {
         /// <inheritdoc />
-        public string Location => $"/Editor/{nameof(OculusPathFinder)}.cs";
+        public string Location => $"/Editor/{nameof(MetaPathFinder)}.cs";
     }
 }

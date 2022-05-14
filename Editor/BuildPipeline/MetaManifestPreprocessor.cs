@@ -2,16 +2,16 @@
 
 Copyright   :   Copyright (c) Facebook Technologies, LLC and its affiliates. All rights reserved.
 
-Licensed under the Oculus SDK License Version 3.4.1 (the "License");
-you may not use the Oculus SDK except in compliance with the License,
+Licensed under the Meta SDK License Version 3.4.1 (the "License");
+you may not use the Meta SDK except in compliance with the License,
 which is provided at the time of installation or download, or which
 otherwise accompanies this software in either electronic or hard copy form.
 
 You may obtain a copy of the License at
 
-https://developer.oculus.com/licenses/sdk-3.4.1
+https://developer.Meta.com/licenses/sdk-3.4.1
 
-Unless required by applicable law or agreed to in writing, the Oculus SDK
+Unless required by applicable law or agreed to in writing, the Meta SDK
 distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
@@ -29,9 +29,9 @@ using RealityToolkit.Editor.Utilities;
 namespace RealityToolkit.MetaPlatform.Editor.Build
 {
     /// <summary>
-    /// https://developer.oculus.com/documentation/native/android/mobile-native-manifest/
+    /// https://developer.Meta.com/documentation/native/android/mobile-native-manifest/
     /// </summary>
-    public class OculusManifestPreprocessor
+    public class MetaManifestPreprocessor
     {
         private const string TEMPLATE_MANIFEST_FILE_NAME = "AndroidManifest.OVRSubmission.xml";
         private const string OUTPUT_MANIFEST_FILE_NAME = "AndroidManifest.xml";
@@ -43,19 +43,19 @@ namespace RealityToolkit.MetaPlatform.Editor.Build
         private static string DestinationPath => $"{ManifestFolder}/{OUTPUT_MANIFEST_FILE_NAME}";
 
         /// <summary>
-        /// Generates an Android Manifest that is valid for Oculus Store submissions and enables
-        /// hand tracking on the Oculus Quest.
+        /// Generates an Android Manifest that is valid for Meta Store submissions and enables
+        /// hand tracking on the Meta Quest.
         /// </summary>
-        [MenuItem(MixedRealityPreferences.Editor_Menu_Keyword + "/Tools/Oculus/Create Oculus Quest compatible AndroidManifest.xml", false, 100000)]
+        [MenuItem(MixedRealityPreferences.Editor_Menu_Keyword + "/Tools/Meta/Create Meta Quest compatible AndroidManifest.xml", false, 100000)]
         public static void GenerateManifestForSubmission()
         {
-            var assetPath = PathFinderUtility.ResolvePath<IPathFinder>(typeof(OculusPathFinder));
+            var assetPath = PathFinderUtility.ResolvePath<IPathFinder>(typeof(MetaPathFinder));
             var editorDir = $"{Path.GetFullPath(assetPath)}/Editor";
             var srcFile = $"{editorDir}/BuildPipeline/{TEMPLATE_MANIFEST_FILE_NAME}";
             
             if (!File.Exists(srcFile))
             {
-                Debug.LogError("Cannot find Android manifest template for submission. Please reimport the XRTK.Oculus package.");
+                Debug.LogError("Cannot find Android manifest template for submission. Please reimport the XRTK.Meta package.");
                 return;
             }
 
@@ -66,7 +66,7 @@ namespace RealityToolkit.MetaPlatform.Editor.Build
 
             if (File.Exists(DestinationPath))
             {
-                Debug.LogWarning($"Cannot create Oculus store-compatible manifest due to conflicting file: \"{DestinationPath}\". Please remove it and try again.");
+                Debug.LogWarning($"Cannot create Meta store-compatible manifest due to conflicting file: \"{DestinationPath}\". Please remove it and try again.");
                 return;
             }
 
@@ -95,8 +95,8 @@ namespace RealityToolkit.MetaPlatform.Editor.Build
                 // ReSharper disable once ConditionIsAlwaysTrueOrFalse
                 if (handTrackingEntryNeeded)
                 {
-                    string handTrackingFeatureText = $"<uses-feature android:name=\"oculus.software.handtracking\" android:required=\"{(handTrackingRequired ? "true" : "false")}\" />";
-                    const string handTrackingPermissionText = "<uses-permission android:name=\"com.oculus.permission.HAND_TRACKING\" />";
+                    string handTrackingFeatureText = $"<uses-feature android:name=\"Meta.software.handtracking\" android:required=\"{(handTrackingRequired ? "true" : "false")}\" />";
+                    const string handTrackingPermissionText = "<uses-permission android:name=\"com.Meta.permission.HAND_TRACKING\" />";
 
                     manifestText = manifestText.Insert(handTrackingTextIndex, handTrackingPermissionText);
                     manifestText = manifestText.Insert(handTrackingTextIndex, handTrackingFeatureText);
@@ -114,7 +114,7 @@ namespace RealityToolkit.MetaPlatform.Editor.Build
         /// <summary>
         /// Removes any existing Android Manifest if it exists.
         /// </summary>
-        [MenuItem(MixedRealityPreferences.Editor_Menu_Keyword + "/Tools/Oculus/Remove AndroidManifest.xml", false, 100001)]
+        [MenuItem(MixedRealityPreferences.Editor_Menu_Keyword + "/Tools/Meta/Remove AndroidManifest.xml", false, 100001)]
         public static void RemoveAndroidManifest()
         {
             AssetDatabase.DeleteAsset("Assets/Plugins/Android/AndroidManifest.xml");

@@ -13,7 +13,7 @@ using UnityEngine;
 namespace RealityToolkit.MetaPlatform.Editor.BuildPipeline
 {
     [RuntimePlatform(typeof(MetaPlatform))]
-    public class OculusBuildInfo : AndroidBuildInfo
+    public class MetaBuildInfo : AndroidBuildInfo
     {
         /// <inheritdoc />
         public override IPlatform BuildPlatform => new MetaPlatform();
