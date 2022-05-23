@@ -14,13 +14,13 @@ namespace RealityToolkit.MetaPlatform.Editor
     /// Default inspector for <see cref="MetaHandControllerDataProviderProfile"/>.
     /// </summary>
     [CustomEditor(typeof(MetaHandControllerDataProviderProfile))]
-    public class OculusHandControllerDataProviderProfileInspector : BaseMixedRealityHandControllerDataProviderProfileInspector
+    public class MetaHandControllerDataProviderProfileInspector : BaseMixedRealityHandControllerDataProviderProfileInspector
     {
         private SerializedProperty minConfidenceRequired;
 
-        private bool showOculusHandTrackingSettings = true;
+        private bool showMetaHandTrackingSettings = true;
         private GUIContent confidenceContent;
-        private static readonly GUIContent oculusHandSettingsFoldoutHeader = new GUIContent("Oculus Hand Tracking Settings");
+        private static readonly GUIContent MetaHandSettingsFoldoutHeader = new GUIContent("Meta Hand Tracking Settings");
 
         protected override void OnEnable()
         {
@@ -36,8 +36,8 @@ namespace RealityToolkit.MetaPlatform.Editor
 
             serializedObject.Update();
 
-            showOculusHandTrackingSettings = EditorGUILayoutExtensions.FoldoutWithBoldLabel(showOculusHandTrackingSettings, oculusHandSettingsFoldoutHeader, true);
-            if (showOculusHandTrackingSettings)
+            showMetaHandTrackingSettings = EditorGUILayoutExtensions.FoldoutWithBoldLabel(showMetaHandTrackingSettings, MetaHandSettingsFoldoutHeader, true);
+            if (showMetaHandTrackingSettings)
             {
                 EditorGUI.indentLevel++;
                 minConfidenceRequired.intValue = (int)(OculusApi.TrackingConfidence)EditorGUILayout.EnumPopup(confidenceContent, (OculusApi.TrackingConfidence)minConfidenceRequired.intValue);
