@@ -40,7 +40,7 @@ namespace RealityToolkit.MetaPlatform.Editor
             if (showMetaHandTrackingSettings)
             {
                 EditorGUI.indentLevel++;
-                minConfidenceRequired.intValue = (int)(MetaApi.TrackingConfidence)EditorGUILayout.EnumPopup(confidenceContent, (MetaApi.TrackingConfidence)minConfidenceRequired.intValue);
+                minConfidenceRequired.intValue = (int)(OculusApi.TrackingConfidence)EditorGUILayout.EnumPopup(confidenceContent, (OculusApi.TrackingConfidence)minConfidenceRequired.intValue);
                 EditorGUI.indentLevel--;
             }
 

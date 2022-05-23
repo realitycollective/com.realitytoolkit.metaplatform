@@ -25,6 +25,7 @@ using UnityEditor;
 using UnityEngine;
 using RealityToolkit.Editor;
 using RealityToolkit.Editor.Utilities;
+using System.Xml;
 
 namespace RealityToolkit.MetaPlatform.Editor.Build
 {
@@ -209,10 +210,11 @@ namespace RealityToolkit.MetaPlatform.Editor.Build
                 "/manifest",
                 "uses-feature",
                 "android.hardware.vr.headtracking",
-                OVRDeviceSelector.isTargetDeviceQuestFamily,
+                true,
+ //               OVRDeviceSelector.isTargetDeviceQuestFamily,
                 true,
                 "version", "1",
-                "required", "false");
+                "required", "true");
     //			"required", OVRProjectConfig.GetProjectConfig().allowOptional3DofHeadTracking ? "false" : "true");
 
             // make sure android label and icon are set in the manifest
@@ -249,7 +251,7 @@ namespace RealityToolkit.MetaPlatform.Editor.Build
             //OVRProjectConfig.HandTrackingVersion targetHandTrackingVersion = OVRProjectConfig.GetProjectConfig().handTrackingVersion;
             bool handTrackingEntryNeeded = true;//OVRDeviceSelector.isTargetDeviceQuestFamily  && (targetHandTrackingSupport != OVRProjectConfig.HandTrackingSupport.ControllersOnly);
             bool handTrackingVersionEntryNeeded = true;//handTrackingEntryNeeded && (targetHandTrackingVersion != OVRProjectConfig.HandTrackingVersion.Default);
-            string handTrackingVersionValue = "V2.0" //(targetHandTrackingVersion == OVRProjectConfig.HandTrackingVersion.V2) ? "V2.0" : "V1.0";
+            string handTrackingVersionValue = "V2.0"; //(targetHandTrackingVersion == OVRProjectConfig.HandTrackingVersion.V2) ? "V2.0" : "V1.0";
 
             AddOrRemoveTag(doc,
                 androidNamespaceURI,
@@ -275,7 +277,7 @@ namespace RealityToolkit.MetaPlatform.Editor.Build
                 "com.oculus.handtracking.frequency",
                 handTrackingEntryNeeded,
                 modifyIfFound,
-                "value", "LOW";
+                "value", "LOW");
     //			"value", projectConfig.handTrackingFrequency.ToString());
 
             AddOrRemoveTag(doc,
@@ -339,6 +341,7 @@ namespace RealityToolkit.MetaPlatform.Editor.Build
 
             //============================================================================
             // System Splash Screen
+            /*
             if (projectConfig.systemSplashScreen != null)
             {
                 AddOrRemoveTag(doc,
@@ -359,7 +362,7 @@ namespace RealityToolkit.MetaPlatform.Editor.Build
                     modifyIfFound,
                     "value", ColorSpaceToManifestTag(runtimeSettings.colorSpace));
             }
-
+            */
             //============================================================================
             // Render Model
             //OVRProjectConfig.RenderModelSupport renderModelSupport = OVRProjectConfig.GetProjectConfig().renderModelSupport;
@@ -390,8 +393,9 @@ namespace RealityToolkit.MetaPlatform.Editor.Build
             // OVRProjectConfig.TrackedKeyboardSupport.Supported => manifest entry present and required=false
             // OVRProjectConfig.TrackedKeyboardSupport.Required => manifest entry present and required=true
             //OVRProjectConfig.TrackedKeyboardSupport targetTrackedKeyboardSupport = OVRProjectConfig.GetProjectConfig().trackedKeyboardSupport;
+            bool trackedKeyboardEntryNeeded = false;
             //bool trackedKeyboardEntryNeeded = OVRDeviceSelector.isTargetDeviceQuestFamily && (targetTrackedKeyboardSupport != OVRProjectConfig.TrackedKeyboardSupport.None);
-            
+
             AddOrRemoveTag(doc,
                 androidNamespaceURI,
                 "/manifest",
@@ -399,7 +403,7 @@ namespace RealityToolkit.MetaPlatform.Editor.Build
                 "oculus.software.trackedkeyboard",
                 trackedKeyboardEntryNeeded,
                 modifyIfFound,
-                "required", "false";
+                "required", "false");
     //			"required", (targetTrackedKeyboardSupport == OVRProjectConfig.TrackedKeyboardSupport.Required) ? "true" : "false");
             AddOrRemoveTag(doc,
                 androidNamespaceURI,
@@ -419,10 +423,12 @@ namespace RealityToolkit.MetaPlatform.Editor.Build
                 "/manifest/application/activity",
                 "meta-data",
                 "com.oculus.vr.focusaware",
-                OVRDeviceSelector.isTargetDeviceQuestFamily,
+                true,
+//                OVRDeviceSelector.isTargetDeviceQuestFamily,
                 modifyIfFound,
                 "value", "true");
 
+            /* Not needed - check later
             // Add support devices manifest according to the target devices
             if (OVRDeviceSelector.isTargetDeviceQuestFamily)
             {
@@ -452,6 +458,7 @@ namespace RealityToolkit.MetaPlatform.Editor.Build
                     modifyIfFound,
                     "value", targetDeviceValue);
             }
+            */
 
             // Add VR intent filter tag in the manifest
             AddOrRemoveTag(doc,
@@ -462,7 +469,7 @@ namespace RealityToolkit.MetaPlatform.Editor.Build
                 required: true,
                 modifyIfFound: true);
         }
-
+/*
         private static string ColorSpaceToManifestTag(OVRManager.ColorSpace colorSpace)
         {
             switch (colorSpace)
@@ -487,5 +494,6 @@ namespace RealityToolkit.MetaPlatform.Editor.Build
                     return "";
             }
         }
+*/
     }
 }
