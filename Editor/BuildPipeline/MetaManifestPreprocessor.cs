@@ -31,7 +31,7 @@ namespace RealityToolkit.MetaPlatform.Editor.Build
     /// <summary>
     /// https://developer.oculus.com/documentation/native/android/mobile-native-manifest/
     /// </summary>
-    public class OVRManifestPreprocessor
+    public class MetaManifestPreprocessor
     {
         private const string TEMPLATE_MANIFEST_FILE_NAME = "AndroidManifest.OVRSubmission.xml";
 
@@ -70,7 +70,7 @@ namespace RealityToolkit.MetaPlatform.Editor.Build
             AssetDatabase.Refresh();
         }
 
-        [MenuItem("Oculus/Tools/Update AndroidManifest.xml")]
+        [MenuItem(MixedRealityPreferences.Editor_Menu_Keyword + "/Tools/Meta/Update Meta Quest AndroidManifest.xml", false, 100000)]
         public static void UpdateAndroidManifest()
         {
             string manifestFile = "Assets/Plugins/Android/AndroidManifest.xml";
@@ -81,7 +81,7 @@ namespace RealityToolkit.MetaPlatform.Editor.Build
                 return;
             }
 
-            if (!EditorUtility.DisplayDialog("Update AndroidManifest.xml", "This will overwrite all Oculus specific AndroidManifest Settings. Continue?", "Overwrite", "Cancel"))
+            if (!EditorUtility.DisplayDialog("Update AndroidManifest.xml", "This will overwrite all Meta specific AndroidManifest Settings. Continue?", "Overwrite", "Cancel"))
             {
                 return;
             }
