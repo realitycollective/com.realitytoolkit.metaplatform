@@ -1,12 +1,12 @@
 ﻿// Copyright (c) XRTK. All rights reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
-using UnityEditor;
-using UnityEngine;
-using RealityToolkit.Editor.Extensions;
+using RealityCollective.Editor.Extensions;
 using RealityToolkit.Editor.Profiles.InputSystem.Controllers;
 using RealityToolkit.MetaPlatform.Plugins;
 using RealityToolkit.MetaPlatform.Profiles;
+using UnityEditor;
+using UnityEngine;
 
 namespace RealityToolkit.MetaPlatform.Editor
 {
