@@ -2,7 +2,7 @@
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
 using RealityToolkit.Definitions.Controllers;
-using RealityToolkit.Definitions.Utilities;
+using RealityCollective.Definitions.Utilities;
 using RealityToolkit.MetaPlatform.InputSystem.Controllers;
 
 namespace RealityToolkit.MetaPlatform.Profiles

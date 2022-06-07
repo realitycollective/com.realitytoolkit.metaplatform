@@ -1,21 +1,22 @@
 ﻿// Copyright (c) XRTK. All rights reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
-using System.IO;
+using RealityCollective.Editor.Utilities;
+using RealityCollective.Extensions;
 using RealityToolkit.Editor;
 using RealityToolkit.Editor.Utilities;
-using RealityToolkit.Extensions;
+using System.IO;
 using UnityEditor;
 
 namespace RealityToolkit.MetaPlatform.Editor
 {
     [InitializeOnLoad]
-    internal static class OculusPackageInstaller
+    internal static class MetaPackageInstaller
     {
         private static readonly string DefaultPath = $"{MixedRealityPreferences.ProfileGenerationPath}Meta";
-        private static readonly string HiddenPath = Path.GetFullPath($"{PathFinderUtility.ResolvePath<IPathFinder>(typeof(OculusPathFinder)).BackSlashes()}{Path.DirectorySeparatorChar}{MixedRealityPreferences.HIDDEN_PACKAGE_ASSETS_PATH}");
+        private static readonly string HiddenPath = Path.GetFullPath($"{PathFinderUtility.ResolvePath<IPathFinder>(typeof(MetaPathFinder)).BackSlashes()}{Path.DirectorySeparatorChar}{MixedRealityPreferences.HIDDEN_PACKAGE_ASSETS_PATH}");
 
-        static OculusPackageInstaller()
+        static MetaPackageInstaller()
         {
             EditorApplication.delayCall += CheckPackage;
         }
@@ -29,15 +30,15 @@ namespace RealityToolkit.MetaPlatform.Editor
         [MenuItem(MixedRealityPreferences.Editor_Menu_Keyword + "/Packages/Install Meta Package Assets...")]
         private static void ImportPackageAssets()
         {
-            EditorPreferences.Set($"{nameof(OculusPackageInstaller)}.Assets", false);
+            EditorPreferences.Set($"{nameof(MetaPackageInstaller)}.Assets", false);
             EditorApplication.delayCall += CheckPackage;
         }
 
         private static void CheckPackage()
         {
-            if (!EditorPreferences.Get($"{nameof(OculusPackageInstaller)}.Assets", false))
+            if (!EditorPreferences.Get($"{nameof(MetaPackageInstaller)}.Assets", false))
             {
-                EditorPreferences.Set($"{nameof(OculusPackageInstaller)}.Assets", PackageInstaller.TryInstallAssets(HiddenPath, DefaultPath));
+                EditorPreferences.Set($"{nameof(MetaPackageInstaller)}.Assets", PackageInstaller.TryInstallAssets(HiddenPath, DefaultPath));
             }
         }
     }

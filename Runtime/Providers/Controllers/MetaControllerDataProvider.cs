@@ -1,16 +1,16 @@
 ﻿// Copyright (c) XRTK. All rights reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
-using System;
-using System.Collections.Generic;
 using RealityToolkit.Attributes;
 using RealityToolkit.Definitions.Devices;
 using RealityToolkit.Interfaces.InputSystem;
+using RealityToolkit.MetaPlatform.Extensions;
 using RealityToolkit.MetaPlatform.Plugins;
 using RealityToolkit.MetaPlatform.Profiles;
 using RealityToolkit.Services.InputSystem.Controllers;
+using System;
+using System.Collections.Generic;
 using UnityEngine;
-using RealityToolkit.MetaPlatform.Extensions;
 
 namespace RealityToolkit.MetaPlatform.InputSystem.Controllers
 {
