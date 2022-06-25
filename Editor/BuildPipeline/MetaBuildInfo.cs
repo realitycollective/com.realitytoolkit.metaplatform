@@ -12,11 +12,11 @@ using UnityEngine;
 
 namespace RealityToolkit.Meta.Editor.BuildPipeline
 {
-    [RuntimePlatform(typeof(Meta))]
+    [RuntimePlatform(typeof(MetaPlatform))]
     public class OculusBuildInfo : AndroidBuildInfo
     {
         /// <inheritdoc />
-        public override IMixedRealityPlatform BuildPlatform => new Meta();
+        public override IMixedRealityPlatform BuildPlatform => new MetaPlatform();
 
         /// <inheritdoc />
         public override void OnPreProcessBuild(BuildReport report)
@@ -29,7 +29,7 @@ namespace RealityToolkit.Meta.Editor.BuildPipeline
                 return;
             }
 
-            if (BuildPlatform.GetType() == typeof(Meta))
+            if (BuildPlatform.GetType() == typeof(MetaPlatform))
             {
                 // TODO generate manifest
             }

@@ -14,7 +14,7 @@ using UnityEngine;
 
 namespace RealityToolkit.Meta.BoundarySystem.Providers
 {
-    [RuntimePlatform(typeof(Meta))]
+    [RuntimePlatform(typeof(MetaPlatform))]
     [Guid("8EF0CAB5-A37C-4912-AD5E-1E57E92A314D")]
     public class MetaBoundaryDataProvider : BaseDataProvider, IMixedRealityBoundaryDataProvider
     {

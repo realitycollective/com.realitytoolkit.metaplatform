@@ -9,7 +9,7 @@ using RealityToolkit.Services.CameraSystem.Providers;
 
 namespace RealityToolkit.Meta.CameraSystem.Providers
 {
-    [RuntimePlatform(typeof(Meta))]
+    [RuntimePlatform(typeof(MetaPlatform))]
     [System.Runtime.InteropServices.Guid("83EFF552-ADF4-47C8-AD53-DF7406856D3F")]
     public class MetaCameraDataProvider : BaseCameraDataProvider
     {

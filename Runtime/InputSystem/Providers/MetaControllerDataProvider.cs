@@ -1,4 +1,4 @@
-﻿// Copyright (c) XRTK. All rights reserved.
+﻿// Copyright (c) Reality Collective. All rights reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
 using RealityToolkit.Attributes;
@@ -15,7 +15,7 @@ using UnityEngine;
 
 namespace RealityToolkit.Meta.InputSystem.Providers
 {
-    [RuntimePlatform(typeof(Meta))]
+    [RuntimePlatform(typeof(MetaPlatform))]
     [System.Runtime.InteropServices.Guid("0DE5DA40-FEB8-4891-B9B2-942EAFD041B9")]
     public class MetaControllerDataProvider : BaseControllerDataProvider
     {
