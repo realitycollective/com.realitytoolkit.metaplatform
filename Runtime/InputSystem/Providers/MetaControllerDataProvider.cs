@@ -1,6 +1,7 @@
 ﻿// Copyright (c) Reality Collective. All rights reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
+using RealityCollective.Definitions.Utilities;
 using RealityToolkit.Attributes;
 using RealityToolkit.Definitions.Devices;
 using RealityToolkit.Interfaces.InputSystem;
@@ -12,6 +13,7 @@ using RealityToolkit.Services.InputSystem.Controllers;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR;
 
 namespace RealityToolkit.Meta.InputSystem.Providers
 {
@@ -21,9 +23,7 @@ namespace RealityToolkit.Meta.InputSystem.Providers
     {
         /// <inheritdoc />
         public MetaControllerDataProvider(string name, uint priority, MetaControllerDataProviderProfile profile, IMixedRealityInputSystem parentService)
-            : base(name, priority, profile, parentService)
-        {
-        }
+            : base(name, priority, profile, parentService) { }
 
         private const float DEVICE_REFRESH_INTERVAL = 3.0f;
 
@@ -31,6 +31,7 @@ namespace RealityToolkit.Meta.InputSystem.Providers
         /// Dictionary to capture all active controllers detected
         /// </summary>
         private readonly Dictionary<OculusApi.Controller, BaseMetaController> activeControllers = new Dictionary<OculusApi.Controller, BaseMetaController>();
+        private readonly Dictionary<Handedness, MetaHandController> activeHandControllers = new Dictionary<Handedness, MetaHandController>();
 
         private int fixedUpdateCount = 0;
         private float deviceRefreshTimer;
@@ -40,6 +41,7 @@ namespace RealityToolkit.Meta.InputSystem.Providers
         public override void Update()
         {
             base.Update();
+            UpdateHandControllers();
 
             OculusApi.stepType = OculusApi.Step.Render;
             fixedUpdateCount = 0;
@@ -73,12 +75,8 @@ namespace RealityToolkit.Meta.InputSystem.Providers
         /// <inheritdoc />
         public override void Disable()
         {
-            foreach (var activeController in activeControllers)
-            {
-                RaiseSourceLost(activeController.Key, false);
-            }
-
-            activeControllers.Clear();
+            RemoveAllControllers();
+            RemoveAllHandControllers();
         }
 
         private BaseMetaController GetOrAddController(OculusApi.Controller controllerMask, bool addController = true)
@@ -233,5 +231,122 @@ namespace RealityToolkit.Meta.InputSystem.Providers
                     return null;
             }
         }
+
+        private void RemoveAllControllers()
+        {
+            foreach (var activeController in activeControllers)
+            {
+                RaiseSourceLost(activeController.Key, false);
+            }
+
+            activeControllers.Clear();
+        }
+
+        #region Hand Controllers - Temporary integration until touch controllers have been migrated as well
+
+        private void UpdateHandControllers()
+        {
+            var leftHandInputDevice = InputDevices.GetDeviceAtXRNode(XRNode.LeftHand);
+            if (leftHandInputDevice != default &&
+                TryGetControllerType(leftHandInputDevice, out var leftHandControllerType) &&
+                TryGetOrAddHandController(Handedness.Left, leftHandControllerType, out var leftController))
+            {
+                leftController.UpdateController();
+            }
+            else
+            {
+                RemoveHandController(Handedness.Left);
+            }
+
+            var rightHandInputDevice = InputDevices.GetDeviceAtXRNode(XRNode.RightHand);
+            if (rightHandInputDevice != default &&
+                TryGetControllerType(rightHandInputDevice, out var rightHandControllerType) &&
+                TryGetOrAddHandController(Handedness.Right, rightHandControllerType, out var rightController))
+            {
+                rightController.UpdateController();
+            }
+            else
+            {
+                RemoveHandController(Handedness.Right);
+            }
+        }
+
+        private void RemoveAllHandControllers()
+        {
+            foreach (var activeController in activeHandControllers)
+            {
+                RemoveHandController(activeController.Key, false);
+            }
+
+            activeHandControllers.Clear();
+        }
+
+        private bool TryGetHandController(Handedness handedness, out MetaHandController controller)
+        {
+            if (activeHandControllers.ContainsKey(handedness))
+            {
+                var existingController = activeHandControllers[handedness];
+                Debug.Assert(existingController != null, $"{nameof(MetaHandController)} {handedness} has been destroyed but remains in the active controller registry.");
+                controller = existingController;
+                return true;
+            }
+
+            controller = null;
+            return false;
+        }
+
+        private bool TryGetOrAddHandController(Handedness handedness, Type controllerType, out MetaHandController controller)
+        {
+            if (TryGetHandController(handedness, out controller))
+            {
+                return true;
+            }
+
+            try
+            {
+                controller = (MetaHandController)Activator.CreateInstance(controllerType, this, TrackingState.NotTracked, handedness, GetControllerMappingProfile(controllerType, handedness));
+                controller.TryRenderControllerModel();
+                AddController(controller);
+                activeHandControllers.Add(handedness, controller);
+                InputSystem?.RaiseSourceDetected(controller.InputSource, controller);
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Debug.LogError($"Failed to create {controllerType.Name}!");
+                Debug.LogException(ex);
+                controller = null;
+                return false;
+            }
+        }
+
+        private bool TryGetControllerType(InputDevice inputDevice, out Type controllerType)
+        {
+            if ((inputDevice.characteristics & InputDeviceCharacteristics.HandTracking) != 0)
+            {
+                controllerType = typeof(MetaHandController);
+                return true;
+            }
+
+            controllerType = null;
+            return false;
+        }
+
+        private void RemoveHandController(Handedness handedness, bool removeFromRegistry = true)
+        {
+            if (TryGetHandController(handedness, out var controller))
+            {
+                InputSystem?.RaiseSourceLost(controller.InputSource, controller);
+
+                if (removeFromRegistry)
+                {
+                    RemoveController(controller);
+                    activeHandControllers.Remove(handedness);
+                }
+            }
+        }
+
+        #endregion
     }
 }
