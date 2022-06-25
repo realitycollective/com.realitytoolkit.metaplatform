@@ -1,12 +1,12 @@
 {
-    "name": "RealityToolkit.MetaPlatform.Editor",
-    "rootNamespace": "",
+    "name": "RealityToolkit.Meta.Editor.BuildPipeline",
+    "rootNamespace": "RealityToolkit.Meta.Editor.BuildPipeline",
     "references": [
         "GUID:f3241d040533491e8a1e2714b27c3111",
         "GUID:e67d30660ec243e4836aac191d3f36fb",
+        "GUID:258402e6b12e10c43925784eabc239e5",
         "GUID:10f718f332ddfed40ad8c1e04f8b75aa",
-        "GUID:b2d046948d6452a4b8485efc9ce0f88c",
-        "GUID:2a3f0ca4e21332c44bfdce311ea8943e"
+        "GUID:075fa00213b563a4199fcd820baf506a"
     ],
     "includePlatforms": [
         "Editor"

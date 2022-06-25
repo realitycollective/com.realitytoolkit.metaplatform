@@ -4,7 +4,7 @@
 using RealityToolkit.Definitions.Controllers.Hands;
 using UnityEngine;
 
-namespace RealityToolkit.MetaPlatform.Profiles
+namespace RealityToolkit.Meta.InputSystem.Profiles
 {
     /// <summary>
     /// Configuration profile for Oculus hand controllers.

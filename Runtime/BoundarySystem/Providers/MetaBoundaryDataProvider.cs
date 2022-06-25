@@ -5,16 +5,16 @@ using RealityToolkit.Attributes;
 using RealityToolkit.Definitions;
 using RealityToolkit.Definitions.BoundarySystem;
 using RealityToolkit.Interfaces.BoundarySystem;
-using RealityToolkit.MetaPlatform.Plugins;
+using RealityToolkit.Meta.Plugins;
 using RealityToolkit.Services;
 using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using UnityEngine;
 
-namespace RealityToolkit.MetaPlatform.BoundarySystem.Providers
+namespace RealityToolkit.Meta.BoundarySystem.Providers
 {
-    [RuntimePlatform(typeof(MetaPlatform))]
+    [RuntimePlatform(typeof(Meta))]
     [Guid("8EF0CAB5-A37C-4912-AD5E-1E57E92A314D")]
     public class MetaBoundaryDataProvider : BaseDataProvider, IMixedRealityBoundaryDataProvider
     {

@@ -3,12 +3,12 @@
 
 using RealityCollective.Editor.Extensions;
 using RealityToolkit.Editor.Profiles.InputSystem.Controllers;
-using RealityToolkit.MetaPlatform.Plugins;
-using RealityToolkit.MetaPlatform.Profiles;
+using RealityToolkit.Meta.InputSystem.Profiles;
+using RealityToolkit.Meta.Plugins;
 using UnityEditor;
 using UnityEngine;
 
-namespace RealityToolkit.MetaPlatform.Editor
+namespace RealityToolkit.Meta.Editor
 {
     /// <summary>
     /// Default inspector for <see cref="MetaHandControllerDataProviderProfile"/>.

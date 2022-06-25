@@ -4,12 +4,12 @@
 using RealityToolkit.Attributes;
 using RealityToolkit.Definitions.CameraSystem;
 using RealityToolkit.Interfaces.CameraSystem;
-using RealityToolkit.MetaPlatform.Plugins;
+using RealityToolkit.Meta.Plugins;
 using RealityToolkit.Services.CameraSystem.Providers;
 
-namespace RealityToolkit.MetaPlatform.CameraSystem.Providers
+namespace RealityToolkit.Meta.CameraSystem.Providers
 {
-    [RuntimePlatform(typeof(MetaPlatform))]
+    [RuntimePlatform(typeof(Meta))]
     [System.Runtime.InteropServices.Guid("83EFF552-ADF4-47C8-AD53-DF7406856D3F")]
     public class MetaCameraDataProvider : BaseCameraDataProvider
     {

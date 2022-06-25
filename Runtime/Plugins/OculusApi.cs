@@ -6,7 +6,7 @@ using System;
 using System.Runtime.InteropServices;
 using UnityEngine;
 
-namespace RealityToolkit.MetaPlatform.Plugins
+namespace RealityToolkit.Meta.Plugins
 {
     public static class OculusApi
     {

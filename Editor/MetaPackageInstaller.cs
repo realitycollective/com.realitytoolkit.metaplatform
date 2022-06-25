@@ -8,7 +8,7 @@ using RealityToolkit.Editor.Utilities;
 using System.IO;
 using UnityEditor;
 
-namespace RealityToolkit.MetaPlatform.Editor
+namespace RealityToolkit.Meta.Editor
 {
     [InitializeOnLoad]
     internal static class MetaPackageInstaller

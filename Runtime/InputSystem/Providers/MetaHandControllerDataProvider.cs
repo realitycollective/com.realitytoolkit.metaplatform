@@ -7,18 +7,18 @@ using RealityToolkit.Definitions.Controllers.Hands;
 using RealityToolkit.Definitions.Devices;
 using RealityToolkit.Definitions.InputSystem;
 using RealityToolkit.Interfaces.InputSystem;
-using RealityToolkit.MetaPlatform.Plugins;
-using RealityToolkit.MetaPlatform.Profiles;
-using RealityToolkit.MetaPlatform.Utilities;
+using RealityToolkit.Meta.InputSystem.Controllers;
+using RealityToolkit.Meta.InputSystem.Profiles;
+using RealityToolkit.Meta.Plugins;
 using RealityToolkit.Services;
 using RealityToolkit.Services.InputSystem.Controllers.Hands;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace RealityToolkit.MetaPlatform.InputSystem.Controllers
+namespace RealityToolkit.Meta.InputSystem.Providers
 {
-    [RuntimePlatform(typeof(MetaPlatform))]
+    [RuntimePlatform(typeof(Meta))]
     [System.Runtime.InteropServices.Guid("EA666456-BAEF-4412-A829-A4C7132E98C3")]
     public class MetaHandControllerDataProvider : BaseHandControllerDataProvider
     {

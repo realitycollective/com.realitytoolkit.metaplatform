@@ -7,12 +7,12 @@ using RealityToolkit.Definitions.Devices;
 using RealityToolkit.Definitions.Utilities;
 using RealityToolkit.Extensions;
 using RealityToolkit.Interfaces.InputSystem.Providers.Controllers;
-using RealityToolkit.MetaPlatform.Plugins;
+using RealityToolkit.Meta.Plugins;
 using RealityToolkit.Services.InputSystem.Controllers;
 using System;
 using UnityEngine;
 
-namespace RealityToolkit.MetaPlatform.InputSystem.Controllers
+namespace RealityToolkit.Meta.InputSystem.Controllers
 {
     public abstract class BaseMetaController : BaseController
     {

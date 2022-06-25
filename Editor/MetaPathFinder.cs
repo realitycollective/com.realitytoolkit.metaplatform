@@ -22,7 +22,7 @@ limitations under the License.
 using RealityToolkit.Editor.Utilities;
 using UnityEngine;
 
-namespace RealityToolkit.MetaPlatform.Editor
+namespace RealityToolkit.Meta.Editor
 {
     /// <summary>
     /// Dummy scriptable object used to find the relative path of the com.realitytoolkit.meta.

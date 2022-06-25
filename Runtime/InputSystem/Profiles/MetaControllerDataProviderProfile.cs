@@ -3,9 +3,9 @@
 
 using RealityToolkit.Definitions.Controllers;
 using RealityCollective.Definitions.Utilities;
-using RealityToolkit.MetaPlatform.InputSystem.Controllers;
+using RealityToolkit.Meta.InputSystem.Controllers;
 
-namespace RealityToolkit.MetaPlatform.Profiles
+namespace RealityToolkit.Meta.InputSystem.Profiles
 {
     /// <summary>
     /// Configuration profile for Meta controllers.

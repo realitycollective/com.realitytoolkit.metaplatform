@@ -5,9 +5,9 @@ using RealityToolkit.Definitions.Controllers;
 using RealityToolkit.Definitions.Devices;
 using RealityCollective.Definitions.Utilities;
 using RealityToolkit.Interfaces.InputSystem.Providers.Controllers;
-using RealityToolkit.MetaPlatform.Plugins;
+using RealityToolkit.Meta.Plugins;
 
-namespace RealityToolkit.MetaPlatform.InputSystem.Controllers
+namespace RealityToolkit.Meta.InputSystem.Controllers
 {
     [System.Runtime.InteropServices.Guid("1898974A-DBCD-4C88-8E03-726689848D52")]
     public class MetaTouchController : BaseMetaController

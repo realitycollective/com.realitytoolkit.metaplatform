@@ -2,10 +2,10 @@
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
 using RealityCollective.Definitions.Utilities;
-using RealityToolkit.MetaPlatform.Plugins;
+using RealityToolkit.Meta.Plugins;
 using UnityEngine;
 
-namespace RealityToolkit.MetaPlatform.Extensions
+namespace RealityToolkit.Meta.Extensions
 {
     public static class HandednessExtensions
     {

@@ -3,13 +3,13 @@
 
 using RealityToolkit.Definitions.Platforms;
 using RealityToolkit.Interfaces;
-using RealityToolkit.MetaPlatform.Plugins;
+using RealityToolkit.Meta.Plugins;
 using UnityEngine;
 
-namespace RealityToolkit.MetaPlatform
+namespace RealityToolkit.Meta
 {
     [System.Runtime.InteropServices.Guid("DB1ACC26-EC8D-4BC6-AFCA-C51351B2DA2E")]
-    public class MetaPlatform : BasePlatform
+    public class Meta : BasePlatform
     {
         private static readonly System.Version NoVersion = new System.Version();
 

@@ -5,9 +5,9 @@ using RealityToolkit.Definitions.Controllers;
 using RealityToolkit.Definitions.Devices;
 using RealityCollective.Definitions.Utilities;
 using RealityToolkit.Interfaces.InputSystem.Providers.Controllers;
-using RealityToolkit.MetaPlatform.Plugins;
+using RealityToolkit.Meta.Plugins;
 
-namespace RealityToolkit.MetaPlatform.InputSystem.Controllers
+namespace RealityToolkit.Meta.InputSystem.Controllers
 {
     [System.Runtime.InteropServices.Guid("071048C6-31F3-460C-863F-5D3121F47654")]
     public class MetaRemoteController : BaseMetaController
