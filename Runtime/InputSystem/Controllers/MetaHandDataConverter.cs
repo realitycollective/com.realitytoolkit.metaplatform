@@ -110,47 +110,47 @@ namespace RealityToolkit.Meta.InputSystem.Controllers
         }
 
         /// <summary>
-        /// Gets updated joint poses for all <see cref="TrackedHandJoint"/>s.
+        /// Gets updated joint poses for all <see cref="XRHandJoint"/>s.
         /// </summary>
         /// <param name="handedness">Handedness of the hand to read joint poses for.</param>
-        /// <returns>Joint poses in <see cref="TrackedHandJoint"/> order.</returns>
+        /// <returns>Joint poses in <see cref="XRHandJoint"/> order.</returns>
         private MixedRealityPose[] GetJointPoses(Handedness handedness)
         {
-            jointPoses[(int)TrackedHandJoint.Wrist] = GetJointPose(handedness, handSkeleton.Bones[(int)OculusApi.BoneId.Hand_WristRoot]);
+            jointPoses[(int)XRHandJoint.Wrist] = GetJointPose(handedness, handSkeleton.Bones[(int)OculusApi.BoneId.Hand_WristRoot]);
 
-            jointPoses[(int)TrackedHandJoint.ThumbMetacarpal] = GetJointPose(handedness, handSkeleton.Bones[(int)OculusApi.BoneId.Hand_Thumb1]);
-            jointPoses[(int)TrackedHandJoint.ThumbProximal] = GetJointPose(handedness, handSkeleton.Bones[(int)OculusApi.BoneId.Hand_Thumb2]);
-            jointPoses[(int)TrackedHandJoint.ThumbDistal] = GetJointPose(handedness, handSkeleton.Bones[(int)OculusApi.BoneId.Hand_Thumb3]);
-            jointPoses[(int)TrackedHandJoint.ThumbTip] = GetJointPose(handedness, handSkeleton.Bones[(int)OculusApi.BoneId.Hand_ThumbTip]);
+            jointPoses[(int)XRHandJoint.ThumbMetacarpal] = GetJointPose(handedness, handSkeleton.Bones[(int)OculusApi.BoneId.Hand_Thumb1]);
+            jointPoses[(int)XRHandJoint.ThumbProximal] = GetJointPose(handedness, handSkeleton.Bones[(int)OculusApi.BoneId.Hand_Thumb2]);
+            jointPoses[(int)XRHandJoint.ThumbDistal] = GetJointPose(handedness, handSkeleton.Bones[(int)OculusApi.BoneId.Hand_Thumb3]);
+            jointPoses[(int)XRHandJoint.ThumbTip] = GetJointPose(handedness, handSkeleton.Bones[(int)OculusApi.BoneId.Hand_ThumbTip]);
 
-            jointPoses[(int)TrackedHandJoint.IndexProximal] = GetJointPose(handedness, handSkeleton.Bones[(int)OculusApi.BoneId.Hand_Index1]);
-            jointPoses[(int)TrackedHandJoint.IndexIntermediate] = GetJointPose(handedness, handSkeleton.Bones[(int)OculusApi.BoneId.Hand_Index2]);
-            jointPoses[(int)TrackedHandJoint.IndexDistal] = GetJointPose(handedness, handSkeleton.Bones[(int)OculusApi.BoneId.Hand_Index3]);
-            jointPoses[(int)TrackedHandJoint.IndexTip] = GetJointPose(handedness, handSkeleton.Bones[(int)OculusApi.BoneId.Hand_IndexTip]);
+            jointPoses[(int)XRHandJoint.IndexProximal] = GetJointPose(handedness, handSkeleton.Bones[(int)OculusApi.BoneId.Hand_Index1]);
+            jointPoses[(int)XRHandJoint.IndexIntermediate] = GetJointPose(handedness, handSkeleton.Bones[(int)OculusApi.BoneId.Hand_Index2]);
+            jointPoses[(int)XRHandJoint.IndexDistal] = GetJointPose(handedness, handSkeleton.Bones[(int)OculusApi.BoneId.Hand_Index3]);
+            jointPoses[(int)XRHandJoint.IndexTip] = GetJointPose(handedness, handSkeleton.Bones[(int)OculusApi.BoneId.Hand_IndexTip]);
 
-            jointPoses[(int)TrackedHandJoint.MiddleProximal] = GetJointPose(handedness, handSkeleton.Bones[(int)OculusApi.BoneId.Hand_Middle1]);
-            jointPoses[(int)TrackedHandJoint.MiddleIntermediate] = GetJointPose(handedness, handSkeleton.Bones[(int)OculusApi.BoneId.Hand_Middle2]);
-            jointPoses[(int)TrackedHandJoint.MiddleDistal] = GetJointPose(handedness, handSkeleton.Bones[(int)OculusApi.BoneId.Hand_Middle3]);
-            jointPoses[(int)TrackedHandJoint.MiddleTip] = GetJointPose(handedness, handSkeleton.Bones[(int)OculusApi.BoneId.Hand_MiddleTip]);
+            jointPoses[(int)XRHandJoint.MiddleProximal] = GetJointPose(handedness, handSkeleton.Bones[(int)OculusApi.BoneId.Hand_Middle1]);
+            jointPoses[(int)XRHandJoint.MiddleIntermediate] = GetJointPose(handedness, handSkeleton.Bones[(int)OculusApi.BoneId.Hand_Middle2]);
+            jointPoses[(int)XRHandJoint.MiddleDistal] = GetJointPose(handedness, handSkeleton.Bones[(int)OculusApi.BoneId.Hand_Middle3]);
+            jointPoses[(int)XRHandJoint.MiddleTip] = GetJointPose(handedness, handSkeleton.Bones[(int)OculusApi.BoneId.Hand_MiddleTip]);
 
-            jointPoses[(int)TrackedHandJoint.RingProximal] = GetJointPose(handedness, handSkeleton.Bones[(int)OculusApi.BoneId.Hand_Ring1]);
-            jointPoses[(int)TrackedHandJoint.RingIntermediate] = GetJointPose(handedness, handSkeleton.Bones[(int)OculusApi.BoneId.Hand_Ring2]);
-            jointPoses[(int)TrackedHandJoint.RingDistal] = GetJointPose(handedness, handSkeleton.Bones[(int)OculusApi.BoneId.Hand_Ring3]);
-            jointPoses[(int)TrackedHandJoint.RingTip] = GetJointPose(handedness, handSkeleton.Bones[(int)OculusApi.BoneId.Hand_RingTip]);
+            jointPoses[(int)XRHandJoint.RingProximal] = GetJointPose(handedness, handSkeleton.Bones[(int)OculusApi.BoneId.Hand_Ring1]);
+            jointPoses[(int)XRHandJoint.RingIntermediate] = GetJointPose(handedness, handSkeleton.Bones[(int)OculusApi.BoneId.Hand_Ring2]);
+            jointPoses[(int)XRHandJoint.RingDistal] = GetJointPose(handedness, handSkeleton.Bones[(int)OculusApi.BoneId.Hand_Ring3]);
+            jointPoses[(int)XRHandJoint.RingTip] = GetJointPose(handedness, handSkeleton.Bones[(int)OculusApi.BoneId.Hand_RingTip]);
 
-            jointPoses[(int)TrackedHandJoint.LittleMetacarpal] = GetJointPose(handedness, handSkeleton.Bones[(int)OculusApi.BoneId.Hand_Pinky0]);
-            jointPoses[(int)TrackedHandJoint.LittleProximal] = GetJointPose(handedness, handSkeleton.Bones[(int)OculusApi.BoneId.Hand_Pinky1]);
-            jointPoses[(int)TrackedHandJoint.LittleIntermediate] = GetJointPose(handedness, handSkeleton.Bones[(int)OculusApi.BoneId.Hand_Pinky2]);
-            jointPoses[(int)TrackedHandJoint.LittleDistal] = GetJointPose(handedness, handSkeleton.Bones[(int)OculusApi.BoneId.Hand_Pinky3]);
-            jointPoses[(int)TrackedHandJoint.LittleTip] = GetJointPose(handedness, handSkeleton.Bones[(int)OculusApi.BoneId.Hand_PinkyTip]);
+            jointPoses[(int)XRHandJoint.LittleMetacarpal] = GetJointPose(handedness, handSkeleton.Bones[(int)OculusApi.BoneId.Hand_Pinky0]);
+            jointPoses[(int)XRHandJoint.LittleProximal] = GetJointPose(handedness, handSkeleton.Bones[(int)OculusApi.BoneId.Hand_Pinky1]);
+            jointPoses[(int)XRHandJoint.LittleIntermediate] = GetJointPose(handedness, handSkeleton.Bones[(int)OculusApi.BoneId.Hand_Pinky2]);
+            jointPoses[(int)XRHandJoint.LittleDistal] = GetJointPose(handedness, handSkeleton.Bones[(int)OculusApi.BoneId.Hand_Pinky3]);
+            jointPoses[(int)XRHandJoint.LittleTip] = GetJointPose(handedness, handSkeleton.Bones[(int)OculusApi.BoneId.Hand_PinkyTip]);
 
             // Estimated: These joint poses are not provided by the Oculus
             // hand tracking implementation. But with the data we now have, we can
             // estimate their poses fairly well.
-            jointPoses[(int)TrackedHandJoint.Palm] = HandUtilities.GetEstimatedPalmPose(jointPoses);
-            jointPoses[(int)TrackedHandJoint.IndexMetacarpal] = HandUtilities.GetEstimatedIndexMetacarpalPose(jointPoses);
-            jointPoses[(int)TrackedHandJoint.MiddleMetacarpal] = HandUtilities.GetEstimatedMiddleMetacarpalPose(jointPoses);
-            jointPoses[(int)TrackedHandJoint.RingMetacarpal] = HandUtilities.GetEstimatedRingMetacarpalPose(jointPoses);
+            jointPoses[(int)XRHandJoint.Palm] = HandUtilities.GetEstimatedPalmPose(jointPoses);
+            jointPoses[(int)XRHandJoint.IndexMetacarpal] = HandUtilities.GetEstimatedIndexMetacarpalPose(jointPoses);
+            jointPoses[(int)XRHandJoint.MiddleMetacarpal] = HandUtilities.GetEstimatedMiddleMetacarpalPose(jointPoses);
+            jointPoses[(int)XRHandJoint.RingMetacarpal] = HandUtilities.GetEstimatedRingMetacarpalPose(jointPoses);
 
             return jointPoses;
         }
