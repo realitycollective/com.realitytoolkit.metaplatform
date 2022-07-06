@@ -89,7 +89,7 @@ namespace RealityToolkit.Meta.InputSystem.Controllers
             // and other data needed for updating the hand controller's state.
             if (handData.TrackingState == TrackingState.Tracked)
             {
-                handData.RootPose = GetHandRootPose(handedness);
+                //handData.RootPose = GetHandRootPose(handedness);
                 handData.Joints = GetJointPoses(handedness);
                 handData.PointerPose = GetPointerPose(handedness);
 
