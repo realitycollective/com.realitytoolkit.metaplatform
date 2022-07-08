@@ -81,27 +81,27 @@ namespace RealityToolkit.Meta.InputSystem.Controllers
             // it tracked.
             handData = new HandData
             {
-                TrackingState = (handState.HandConfidence >= minTrackingConfidence && (handState.Status & OculusApi.HandStatus.HandTracked) != 0) ? TrackingState.Tracked : TrackingState.NotTracked,
+                //TrackingState = (handState.HandConfidence >= minTrackingConfidence && (handState.Status & OculusApi.HandStatus.HandTracked) != 0) ? TrackingState.Tracked : TrackingState.NotTracked,
                 UpdatedAt = DateTimeOffset.UtcNow.Ticks
             };
 
             // If the hand is tracked per requirements, we get updated joint data
             // and other data needed for updating the hand controller's state.
-            if (handData.TrackingState == TrackingState.Tracked)
-            {
-                //handData.RootPose = GetHandRootPose(handedness);
-                handData.Joints = GetJointPoses(handedness);
-                handData.PointerPose = GetPointerPose(handedness);
+            //if (handData.TrackingState == TrackingState.Tracked)
+            //{
+            //    //handData.RootPose = GetHandRootPose(handedness);
+            //    handData.Joints = GetJointPoses(handedness);
+            //    handData.PointerPose = GetPointerPose(handedness);
 
-                if (includeMeshData && TryGetUpdatedHandMeshData(handedness, out HandMeshData data))
-                {
-                    handData.Mesh = data;
-                }
-                else
-                {
-                    handData.Mesh = HandMeshData.Empty;
-                }
-            }
+            //    if (includeMeshData && TryGetUpdatedHandMeshData(handedness, out HandMeshData data))
+            //    {
+            //        handData.Mesh = data;
+            //    }
+            //    else
+            //    {
+            //        handData.Mesh = HandMeshData.Empty;
+            //    }
+            //}
 
             // Even if the hand is being tracked by the system but the confidence did not
             // meet our requirements, we return true. This allows the hand controller and visualizers
