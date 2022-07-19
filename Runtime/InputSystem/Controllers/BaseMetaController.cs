@@ -104,7 +104,7 @@ namespace RealityToolkit.Meta.InputSystem.Controllers
 
             if (Interactions == null)
             {
-                Debug.LogError($"No interaction configuration for Meta Controller {ControllerHandedness}");
+                Debug.LogError($"No interaction configuration for Meta Controller {Handedness}");
                 Enabled = false;
             }
 
@@ -152,7 +152,7 @@ namespace RealityToolkit.Meta.InputSystem.Controllers
                         break;
                 }
 
-                interactionMapping.RaiseInputAction(InputSource, ControllerHandedness);
+                interactionMapping.RaiseInputAction(InputSource, Handedness);
             }
         }
 
