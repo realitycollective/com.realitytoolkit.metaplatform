@@ -14,6 +14,7 @@ namespace RealityToolkit.Meta.InputSystem.Controllers
     /// </summary>
     public class MetaHandJointDataProvider : IUnityXRHandJointDataProvider
     {
+        /// <inheritdoc />
         public void UpdateHandJoints(InputDevice inputDevice, ref MixedRealityPose[] jointPoses, ref Dictionary<XRHandJoint, MixedRealityPose> jointPosesDictionary)
         {
             throw new System.NotImplementedException();
