@@ -22,7 +22,7 @@ namespace RealityToolkit.Meta.InputSystem.Controllers
         public MetaHandController(IMixedRealityControllerDataProvider controllerDataProvider, TrackingState trackingState, Handedness controllerHandedness, MixedRealityControllerMappingProfile controllerMappingProfile)
             : base(controllerDataProvider, trackingState, controllerHandedness, controllerMappingProfile)
         {
-            handJointDataProvider = new UnityXRHandJointDataProvider();
+            handJointDataProvider = new MetaHandJointDataProvider();
         }
     }
 }
