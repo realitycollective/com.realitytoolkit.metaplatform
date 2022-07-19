@@ -4,8 +4,12 @@
 using RealityCollective.Definitions.Utilities;
 using RealityToolkit.Definitions.Controllers;
 using RealityToolkit.Definitions.Devices;
+using RealityToolkit.Definitions.Utilities;
 using RealityToolkit.Interfaces.InputSystem.Providers.Controllers;
+using RealityToolkit.Meta.Extensions;
+using RealityToolkit.Meta.Plugins;
 using RealityToolkit.Services.InputSystem.Controllers.UnityXR;
+using UnityEngine;
 
 namespace RealityToolkit.Meta.InputSystem.Controllers
 {
@@ -22,7 +26,24 @@ namespace RealityToolkit.Meta.InputSystem.Controllers
         public MetaHandController(IMixedRealityControllerDataProvider controllerDataProvider, TrackingState trackingState, Handedness controllerHandedness, MixedRealityControllerMappingProfile controllerMappingProfile)
             : base(controllerDataProvider, trackingState, controllerHandedness, controllerMappingProfile)
         {
-            handJointDataProvider = new MetaHandJointDataProvider();
+            handJointDataProvider = new MetaHandJointDataProvider(controllerHandedness);
+        }
+
+        private OculusApi.HandState handState = new OculusApi.HandState();
+
+        /// <inheritdoc />
+        protected override void UpdateSpatialPointerPose()
+        {
+            if (!(OculusApi.GetHandState(OculusApi.Step.Render, Handedness.ToHand(), ref handState)))
+            {
+                return;
+            }
+
+            var platformRootPosition = handState.RootPose.Position;
+            var platformPointerPosition = cameraRigTransform.position + handState.PointerPose.Position - platformRootPosition;
+            var platformPointerRotation = Quaternion.Inverse(cameraRigTransform.rotation) * cameraRigTransform.rotation * handState.PointerPose.Orientation.ToQuaternionFlippedXY();
+
+            SpatialPointerPose = new MixedRealityPose(platformPointerPosition, platformPointerRotation);
         }
     }
 }
