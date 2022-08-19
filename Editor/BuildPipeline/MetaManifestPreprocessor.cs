@@ -27,7 +27,7 @@ using RealityToolkit.Editor;
 using RealityToolkit.Editor.Utilities;
 using System.Xml;
 
-namespace RealityToolkit.MetaPlatform.Editor.Build
+namespace RealityToolkit.MetaPlatform.Editor.BuildPipeline
 {
     /// <summary>
     /// https://developer.oculus.com/documentation/native/android/mobile-native-manifest/

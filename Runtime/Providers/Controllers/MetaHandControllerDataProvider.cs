@@ -2,16 +2,16 @@
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
 using RealityCollective.Definitions.Utilities;
-using RealityToolkit.Attributes;
+using RealityCollective.ServiceFramework.Attributes;
+using RealityCollective.ServiceFramework.Services;
 using RealityToolkit.Definitions.Controllers.Hands;
 using RealityToolkit.Definitions.Devices;
-using RealityToolkit.Definitions.InputSystem;
-using RealityToolkit.Interfaces.InputSystem;
+using RealityToolkit.InputSystem.Controllers.Hands;
+using RealityToolkit.InputSystem.Definitions;
+using RealityToolkit.InputSystem.Interfaces;
 using RealityToolkit.MetaPlatform.Plugins;
 using RealityToolkit.MetaPlatform.Profiles;
 using RealityToolkit.MetaPlatform.Utilities;
-using RealityToolkit.Services;
-using RealityToolkit.Services.InputSystem.Controllers.Hands;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -26,7 +26,7 @@ namespace RealityToolkit.MetaPlatform.InputSystem.Controllers
         public MetaHandControllerDataProvider(string name, uint priority, MetaHandControllerDataProviderProfile profile, IMixedRealityInputSystem parentService)
             : base(name, priority, profile, parentService)
         {
-            if (!MixedRealityToolkit.TryGetSystemProfile<IMixedRealityInputSystem, MixedRealityInputSystemProfile>(out var inputSystemProfile))
+            if (!ServiceManager.Instance.TryGetServiceProfile<IMixedRealityInputSystem, MixedRealityInputSystemProfile>(out var inputSystemProfile))
             {
                 throw new ArgumentException($"Unable to get a valid {nameof(MixedRealityInputSystemProfile)}!");
             }

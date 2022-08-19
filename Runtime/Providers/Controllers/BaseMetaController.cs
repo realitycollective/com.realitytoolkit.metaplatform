@@ -6,9 +6,9 @@ using RealityToolkit.Definitions.Controllers;
 using RealityToolkit.Definitions.Devices;
 using RealityToolkit.Definitions.Utilities;
 using RealityToolkit.Extensions;
-using RealityToolkit.Interfaces.InputSystem.Providers.Controllers;
+using RealityToolkit.InputSystem.Controllers;
+using RealityToolkit.InputSystem.Interfaces.Providers;
 using RealityToolkit.MetaPlatform.Plugins;
-using RealityToolkit.Services.InputSystem.Controllers;
 using System;
 using UnityEngine;
 

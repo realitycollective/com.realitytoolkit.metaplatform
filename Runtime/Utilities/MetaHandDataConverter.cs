@@ -3,13 +3,13 @@
 
 using RealityCollective.Definitions.Utilities;
 using RealityCollective.Extensions;
+using RealityCollective.ServiceFramework.Services;
+using RealityToolkit.CameraSystem.Interfaces;
 using RealityToolkit.Definitions.Controllers.Hands;
 using RealityToolkit.Definitions.Devices;
 using RealityToolkit.Definitions.Utilities;
-using RealityToolkit.Interfaces.CameraSystem;
 using RealityToolkit.MetaPlatform.Extensions;
 using RealityToolkit.MetaPlatform.Plugins;
-using RealityToolkit.Services;
 using RealityToolkit.Utilities;
 using System;
 using System.Collections.Generic;
@@ -50,7 +50,7 @@ namespace RealityToolkit.MetaPlatform.Utilities
             {
                 if (rigTransform == null)
                 {
-                    rigTransform = MixedRealityToolkit.TryGetSystem<IMixedRealityCameraSystem>(out var cameraSystem)
+                    rigTransform = ServiceManager.Instance.TryGetService<IMixedRealityCameraSystem>(out var cameraSystem)
                         ? cameraSystem.MainCameraRig.RigTransform
                         : CameraCache.Main.transform.parent;
                 }
