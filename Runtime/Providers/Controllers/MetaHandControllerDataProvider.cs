@@ -20,7 +20,7 @@ namespace RealityToolkit.MetaPlatform.InputSystem.Controllers
 {
     [RuntimePlatform(typeof(MetaPlatform))]
     [System.Runtime.InteropServices.Guid("EA666456-BAEF-4412-A829-A4C7132E98C3")]
-    public class MetaHandControllerDataProvider : BaseHandControllerDataProvider
+    public class MetaHandControllerDataProvider : BaseHandControllerDataProvider, IMetaHandControllerDataProvider
     {
         /// <inheritdoc />
         public MetaHandControllerDataProvider(string name, uint priority, MetaHandControllerDataProviderProfile profile, IMixedRealityInputSystem parentService)

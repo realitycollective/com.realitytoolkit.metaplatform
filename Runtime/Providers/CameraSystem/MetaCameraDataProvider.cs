@@ -11,7 +11,7 @@ namespace RealityToolkit.MetaPlatform.CameraSystem.Providers
 {
     [RuntimePlatform(typeof(MetaPlatform))]
     [System.Runtime.InteropServices.Guid("83EFF552-ADF4-47C8-AD53-DF7406856D3F")]
-    public class MetaCameraDataProvider : BaseCameraDataProvider
+    public class MetaCameraDataProvider : BaseCameraDataProvider, IMetaCameraDataProvider
     {
         /// <inheritdoc />
         public MetaCameraDataProvider(string name, uint priority, BaseMixedRealityCameraDataProviderProfile profile, IMixedRealityCameraSystem parentService)

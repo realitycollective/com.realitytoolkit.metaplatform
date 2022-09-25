@@ -16,7 +16,7 @@ namespace RealityToolkit.MetaPlatform.BoundarySystem.Providers
 {
     [RuntimePlatform(typeof(MetaPlatform))]
     [Guid("8EF0CAB5-A37C-4912-AD5E-1E57E92A314D")]
-    public class MetaBoundaryDataProvider : BaseServiceDataProvider, IMixedRealityBoundaryDataProvider
+    public class MetaBoundaryDataProvider : BaseServiceDataProvider, IMetaBoundaryDataProvider
     {
         private Vector3[] cachedPoints = new Vector3[0];
 
