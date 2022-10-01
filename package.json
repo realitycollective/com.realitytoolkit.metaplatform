@@ -14,7 +14,7 @@
     "oculus",
     "quest"
   ],
-  "version": "1.0.0-preview.5",
+  "version": "1.0.0-preview.6",
   "unity": "2020.3",
   "homepage": "https://github.com/realitycollective",
   "bugs": {
