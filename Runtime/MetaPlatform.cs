@@ -1,10 +1,14 @@
 ﻿// Copyright (c) XRTK. All rights reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
+using RealityCollective.Extensions;
 using RealityCollective.ServiceFramework.Definitions.Platforms;
 using RealityCollective.ServiceFramework.Interfaces;
 using RealityToolkit.MetaPlatform.Plugins;
+using System.Linq;
+using Unity.XR.Oculus;
 using UnityEngine;
+using UnityEngine.XR.Management;
 
 namespace RealityToolkit.MetaPlatform
 {
@@ -12,6 +16,10 @@ namespace RealityToolkit.MetaPlatform
     public class MetaPlatform : BasePlatform
     {
         private static readonly System.Version NoVersion = new System.Version();
+
+        private bool IsXRLoaderActive => XRGeneralSettings.Instance.IsNotNull() &&
+                    ((XRGeneralSettings.Instance.Manager.activeLoader != null && XRGeneralSettings.Instance.Manager.activeLoader.GetType() == typeof(OculusLoader)) ||
+                    (XRGeneralSettings.Instance.Manager.activeLoaders != null && XRGeneralSettings.Instance.Manager.activeLoaders.Any(l => l.GetType() == typeof(OculusLoader))));
 
         /// <inheritdoc />
         public override bool IsAvailable =>
@@ -26,7 +34,10 @@ namespace RealityToolkit.MetaPlatform
 
 #if UNITY_EDITOR
         /// <inheritdoc />
-        public override bool IsBuildTargetAvailable => base.IsBuildTargetAvailable && OculusApi.Version > NoVersion;
+        public override bool IsBuildTargetAvailable =>
+            base.IsBuildTargetAvailable &&
+            OculusApi.Version > NoVersion &&
+            IsXRLoaderActive;
 
         /// <inheritdoc />
         public override UnityEditor.BuildTarget[] ValidBuildTargets { get; } =
