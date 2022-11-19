@@ -3,7 +3,7 @@
 
 using RealityCollective.ServiceFramework.Attributes;
 using RealityCollective.ServiceFramework.Definitions;
-using RealityCollective.ServiceFramework.Providers;
+using RealityCollective.ServiceFramework.Modules;
 using RealityToolkit.BoundarySystem.Definitions;
 using RealityToolkit.BoundarySystem.Interfaces;
 using RealityToolkit.MetaPlatform.Plugins;
@@ -16,7 +16,7 @@ namespace RealityToolkit.MetaPlatform.BoundarySystem.Providers
 {
     [RuntimePlatform(typeof(MetaPlatform))]
     [Guid("8EF0CAB5-A37C-4912-AD5E-1E57E92A314D")]
-    public class MetaBoundaryDataProvider : BaseServiceDataProvider, IMetaBoundaryDataProvider
+    public class MetaBoundaryDataProvider : BaseServiceModule, IMetaBoundaryDataProvider
     {
         private Vector3[] cachedPoints = new Vector3[0];
 
