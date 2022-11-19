@@ -5,7 +5,6 @@ using RealityCollective.Definitions.Utilities;
 using RealityToolkit.Definitions.Controllers;
 using RealityToolkit.Definitions.Devices;
 using RealityToolkit.Definitions.Utilities;
-using RealityToolkit.Extensions;
 using RealityToolkit.InputSystem.Controllers;
 using RealityToolkit.InputSystem.Extensions;
 using RealityToolkit.InputSystem.Interfaces.Providers;
@@ -13,7 +12,7 @@ using RealityToolkit.MetaPlatform.Plugins;
 using System;
 using UnityEngine;
 
-namespace RealityToolkit.MetaPlatform.InputSystem.Controllers
+namespace RealityToolkit.MetaPlatform.InputService
 {
     public abstract class BaseMetaController : BaseController
     {
@@ -21,8 +20,8 @@ namespace RealityToolkit.MetaPlatform.InputSystem.Controllers
         protected BaseMetaController() { }
 
         /// <inheritdoc />
-        protected BaseMetaController(IMixedRealityControllerDataProvider controllerDataProvider, TrackingState trackingState, Handedness controllerHandedness, MixedRealityControllerMappingProfile controllerMappingProfile, OculusApi.Controller controllerType = OculusApi.Controller.None, OculusApi.Node nodeType = OculusApi.Node.None)
-            : base(controllerDataProvider, trackingState, controllerHandedness, controllerMappingProfile)
+        protected BaseMetaController(IMixedRealityControllerServiceModule controllerServiceModule, TrackingState trackingState, Handedness controllerHandedness, MixedRealityControllerMappingProfile controllerMappingProfile, OculusApi.Controller controllerType = OculusApi.Controller.None, OculusApi.Node nodeType = OculusApi.Node.None)
+            : base(controllerServiceModule, trackingState, controllerHandedness, controllerMappingProfile)
         {
             ControllerType = controllerType;
             NodeType = nodeType;

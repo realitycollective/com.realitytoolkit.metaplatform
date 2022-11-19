@@ -8,14 +8,14 @@ using RealityToolkit.CameraSystem.Interfaces;
 using RealityToolkit.Definitions.Controllers.Hands;
 using RealityToolkit.Definitions.Devices;
 using RealityToolkit.Definitions.Utilities;
-using RealityToolkit.MetaPlatform.Extensions;
+using RealityToolkit.MetaPlatform.InputService.Extensions;
 using RealityToolkit.MetaPlatform.Plugins;
 using RealityToolkit.Utilities;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace RealityToolkit.MetaPlatform.Utilities
+namespace RealityToolkit.MetaPlatform.InputService.Utilities
 {
     /// <summary>
     /// Converts Meta hand data to <see cref="HandData"/>.

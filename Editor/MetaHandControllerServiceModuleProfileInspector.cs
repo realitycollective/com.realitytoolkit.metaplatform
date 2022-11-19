@@ -3,18 +3,18 @@
 
 using RealityCollective.Editor.Extensions;
 using RealityToolkit.Editor.Profiles.InputSystem.Controllers;
+using RealityToolkit.MetaPlatform.InputService.Profiles;
 using RealityToolkit.MetaPlatform.Plugins;
-using RealityToolkit.MetaPlatform.Profiles;
 using UnityEditor;
 using UnityEngine;
 
 namespace RealityToolkit.MetaPlatform.Editor
 {
     /// <summary>
-    /// Default inspector for <see cref="MetaHandControllerDataProviderProfile"/>.
+    /// Default inspector for <see cref="MetaHandControllerServiceModuleProfile"/>.
     /// </summary>
-    [CustomEditor(typeof(MetaHandControllerDataProviderProfile))]
-    public class MetaHandControllerDataProviderProfileInspector : BaseMixedRealityHandControllerDataProviderProfileInspector
+    [CustomEditor(typeof(MetaHandControllerServiceModuleProfile))]
+    public class MetaHandControllerServiceModuleProfileInspector : BaseMixedRealityHandControllerDataProviderProfileInspector
     {
         private SerializedProperty minConfidenceRequired;
 

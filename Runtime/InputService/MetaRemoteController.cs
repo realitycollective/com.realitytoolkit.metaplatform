@@ -7,7 +7,7 @@ using RealityToolkit.Definitions.Devices;
 using RealityToolkit.InputSystem.Interfaces.Providers;
 using RealityToolkit.MetaPlatform.Plugins;
 
-namespace RealityToolkit.MetaPlatform.InputSystem.Controllers
+namespace RealityToolkit.MetaPlatform.InputService
 {
     [System.Runtime.InteropServices.Guid("071048C6-31F3-460C-863F-5D3121F47654")]
     public class MetaRemoteController : BaseMetaController
@@ -16,8 +16,8 @@ namespace RealityToolkit.MetaPlatform.InputSystem.Controllers
         public MetaRemoteController() { }
 
         /// <inheritdoc />
-        public MetaRemoteController(IMixedRealityControllerDataProvider controllerDataProvider, TrackingState trackingState, Handedness controllerHandedness, MixedRealityControllerMappingProfile controllerMappingProfile, OculusApi.Controller controllerType = OculusApi.Controller.None, OculusApi.Node nodeType = OculusApi.Node.None)
-            : base(controllerDataProvider, trackingState, controllerHandedness, controllerMappingProfile, controllerType, nodeType)
+        public MetaRemoteController(IMixedRealityControllerServiceModule controllerServiceModule, TrackingState trackingState, Handedness controllerHandedness, MixedRealityControllerMappingProfile controllerMappingProfile, OculusApi.Controller controllerType = OculusApi.Controller.None, OculusApi.Node nodeType = OculusApi.Node.None)
+            : base(controllerServiceModule, trackingState, controllerHandedness, controllerMappingProfile, controllerType, nodeType)
         {
         }
 

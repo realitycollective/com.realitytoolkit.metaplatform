@@ -5,21 +5,21 @@ using RealityCollective.ServiceFramework.Attributes;
 using RealityToolkit.Definitions.Devices;
 using RealityToolkit.InputSystem.Controllers;
 using RealityToolkit.InputSystem.Interfaces;
-using RealityToolkit.MetaPlatform.Extensions;
+using RealityToolkit.MetaPlatform.InputService.Extensions;
+using RealityToolkit.MetaPlatform.InputService.Profiles;
 using RealityToolkit.MetaPlatform.Plugins;
-using RealityToolkit.MetaPlatform.Profiles;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace RealityToolkit.MetaPlatform.InputSystem.Controllers
+namespace RealityToolkit.MetaPlatform.InputService
 {
     [RuntimePlatform(typeof(MetaPlatform))]
     [System.Runtime.InteropServices.Guid("0DE5DA40-FEB8-4891-B9B2-942EAFD041B9")]
-    public class MetaControllerDataProvider : BaseControllerDataProvider, IMetaControllerDataProvider
+    public class MetaControllerServiceModule : BaseControllerServiceModule, IMetaControllerServiceModule
     {
         /// <inheritdoc />
-        public MetaControllerDataProvider(string name, uint priority, MetaControllerDataProviderProfile profile, IMixedRealityInputSystem parentService)
+        public MetaControllerServiceModule(string name, uint priority, MetaControllerServiceModuleProfile profile, IMixedRealityInputSystem parentService)
             : base(name, priority, profile, parentService)
         {
         }
