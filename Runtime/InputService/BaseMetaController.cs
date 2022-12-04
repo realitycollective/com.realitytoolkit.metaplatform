@@ -7,7 +7,7 @@ using RealityToolkit.Definitions.Devices;
 using RealityToolkit.Definitions.Utilities;
 using RealityToolkit.InputSystem.Controllers;
 using RealityToolkit.InputSystem.Extensions;
-using RealityToolkit.InputSystem.Interfaces.Providers;
+using RealityToolkit.InputSystem.Interfaces.Modules;
 using RealityToolkit.MetaPlatform.Plugins;
 using System;
 using UnityEngine;

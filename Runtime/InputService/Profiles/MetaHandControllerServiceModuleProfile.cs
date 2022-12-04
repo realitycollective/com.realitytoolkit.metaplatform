@@ -9,7 +9,7 @@ namespace RealityToolkit.MetaPlatform.InputService.Profiles
     /// <summary>
     /// Configuration profile for Oculus hand controllers.
     /// </summary>
-    public class MetaHandControllerServiceModuleProfile : BaseHandControllerDataProviderProfile
+    public class MetaHandControllerServiceModuleProfile : BaseHandControllerServiceModuleProfile
     {
         [SerializeField]
         [Tooltip("The minimum hand tracking confidence expected.")]

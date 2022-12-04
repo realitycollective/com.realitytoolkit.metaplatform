@@ -14,7 +14,7 @@ namespace RealityToolkit.MetaPlatform.Editor
     /// Default inspector for <see cref="MetaHandControllerServiceModuleProfile"/>.
     /// </summary>
     [CustomEditor(typeof(MetaHandControllerServiceModuleProfile))]
-    public class MetaHandControllerServiceModuleProfileInspector : BaseMixedRealityHandControllerDataProviderProfileInspector
+    public class MetaHandControllerServiceModuleProfileInspector : BaseMixedRealityHandControllerServiceModuleProfileInspector
     {
         private SerializedProperty minConfidenceRequired;
 

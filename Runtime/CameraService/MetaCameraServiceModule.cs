@@ -4,7 +4,7 @@
 using RealityCollective.ServiceFramework.Attributes;
 using RealityToolkit.CameraSystem.Definitions;
 using RealityToolkit.CameraSystem.Interfaces;
-using RealityToolkit.CameraSystem.Providers;
+using RealityToolkit.CameraSystem.Modules;
 using RealityToolkit.MetaPlatform.Plugins;
 
 namespace RealityToolkit.MetaPlatform.CameraService
