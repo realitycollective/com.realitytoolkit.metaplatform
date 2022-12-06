@@ -5,7 +5,7 @@ using RealityCollective.Definitions.Utilities;
 using RealityToolkit.MetaPlatform.Plugins;
 using UnityEngine;
 
-namespace RealityToolkit.MetaPlatform.Extensions
+namespace RealityToolkit.MetaPlatform.InputService.Extensions
 {
     public static class HandednessExtensions
     {

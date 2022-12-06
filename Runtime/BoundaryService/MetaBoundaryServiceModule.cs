@@ -3,7 +3,7 @@
 
 using RealityCollective.ServiceFramework.Attributes;
 using RealityCollective.ServiceFramework.Definitions;
-using RealityCollective.ServiceFramework.Providers;
+using RealityCollective.ServiceFramework.Modules;
 using RealityToolkit.BoundarySystem.Definitions;
 using RealityToolkit.BoundarySystem.Interfaces;
 using RealityToolkit.MetaPlatform.Plugins;
@@ -12,22 +12,30 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using UnityEngine;
 
-namespace RealityToolkit.MetaPlatform.BoundarySystem.Providers
+namespace RealityToolkit.MetaPlatform.BoundaryService
 {
     [RuntimePlatform(typeof(MetaPlatform))]
     [Guid("8EF0CAB5-A37C-4912-AD5E-1E57E92A314D")]
-    public class MetaBoundaryDataProvider : BaseServiceDataProvider, IMetaBoundaryDataProvider
+    public class MetaBoundaryServiceModule : BaseServiceModule, IMetaBoundaryServiceModule
     {
-        private Vector3[] cachedPoints = new Vector3[0];
-
         /// <inheritdoc />
-        public MetaBoundaryDataProvider(string name, uint priority, BaseProfile profile, IMixedRealityBoundarySystem parentService)
+        public MetaBoundaryServiceModule(string name, uint priority, BaseProfile profile, IMixedRealityBoundarySystem parentService)
             : base(name, priority, profile, parentService)
         {
             boundarySystem = parentService;
         }
 
+        private Vector3[] cachedPoints = new Vector3[0];
+        private static readonly OculusApi.OVRNativeBuffer cachedGeometryNativeBuffer = new OculusApi.OVRNativeBuffer(0);
+        private static readonly int cachedVector3fSize = Marshal.SizeOf(typeof(OculusApi.Vector3f));
+        private static float[] cachedGeometryManagedBuffer = new float[0];
         private readonly IMixedRealityBoundarySystem boundarySystem;
+
+        /// <inheritdoc />
+        public BoundaryVisibility Visibility => OculusApi.GetBoundaryVisible() ? BoundaryVisibility.Visible : BoundaryVisibility.Hidden;
+
+        /// <inheritdoc />
+        public bool IsPlatformConfigured => OculusApi.GetBoundaryConfigured();
 
         /// <inheritdoc />
         public override void Enable()
@@ -36,14 +44,6 @@ namespace RealityToolkit.MetaPlatform.BoundarySystem.Providers
 
             boundarySystem.SetupBoundary(this);
         }
-
-        #region IMixedRealityBoundaryDataProvider Implementation
-
-        /// <inheritdoc />
-        public BoundaryVisibility Visibility => OculusApi.GetBoundaryVisible() ? BoundaryVisibility.Visible : BoundaryVisibility.Hidden;
-
-        /// <inheritdoc />
-        public bool IsPlatformConfigured => OculusApi.GetBoundaryConfigured();
 
         /// <inheritdoc />
         public bool TryGetBoundaryGeometry(ref List<Vector3> geometry)
@@ -59,14 +59,6 @@ namespace RealityToolkit.MetaPlatform.BoundarySystem.Providers
             geometry.AddRange(oculusGeometry);
             return true;
         }
-
-        #endregion  IMixedRealityBoundaryDataProvider Implementation
-
-        #region Oculus Utils
-
-        private static readonly OculusApi.OVRNativeBuffer cachedGeometryNativeBuffer = new OculusApi.OVRNativeBuffer(0);
-        private static readonly int cachedVector3fSize = Marshal.SizeOf(typeof(OculusApi.Vector3f));
-        private static float[] cachedGeometryManagedBuffer = new float[0];
 
         /// <summary>
         /// Returns an array of 3d points (in clockwise order) that define the specified boundary type.
@@ -132,7 +124,5 @@ namespace RealityToolkit.MetaPlatform.BoundarySystem.Providers
         {
             return OculusApi.GetBoundaryDimensions(boundaryType).ToVector3FlippedZ();
         }
-
-        #endregion Oculus Utils
     }
 }

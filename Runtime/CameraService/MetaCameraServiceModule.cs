@@ -4,17 +4,17 @@
 using RealityCollective.ServiceFramework.Attributes;
 using RealityToolkit.CameraSystem.Definitions;
 using RealityToolkit.CameraSystem.Interfaces;
-using RealityToolkit.CameraSystem.Providers;
+using RealityToolkit.CameraSystem.Modules;
 using RealityToolkit.MetaPlatform.Plugins;
 
-namespace RealityToolkit.MetaPlatform.CameraSystem.Providers
+namespace RealityToolkit.MetaPlatform.CameraService
 {
     [RuntimePlatform(typeof(MetaPlatform))]
     [System.Runtime.InteropServices.Guid("83EFF552-ADF4-47C8-AD53-DF7406856D3F")]
-    public class MetaCameraDataProvider : BaseCameraDataProvider, IMetaCameraDataProvider
+    public class MetaCameraServiceModule : BaseCameraServiceModule, IMetaCameraServiceModule
     {
         /// <inheritdoc />
-        public MetaCameraDataProvider(string name, uint priority, BaseMixedRealityCameraDataProviderProfile profile, IMixedRealityCameraSystem parentService)
+        public MetaCameraServiceModule(string name, uint priority, BaseMixedRealityCameraServiceModuleProfile profile, IMixedRealityCameraSystem parentService)
             : base(name, priority, profile, parentService)
         {
         }

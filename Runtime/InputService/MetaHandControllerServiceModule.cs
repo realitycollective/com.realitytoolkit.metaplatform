@@ -9,21 +9,21 @@ using RealityToolkit.Definitions.Devices;
 using RealityToolkit.InputSystem.Controllers.Hands;
 using RealityToolkit.InputSystem.Definitions;
 using RealityToolkit.InputSystem.Interfaces;
+using RealityToolkit.MetaPlatform.InputService.Profiles;
+using RealityToolkit.MetaPlatform.InputService.Utilities;
 using RealityToolkit.MetaPlatform.Plugins;
-using RealityToolkit.MetaPlatform.Profiles;
-using RealityToolkit.MetaPlatform.Utilities;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace RealityToolkit.MetaPlatform.InputSystem.Controllers
+namespace RealityToolkit.MetaPlatform.InputService
 {
     [RuntimePlatform(typeof(MetaPlatform))]
     [System.Runtime.InteropServices.Guid("EA666456-BAEF-4412-A829-A4C7132E98C3")]
-    public class MetaHandControllerDataProvider : BaseHandControllerDataProvider, IMetaHandControllerDataProvider
+    public class MetaHandControllerServiceModule : BaseHandControllerServiceModule, IMetaHandControllerServiceModule
     {
         /// <inheritdoc />
-        public MetaHandControllerDataProvider(string name, uint priority, MetaHandControllerDataProviderProfile profile, IMixedRealityInputSystem parentService)
+        public MetaHandControllerServiceModule(string name, uint priority, MetaHandControllerServiceModuleProfile profile, IMixedRealityInputSystem parentService)
             : base(name, priority, profile, parentService)
         {
             if (!ServiceManager.Instance.TryGetServiceProfile<IMixedRealityInputSystem, MixedRealityInputSystemProfile>(out var inputSystemProfile))
@@ -32,7 +32,7 @@ namespace RealityToolkit.MetaPlatform.InputSystem.Controllers
             }
 
             MinConfidenceRequired = (OculusApi.TrackingConfidence)profile.MinConfidenceRequired;
-            handDataProvider = new MetaHandDataConverter();
+            handDataConverter = new MetaHandDataConverter();
 
             var isGrippingThreshold = profile.GripThreshold != inputSystemProfile.GripThreshold
                 ? profile.GripThreshold
@@ -44,7 +44,7 @@ namespace RealityToolkit.MetaPlatform.InputSystem.Controllers
             };
         }
 
-        private readonly MetaHandDataConverter handDataProvider;
+        private readonly MetaHandDataConverter handDataConverter;
         private readonly HandDataPostProcessor postProcessor;
         private readonly Dictionary<Handedness, MixedRealityHandController> activeControllers = new Dictionary<Handedness, MixedRealityHandController>();
 
@@ -58,7 +58,7 @@ namespace RealityToolkit.MetaPlatform.InputSystem.Controllers
         {
             base.Update();
 
-            if (handDataProvider.TryGetHandData(Handedness.Left, RenderingMode == HandRenderingMode.Mesh, MinConfidenceRequired, out var leftHandData))
+            if (handDataConverter.TryGetHandData(Handedness.Left, RenderingMode == HandRenderingMode.Mesh, MinConfidenceRequired, out var leftHandData))
             {
                 var controller = GetOrAddController(Handedness.Left);
                 leftHandData = postProcessor.PostProcess(Handedness.Left, leftHandData);
@@ -69,7 +69,7 @@ namespace RealityToolkit.MetaPlatform.InputSystem.Controllers
                 RemoveController(Handedness.Left);
             }
 
-            if (handDataProvider.TryGetHandData(Handedness.Right, RenderingMode == HandRenderingMode.Mesh, MinConfidenceRequired, out var rightHandData))
+            if (handDataConverter.TryGetHandData(Handedness.Right, RenderingMode == HandRenderingMode.Mesh, MinConfidenceRequired, out var rightHandData))
             {
                 var controller = GetOrAddController(Handedness.Right);
                 rightHandData = postProcessor.PostProcess(Handedness.Right, rightHandData);

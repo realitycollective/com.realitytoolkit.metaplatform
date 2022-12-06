@@ -3,14 +3,13 @@
 
 using RealityToolkit.Definitions.Controllers;
 using RealityCollective.Definitions.Utilities;
-using RealityToolkit.MetaPlatform.InputSystem.Controllers;
 
-namespace RealityToolkit.MetaPlatform.Profiles
+namespace RealityToolkit.MetaPlatform.InputService.Profiles
 {
     /// <summary>
     /// Configuration profile for Meta controllers.
     /// </summary>
-    public class MetaControllerDataProviderProfile : BaseMixedRealityControllerDataProviderProfile
+    public class MetaControllerServiceModuleProfile : BaseMixedRealityControllerServiceModuleProfile
     {
         public override ControllerDefinition[] GetDefaultControllerOptions()
         {

@@ -4,10 +4,10 @@
 using RealityCollective.Definitions.Utilities;
 using RealityToolkit.Definitions.Controllers;
 using RealityToolkit.Definitions.Devices;
-using RealityToolkit.InputSystem.Interfaces.Providers;
+using RealityToolkit.InputSystem.Interfaces.Modules;
 using RealityToolkit.MetaPlatform.Plugins;
 
-namespace RealityToolkit.MetaPlatform.InputSystem.Controllers
+namespace RealityToolkit.MetaPlatform.InputService
 {
     [System.Runtime.InteropServices.Guid("1898974A-DBCD-4C88-8E03-726689848D52")]
     public class MetaTouchController : BaseMetaController
@@ -16,8 +16,8 @@ namespace RealityToolkit.MetaPlatform.InputSystem.Controllers
         public MetaTouchController() { }
 
         /// <inheritdoc />
-        public MetaTouchController(IMixedRealityControllerDataProvider controllerDataProvider, TrackingState trackingState, Handedness controllerHandedness, MixedRealityControllerMappingProfile controllerMappingProfile, OculusApi.Controller controllerType = OculusApi.Controller.None, OculusApi.Node nodeType = OculusApi.Node.None)
-            : base(controllerDataProvider, trackingState, controllerHandedness, controllerMappingProfile, controllerType, nodeType)
+        public MetaTouchController(IMixedRealityControllerServiceModule controllerServiceModule, TrackingState trackingState, Handedness controllerHandedness, MixedRealityControllerMappingProfile controllerMappingProfile, OculusApi.Controller controllerType = OculusApi.Controller.None, OculusApi.Node nodeType = OculusApi.Node.None)
+            : base(controllerServiceModule, trackingState, controllerHandedness, controllerMappingProfile, controllerType, nodeType)
         {
         }
 
