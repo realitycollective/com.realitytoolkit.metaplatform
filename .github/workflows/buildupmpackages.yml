@@ -1,9 +1,10 @@
-name: Build UPM
+name: Build and test UPM packages for platforms
 
 on:
   pull_request:
-    branches:
-      - '*'
+    branches-ignore:    
+      - 'main'
+  # Ignore PRs targetting main
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -11,8 +12,6 @@ on:
 concurrency:
   group: ${{ github.ref }}
   cancel-in-progress: true
-
-# Example flow
 
 jobs:
   # Check Unity version requird by the package
