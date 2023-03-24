@@ -14,8 +14,8 @@ namespace RealityToolkit.MetaPlatform.Editor
     [InitializeOnLoad]
     internal static class MetaPackageInstaller
     {
-        private static readonly string DefaultPath = $"{MixedRealityPreferences.ProfileGenerationPath}Meta";
-        private static readonly string HiddenPath = Path.GetFullPath($"{PathFinderUtility.ResolvePath<IPathFinder>(typeof(MetaPackagePathFinder)).BackSlashes()}{Path.DirectorySeparatorChar}{MixedRealityPreferences.HIDDEN_PACKAGE_ASSETS_PATH}");
+        private static readonly string destinationPath = $"{MixedRealityPreferences.ProfileGenerationPath}Meta";
+        private static readonly string sourcePath = Path.GetFullPath($"{PathFinderUtility.ResolvePath<IPathFinder>(typeof(MetaPackagePathFinder)).BackSlashes()}{Path.DirectorySeparatorChar}{MixedRealityPreferences.HIDDEN_PACKAGE_ASSETS_PATH}");
 
         static MetaPackageInstaller()
         {
@@ -25,7 +25,7 @@ namespace RealityToolkit.MetaPlatform.Editor
         [MenuItem(MixedRealityPreferences.Editor_Menu_Keyword + "/Packages/Install Meta Package Assets...", true)]
         private static bool ImportPackageAssetsValidation()
         {
-            return !Directory.Exists($"{DefaultPath}{Path.DirectorySeparatorChar}");
+            return !Directory.Exists($"{destinationPath}{Path.DirectorySeparatorChar}");
         }
 
         [MenuItem(MixedRealityPreferences.Editor_Menu_Keyword + "/Packages/Install Meta Package Assets...")]
@@ -39,7 +39,7 @@ namespace RealityToolkit.MetaPlatform.Editor
         {
             if (!EditorPreferences.Get($"{nameof(MetaPackageInstaller)}.Assets", false))
             {
-                EditorPreferences.Set($"{nameof(MetaPackageInstaller)}.Assets", AssetsInstaller.TryInstallAssets(HiddenPath, DefaultPath));
+                EditorPreferences.Set($"{nameof(MetaPackageInstaller)}.Assets", AssetsInstaller.TryInstallAssets(sourcePath, destinationPath));
             }
         }
     }

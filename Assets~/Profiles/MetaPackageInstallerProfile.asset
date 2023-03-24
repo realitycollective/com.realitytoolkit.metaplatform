@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: da64fb88269149f8a95f1fb969d6a0b4, type: 3}
-  m_Name: MetaPlatformServiceConfigurationsProfile
+  m_Name: MetaPackageInstallerProfile
   m_EditorClassIdentifier: 
   platformEntries:
     runtimePlatforms:
@@ -18,7 +18,7 @@ MonoBehaviour:
   configurations:
   - instancedType:
       reference: 83eff552-adf4-47c8-ad53-df7406856d3f
-    name: Meta Camera Data Provider
+    name: Meta Camera Rig Service Module
     priority: 0
     profile: {fileID: 11400000, guid: 69601914bd8789b49bc45cc0a9220b4d, type: 2}
     platformEntries:
