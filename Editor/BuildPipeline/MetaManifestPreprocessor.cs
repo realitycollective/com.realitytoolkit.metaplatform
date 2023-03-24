@@ -19,13 +19,12 @@ limitations under the License.
 
 ************************************************************************************/
 
-using System;
+using RealityCollective.ServiceFramework.Editor;
+using RealityToolkit.Editor;
 using System.IO;
+using System.Xml;
 using UnityEditor;
 using UnityEngine;
-using RealityToolkit.Editor;
-using RealityToolkit.Editor.Utilities;
-using System.Xml;
 
 namespace RealityToolkit.MetaPlatform.Editor.BuildPipeline
 {
@@ -39,7 +38,7 @@ namespace RealityToolkit.MetaPlatform.Editor.BuildPipeline
         [MenuItem(MixedRealityPreferences.Editor_Menu_Keyword + "/Tools/Meta/Create Meta Quest compatible AndroidManifest.xml", false, 100000)]
         public static void GenerateManifestForSubmission()
         {
-            var assetPath = PathFinderUtility.ResolvePath<IPathFinder>(typeof(MetaPathFinder));
+            var assetPath = PathFinderUtility.ResolvePath<IPathFinder>(typeof(MetaPackagePathFinder));
             var editorDir = $"{Path.GetFullPath(assetPath)}/Editor";
             var srcFile = $"{editorDir}/BuildPipeline/{TEMPLATE_MANIFEST_FILE_NAME}";
 

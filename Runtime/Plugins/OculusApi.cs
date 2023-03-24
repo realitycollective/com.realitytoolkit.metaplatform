@@ -1,7 +1,6 @@
 ﻿// Copyright (c) XRTK. All rights reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
-using RealityToolkit.Definitions.Utilities;
 using System;
 using System.Runtime.InteropServices;
 using UnityEngine;
@@ -964,19 +963,19 @@ namespace RealityToolkit.MetaPlatform.Plugins
                     "Position ({0}), Orientation({1})", Position, Orientation);
             }
 
-            public static implicit operator Posef(MixedRealityPose p) =>
-                new Posef { Position = p.Position, Orientation = p.Rotation };
+            public static implicit operator Posef(Pose p) =>
+                new Posef { Position = p.position, Orientation = p.rotation };
 
-            public static implicit operator MixedRealityPose(Posef p) =>
-                new MixedRealityPose(p.Position, p.Orientation);
+            public static implicit operator Pose(Posef p) =>
+                new Pose(p.Position, p.Orientation);
 
             /// <summary>
             /// Extension method to convert a <see cref="OculusApi.Posef"/> to a <see cref="MixedRealityPose"/>
             /// </summary>
             /// <returns>Returns an XRTK MixedRealityPose</returns>
-            public MixedRealityPose ToMixedRealityPoseFlippedQuaternionXY()
+            public Pose ToMixedRealityPoseFlippedQuaternionXY()
             {
-                return new MixedRealityPose
+                return new Pose
                 (
                     position: new Vector3(Position.x, Position.y, -Position.z),
                     rotation: Orientation.ToQuaternionFlippedXY()

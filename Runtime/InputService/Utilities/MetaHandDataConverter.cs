@@ -4,10 +4,9 @@
 using RealityCollective.Definitions.Utilities;
 using RealityCollective.Extensions;
 using RealityCollective.ServiceFramework.Services;
-using RealityToolkit.CameraSystem.Interfaces;
+using RealityToolkit.CameraService.Interfaces;
 using RealityToolkit.Definitions.Controllers.Hands;
 using RealityToolkit.Definitions.Devices;
-using RealityToolkit.Definitions.Utilities;
 using RealityToolkit.MetaPlatform.InputService.Extensions;
 using RealityToolkit.MetaPlatform.Plugins;
 using RealityToolkit.Utilities;
@@ -36,7 +35,7 @@ namespace RealityToolkit.MetaPlatform.InputService.Utilities
 
         private Transform conversionProxyRootTransform;
         private readonly Dictionary<OculusApi.BoneId, Transform> conversionProxyTransforms = new Dictionary<OculusApi.BoneId, Transform>();
-        private readonly MixedRealityPose[] jointPoses = new MixedRealityPose[HandData.JointCount];
+        private readonly Pose[] jointPoses = new Pose[HandData.JointCount];
 
         private OculusApi.Skeleton handSkeleton = new OculusApi.Skeleton();
         private OculusApi.HandState handState = new OculusApi.HandState();
@@ -50,9 +49,9 @@ namespace RealityToolkit.MetaPlatform.InputService.Utilities
             {
                 if (rigTransform == null)
                 {
-                    rigTransform = ServiceManager.Instance.TryGetService<IMixedRealityCameraSystem>(out var cameraSystem)
-                        ? cameraSystem.MainCameraRig.RigTransform
-                        : CameraCache.Main.transform.parent;
+                    rigTransform = ServiceManager.Instance.TryGetService<ICameraService>(out var cameraSystem)
+                        ? cameraSystem.CameraRig.RigTransform
+                        : Camera.main.transform.parent;
                 }
 
                 return rigTransform;
@@ -114,7 +113,7 @@ namespace RealityToolkit.MetaPlatform.InputService.Utilities
         /// </summary>
         /// <param name="handedness">Handedness of the hand to read joint poses for.</param>
         /// <returns>Joint poses in <see cref="TrackedHandJoint"/> order.</returns>
-        private MixedRealityPose[] GetJointPoses(Handedness handedness)
+        private Pose[] GetJointPoses(Handedness handedness)
         {
             jointPoses[(int)TrackedHandJoint.Wrist] = GetJointPose(handedness, handSkeleton.Bones[(int)OculusApi.BoneId.Hand_WristRoot]);
 
@@ -208,7 +207,7 @@ namespace RealityToolkit.MetaPlatform.InputService.Utilities
         /// <param name="handedness">Handedness of the hand the pose belongs to.</param>
         /// <param name="bone">Bone data retrieved from Oculus API with pose information.</param>
         /// <returns>Converted joint pose in hand space.</returns>
-        private MixedRealityPose GetJointPose(Handedness handedness, OculusApi.Bone bone)
+        private Pose GetJointPose(Handedness handedness, OculusApi.Bone bone)
         {
             // The Pinky/Thumb 1+ bones depend on the Pinky/Thumb 0 bone
             // to be available, which the XRTK hand tracking does not use. We still have to compute them to
@@ -229,9 +228,9 @@ namespace RealityToolkit.MetaPlatform.InputService.Utilities
 
             if (bone.ParentBoneIndex == (int)OculusApi.BoneId.Invalid)
             {
-                var rootPose = FixRotation(handedness, new MixedRealityPose(conversionProxyRootTransform.localPosition, conversionProxyRootTransform.localRotation));
-                boneProxyTransform.localPosition = rootPose.Position;
-                boneProxyTransform.localRotation = rootPose.Rotation;
+                var rootPose = FixRotation(handedness, new Pose(conversionProxyRootTransform.localPosition, conversionProxyRootTransform.localRotation));
+                boneProxyTransform.localPosition = rootPose.position;
+                boneProxyTransform.localRotation = rootPose.rotation;
             }
             else
             {
@@ -239,7 +238,7 @@ namespace RealityToolkit.MetaPlatform.InputService.Utilities
                 boneProxyTransform.localRotation = handState.BoneRotations[(int)bone.Id].ToQuaternionFlippedXY();
             }
 
-            return FixRotation(handedness, new MixedRealityPose(
+            return FixRotation(handedness, new Pose(
                 conversionProxyRootTransform.InverseTransformPoint(boneProxyTransform.position),
                 Quaternion.Inverse(conversionProxyRootTransform.rotation) * boneProxyTransform.rotation));
         }
@@ -251,20 +250,20 @@ namespace RealityToolkit.MetaPlatform.InputService.Utilities
         /// <param name="handedness">Handedness of the hand the pose belongs to.</param>
         /// <param name="jointPose">The joint pose to apply the fix to.</param>
         /// <returns>Joint pose with fixed rotation.</returns>
-        private MixedRealityPose FixRotation(Handedness handedness, MixedRealityPose jointPose)
+        private Pose FixRotation(Handedness handedness, Pose jointPose)
         {
             if (handedness == Handedness.Left)
             {
                 // Rotate bone 180 degrees on X to flip up.
-                jointPose.Rotation *= Quaternion.Euler(180f, 0f, 0f);
+                jointPose.rotation *= Quaternion.Euler(180f, 0f, 0f);
 
                 // Rotate bone 90 degrees on Y to align X with right.
-                jointPose.Rotation *= Quaternion.Euler(0f, 90f, 0f);
+                jointPose.rotation *= Quaternion.Euler(0f, 90f, 0f);
             }
             else
             {
                 // Rotate bone 90 degrees on Y to align X with left.
-                jointPose.Rotation *= Quaternion.Euler(0f, -90f, 0f);
+                jointPose.rotation *= Quaternion.Euler(0f, -90f, 0f);
             }
 
             return jointPose;
@@ -314,13 +313,13 @@ namespace RealityToolkit.MetaPlatform.InputService.Utilities
         /// </summary>
         /// <param name="handedness">Handedness of the hand to get the pose for.</param>
         /// <returns>The hands <see cref="HandData.RootPose"/> value.</returns>
-        private MixedRealityPose GetHandRootPose(Handedness handedness)
+        private Pose GetHandRootPose(Handedness handedness)
         {
             var rigRotation = RigTransform.rotation;
             var rootPosition = RigTransform.InverseTransformPoint(RigTransform.position + rigRotation * handState.RootPose.Position);
             var rootRotation = Quaternion.Inverse(rigRotation) * rigRotation * handState.RootPose.Orientation.ToQuaternionFlippedXY();
 
-            return FixRotation(handedness, new MixedRealityPose(rootPosition, rootRotation));
+            return FixRotation(handedness, new Pose(rootPosition, rootRotation));
         }
 
         /// <summary>
@@ -328,15 +327,15 @@ namespace RealityToolkit.MetaPlatform.InputService.Utilities
         /// </summary>
         /// <param name="handedness">Handedness of the hand the pose belongs to.</param>
         /// <returns>The hands <see cref="HandData.PointerPose"/> value.</returns>
-        private MixedRealityPose GetPointerPose(Handedness handedness)
+        private Pose GetPointerPose(Handedness handedness)
         {
             var rootPose = GetHandRootPose(handedness);
             var rigRotation = RigTransform.rotation;
             var platformRootPosition = handState.RootPose.Position;
-            var platformPointerPosition = rootPose.Position + handState.PointerPose.Position - platformRootPosition;
+            var platformPointerPosition = rootPose.position + handState.PointerPose.Position - platformRootPosition;
             var platformPointerRotation = Quaternion.Inverse(rigRotation) * rigRotation * handState.PointerPose.Orientation.ToQuaternionFlippedXY();
 
-            return new MixedRealityPose(platformPointerPosition, platformPointerRotation);
+            return new Pose(platformPointerPosition, platformPointerRotation);
         }
     }
 }
