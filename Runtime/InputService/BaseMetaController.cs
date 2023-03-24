@@ -4,7 +4,6 @@
 using RealityCollective.Definitions.Utilities;
 using RealityToolkit.Definitions.Controllers;
 using RealityToolkit.Definitions.Devices;
-using RealityToolkit.Definitions.Utilities;
 using RealityToolkit.InputSystem.Controllers;
 using RealityToolkit.InputSystem.Extensions;
 using RealityToolkit.InputSystem.Interfaces.Modules;
@@ -33,7 +32,7 @@ namespace RealityToolkit.MetaPlatform.InputService
         private OculusApi.Node NodeType { get; }
 
         /// <inheritdoc />
-        protected override MixedRealityPose GripPoseOffset => new MixedRealityPose(Vector3.zero, Quaternion.Euler(0f, 0f, -90f));
+        protected override Pose GripPoseOffset => new Pose(Vector3.zero, Quaternion.Euler(0f, 0f, -90f));
 
         /// <summary>
         /// The Meta Controller Type.
@@ -87,8 +86,8 @@ namespace RealityToolkit.MetaPlatform.InputService
         /// <inheritdoc />
         public override MixedRealityInteractionMapping[] DefaultRightHandedInteractions => DefaultInteractions;
 
-        private MixedRealityPose currentPointerPose = MixedRealityPose.ZeroIdentity;
-        private MixedRealityPose lastControllerPose = MixedRealityPose.ZeroIdentity;
+        private Pose currentPointerPose = Pose.identity;
+        private Pose lastControllerPose = Pose.identity;
         private OculusApi.PoseStatef currentControllerVelocity = new OculusApi.PoseStatef();
         private float singleAxisValue = 0.0f;
         private Vector2 dualAxisPosition = Vector2.zero;
@@ -260,11 +259,11 @@ namespace RealityToolkit.MetaPlatform.InputService
                 }
                 else if (IsPositionAvailable && !IsRotationAvailable)
                 {
-                    InputSystem?.RaiseSourcePositionChanged(InputSource, this, Pose.Position);
+                    InputSystem?.RaiseSourcePositionChanged(InputSource, this, Pose.position);
                 }
                 else if (!IsPositionAvailable && IsRotationAvailable)
                 {
-                    InputSystem?.RaiseSourceRotationChanged(InputSource, this, Pose.Rotation);
+                    InputSystem?.RaiseSourceRotationChanged(InputSource, this, Pose.rotation);
                 }
             }
         }
@@ -376,9 +375,9 @@ namespace RealityToolkit.MetaPlatform.InputService
         private void UpdateSpatialGripData(MixedRealityInteractionMapping interactionMapping)
         {
             Debug.Assert(interactionMapping.AxisType == AxisType.SixDof);
-            interactionMapping.PoseData = new MixedRealityPose(
-                Pose.Position + Pose.Rotation * GripPoseOffset.Position,
-                Pose.Rotation * GripPoseOffset.Rotation);
+            interactionMapping.PoseData = new Pose(
+                Pose.position + Pose.rotation * GripPoseOffset.position,
+                Pose.rotation * GripPoseOffset.rotation);
         }
 
         private void UpdateDualAxisData(MixedRealityInteractionMapping interactionMapping)
