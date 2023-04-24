@@ -1,12 +1,12 @@
 // Copyright (c) Reality Collective. All rights reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
-using RealityToolkit.InputSystem.Interfaces.Modules;
+using RealityToolkit.Input.Interfaces.Modules;
 
 namespace RealityToolkit.MetaPlatform.InputService
 {
     /// <summary>
-    /// Fully qualifies the <see cref="MetaPlatform"/> specific implementation of <see cref="IMixedRealityHandControllerServiceModule"/>.
+    /// Fully qualifies the <see cref="MetaPlatform"/> specific implementation of <see cref="IHandControllerServiceModule"/>.
     /// </summary>
-    public interface IMetaHandControllerServiceModule : IMixedRealityHandControllerServiceModule { }
+    public interface IMetaHandControllerServiceModule : IHandControllerServiceModule { }
 }

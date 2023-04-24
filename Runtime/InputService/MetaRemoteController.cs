@@ -1,10 +1,10 @@
-﻿// Copyright (c) XRTK. All rights reserved.
+﻿// Copyright (c) Reality Collective. All rights reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
 using RealityCollective.Definitions.Utilities;
 using RealityToolkit.Definitions.Controllers;
 using RealityToolkit.Definitions.Devices;
-using RealityToolkit.InputSystem.Interfaces.Modules;
+using RealityToolkit.Input.Interfaces.Modules;
 using RealityToolkit.MetaPlatform.Plugins;
 
 namespace RealityToolkit.MetaPlatform.InputService
@@ -16,22 +16,22 @@ namespace RealityToolkit.MetaPlatform.InputService
         public MetaRemoteController() { }
 
         /// <inheritdoc />
-        public MetaRemoteController(IMixedRealityControllerServiceModule controllerServiceModule, TrackingState trackingState, Handedness controllerHandedness, MixedRealityControllerMappingProfile controllerMappingProfile, OculusApi.Controller controllerType = OculusApi.Controller.None, OculusApi.Node nodeType = OculusApi.Node.None)
+        public MetaRemoteController(IControllerServiceModule controllerServiceModule, TrackingState trackingState, Handedness controllerHandedness, ControllerMappingProfile controllerMappingProfile, OculusApi.Controller controllerType = OculusApi.Controller.None, OculusApi.Node nodeType = OculusApi.Node.None)
             : base(controllerServiceModule, trackingState, controllerHandedness, controllerMappingProfile, controllerType, nodeType)
         {
         }
 
         /// <inheritdoc />
-        public override MixedRealityInteractionMapping[] DefaultInteractions => new[]
+        public override InteractionMapping[] DefaultInteractions => new[]
         {
-            new MixedRealityInteractionMapping("Button.DpadUp", AxisType.Digital, "DpadUp", DeviceInputType.ButtonPress),
-            new MixedRealityInteractionMapping("Button.DpadDown", AxisType.Digital, "DpadDown", DeviceInputType.ButtonPress),
-            new MixedRealityInteractionMapping("Button.DpadLeft", AxisType.Digital, "DpadLeft", DeviceInputType.ButtonPress),
-            new MixedRealityInteractionMapping("Button.DpadRight", AxisType.Digital, "DpadRight", DeviceInputType.ButtonPress),
-            new MixedRealityInteractionMapping("Button.One", AxisType.Digital, "One", DeviceInputType.ButtonPress),
-            new MixedRealityInteractionMapping("Button.Two", AxisType.Digital, "Two", DeviceInputType.ButtonPress),
-            new MixedRealityInteractionMapping("Button.Start", AxisType.Digital, "Start", DeviceInputType.ButtonPress),
-            new MixedRealityInteractionMapping("Button.Back", AxisType.Digital, "Back", DeviceInputType.ButtonPress),
+            new InteractionMapping("Button.DpadUp", AxisType.Digital, "DpadUp", DeviceInputType.ButtonPress),
+            new InteractionMapping("Button.DpadDown", AxisType.Digital, "DpadDown", DeviceInputType.ButtonPress),
+            new InteractionMapping("Button.DpadLeft", AxisType.Digital, "DpadLeft", DeviceInputType.ButtonPress),
+            new InteractionMapping("Button.DpadRight", AxisType.Digital, "DpadRight", DeviceInputType.ButtonPress),
+            new InteractionMapping("Button.One", AxisType.Digital, "One", DeviceInputType.ButtonPress),
+            new InteractionMapping("Button.Two", AxisType.Digital, "Two", DeviceInputType.ButtonPress),
+            new InteractionMapping("Button.Start", AxisType.Digital, "Start", DeviceInputType.ButtonPress),
+            new InteractionMapping("Button.Back", AxisType.Digital, "Back", DeviceInputType.ButtonPress),
         };
     }
 }

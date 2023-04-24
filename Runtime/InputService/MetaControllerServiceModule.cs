@@ -1,10 +1,10 @@
-﻿// Copyright (c) XRTK. All rights reserved.
+﻿// Copyright (c) Reality Collective. All rights reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
 using RealityCollective.ServiceFramework.Attributes;
 using RealityToolkit.Definitions.Devices;
-using RealityToolkit.InputSystem.Controllers;
-using RealityToolkit.InputSystem.Interfaces;
+using RealityToolkit.Input.Controllers;
+using RealityToolkit.Input.Interfaces;
 using RealityToolkit.MetaPlatform.InputService.Extensions;
 using RealityToolkit.MetaPlatform.InputService.Profiles;
 using RealityToolkit.MetaPlatform.Plugins;
@@ -19,7 +19,7 @@ namespace RealityToolkit.MetaPlatform.InputService
     public class MetaControllerServiceModule : BaseControllerServiceModule, IMetaControllerServiceModule
     {
         /// <inheritdoc />
-        public MetaControllerServiceModule(string name, uint priority, MetaControllerServiceModuleProfile profile, IMixedRealityInputSystem parentService)
+        public MetaControllerServiceModule(string name, uint priority, MetaControllerServiceModuleProfile profile, IInputService parentService)
             : base(name, priority, profile, parentService)
         {
         }
@@ -198,7 +198,7 @@ namespace RealityToolkit.MetaPlatform.InputService
 
             if (controller != null)
             {
-                InputSystem?.RaiseSourceDetected(controller.InputSource, controller);
+                InputService?.RaiseSourceDetected(controller.InputSource, controller);
             }
         }
 
@@ -208,7 +208,7 @@ namespace RealityToolkit.MetaPlatform.InputService
 
             if (controller != null)
             {
-                InputSystem?.RaiseSourceLost(controller.InputSource, controller);
+                InputService?.RaiseSourceLost(controller.InputSource, controller);
                 RemoveController(controller);
             }
 

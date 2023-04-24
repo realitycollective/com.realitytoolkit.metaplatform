@@ -35,7 +35,7 @@ namespace RealityToolkit.MetaPlatform.Editor.BuildPipeline
     {
         private const string TEMPLATE_MANIFEST_FILE_NAME = "AndroidManifest.OVRSubmission.xml";
 
-        [MenuItem(MixedRealityPreferences.Editor_Menu_Keyword + "/Tools/Meta/Create Meta Quest compatible AndroidManifest.xml", false, 100000)]
+        [MenuItem(RealityToolkitPreferences.Editor_Menu_Keyword + "/Tools/Meta/Create Meta Quest compatible AndroidManifest.xml", false, 100000)]
         public static void GenerateManifestForSubmission()
         {
             var assetPath = PathFinderUtility.ResolvePath<IPathFinder>(typeof(MetaPackagePathFinder));
@@ -70,7 +70,7 @@ namespace RealityToolkit.MetaPlatform.Editor.BuildPipeline
             AssetDatabase.Refresh();
         }
 
-        [MenuItem(MixedRealityPreferences.Editor_Menu_Keyword + "/Tools/Meta/Update Meta Quest AndroidManifest.xml", false, 100000)]
+        [MenuItem(RealityToolkitPreferences.Editor_Menu_Keyword + "/Tools/Meta/Update Meta Quest AndroidManifest.xml", false, 100000)]
         public static void UpdateAndroidManifest()
         {
             string manifestFile = "Assets/Plugins/Android/AndroidManifest.xml";
@@ -90,7 +90,7 @@ namespace RealityToolkit.MetaPlatform.Editor.BuildPipeline
             AssetDatabase.Refresh();
         }
 
-        [MenuItem(MixedRealityPreferences.Editor_Menu_Keyword + "/Tools/Meta/Remove AndroidManifest.xml", false, 100001)]
+        [MenuItem(RealityToolkitPreferences.Editor_Menu_Keyword + "/Tools/Meta/Remove AndroidManifest.xml", false, 100001)]
         public static void RemoveAndroidManifest()
         {
             AssetDatabase.DeleteAsset("Assets/Plugins/Android/AndroidManifest.xml");
