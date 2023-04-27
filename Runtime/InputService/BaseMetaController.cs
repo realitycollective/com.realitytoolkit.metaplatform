@@ -1,12 +1,12 @@
-﻿// Copyright (c) XRTK. All rights reserved.
+﻿// Copyright (c) Reality Collective. All rights reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
 using RealityCollective.Definitions.Utilities;
 using RealityToolkit.Definitions.Controllers;
 using RealityToolkit.Definitions.Devices;
-using RealityToolkit.InputSystem.Controllers;
-using RealityToolkit.InputSystem.Extensions;
-using RealityToolkit.InputSystem.Interfaces.Modules;
+using RealityToolkit.Input.Controllers;
+using RealityToolkit.Input.Extensions;
+using RealityToolkit.Input.Interfaces.Modules;
 using RealityToolkit.MetaPlatform.Plugins;
 using System;
 using UnityEngine;
@@ -19,7 +19,7 @@ namespace RealityToolkit.MetaPlatform.InputService
         protected BaseMetaController() { }
 
         /// <inheritdoc />
-        protected BaseMetaController(IMixedRealityControllerServiceModule controllerServiceModule, TrackingState trackingState, Handedness controllerHandedness, MixedRealityControllerMappingProfile controllerMappingProfile, OculusApi.Controller controllerType = OculusApi.Controller.None, OculusApi.Node nodeType = OculusApi.Node.None)
+        protected BaseMetaController(IControllerServiceModule controllerServiceModule, TrackingState trackingState, Handedness controllerHandedness, ControllerMappingProfile controllerMappingProfile, OculusApi.Controller controllerType = OculusApi.Controller.None, OculusApi.Node nodeType = OculusApi.Node.None)
             : base(controllerServiceModule, trackingState, controllerHandedness, controllerMappingProfile)
         {
             ControllerType = controllerType;
@@ -43,48 +43,48 @@ namespace RealityToolkit.MetaPlatform.InputService
         private OculusApi.ControllerState4 currentState = new OculusApi.ControllerState4();
 
         /// <inheritdoc />
-        public override MixedRealityInteractionMapping[] DefaultInteractions => new[]
+        public override InteractionMapping[] DefaultInteractions => new[]
         {
-            new MixedRealityInteractionMapping("Button.A Press", AxisType.Digital, "A", DeviceInputType.ButtonPress),
-            new MixedRealityInteractionMapping("Button.B Press", AxisType.Digital, "B", DeviceInputType.ButtonPress),
-            new MixedRealityInteractionMapping("Button.X Press", AxisType.Digital, "X", DeviceInputType.ButtonPress),
-            new MixedRealityInteractionMapping("Button.Y Press", AxisType.Digital, "Y", DeviceInputType.ButtonPress),
-            new MixedRealityInteractionMapping("Button.Start Press", AxisType.Digital, "Start", DeviceInputType.ButtonPress),
-            new MixedRealityInteractionMapping("Button.Back Press", AxisType.Digital, "Back", DeviceInputType.ButtonPress),
-            new MixedRealityInteractionMapping("Button.LShoulder Press", AxisType.Digital, "LShoulder", DeviceInputType.ButtonPress),
-            new MixedRealityInteractionMapping("Axis1D.LIndexTrigger", AxisType.SingleAxis, "LIndexTrigger", DeviceInputType.Trigger),
-            new MixedRealityInteractionMapping("Axis1D.LIndexTrigger Touch", AxisType.Digital, "LIndexTrigger", DeviceInputType.TriggerTouch),
-            new MixedRealityInteractionMapping("Axis1D.LIndexTrigger Near Touch", AxisType.Digital, "LIndexTrigger", DeviceInputType.TriggerNearTouch),
-            new MixedRealityInteractionMapping("Axis1D.LIndexTrigger Press", AxisType.Digital, "LIndexTrigger", DeviceInputType.TriggerPress),
-            new MixedRealityInteractionMapping("Axis1D.LHandTrigger Press", AxisType.SingleAxis, "LHandTrigger", DeviceInputType.Trigger),
-            new MixedRealityInteractionMapping("Axis2D.LThumbstick", AxisType.DualAxis, "PrimaryThumbstick", DeviceInputType.ThumbStick),
-            new MixedRealityInteractionMapping("Button.LThumbstick Touch", AxisType.Digital, "LThumbstick", DeviceInputType.ThumbStickTouch),
-            new MixedRealityInteractionMapping("Button.LThumbstick Near Touch", AxisType.Digital, "LThumbstick", DeviceInputType.ThumbNearTouch),
-            new MixedRealityInteractionMapping("Button.LThumbstick Press", AxisType.Digital, "LThumbstick", DeviceInputType.ThumbStickPress),
-            new MixedRealityInteractionMapping("Button.RShoulder Press", AxisType.Digital, "RShoulder", DeviceInputType.ButtonPress),
-            new MixedRealityInteractionMapping("Axis1D.RIndexTrigger", AxisType.SingleAxis, "RIndexTrigger", DeviceInputType.Trigger),
-            new MixedRealityInteractionMapping("Axis1D.RIndexTrigger Touch", AxisType.Digital, "RIndexTrigger", DeviceInputType.TriggerTouch),
-            new MixedRealityInteractionMapping("Axis1D.RIndexTrigger Near Touch", AxisType.Digital, "RIndexTrigger", DeviceInputType.TriggerNearTouch),
-            new MixedRealityInteractionMapping("Axis1D.RIndexTrigger Press", AxisType.Digital, "RIndexTrigger", DeviceInputType.TriggerPress),
-            new MixedRealityInteractionMapping("Axis1D.RHandTrigger Press", AxisType.SingleAxis, "RHandTrigger", DeviceInputType.Trigger),
-            new MixedRealityInteractionMapping("Axis2D.RThumbstick", AxisType.DualAxis, "SecondaryThumbstick", DeviceInputType.ThumbStick),
-            new MixedRealityInteractionMapping("Button.RThumbstick Touch", AxisType.Digital, "RThumbstick", DeviceInputType.ThumbStickTouch),
-            new MixedRealityInteractionMapping("Button.RThumbstick Near Touch", AxisType.Digital, "RThumbstick", DeviceInputType.ThumbNearTouch),
-            new MixedRealityInteractionMapping("Button.RThumbstick Press", AxisType.Digital, "RThumbstick", DeviceInputType.ThumbStickPress),
-            new MixedRealityInteractionMapping("Axis2D.Dpad", AxisType.DualAxis, DeviceInputType.ThumbStick),
-            new MixedRealityInteractionMapping("Button.DpadUp Press", AxisType.Digital, "DpadUp", DeviceInputType.ThumbStickPress),
-            new MixedRealityInteractionMapping("Button.DpadDown Press", AxisType.Digital, "DpadDown", DeviceInputType.ThumbStickPress),
-            new MixedRealityInteractionMapping("Button.DpadLeft Press", AxisType.Digital, "DpadLeft", DeviceInputType.ThumbStickPress),
-            new MixedRealityInteractionMapping("Button.DpadRight Press", AxisType.Digital, "DpadRight", DeviceInputType.ThumbStickPress),
-            new MixedRealityInteractionMapping("Button.RTouchpad", AxisType.Digital, "RTouchpad", DeviceInputType.ThumbTouch),
-            new MixedRealityInteractionMapping("Grip Pose", AxisType.SixDof, DeviceInputType.SpatialGrip)
+            new InteractionMapping("Button.A Press", AxisType.Digital, "A", DeviceInputType.ButtonPress),
+            new InteractionMapping("Button.B Press", AxisType.Digital, "B", DeviceInputType.ButtonPress),
+            new InteractionMapping("Button.X Press", AxisType.Digital, "X", DeviceInputType.ButtonPress),
+            new InteractionMapping("Button.Y Press", AxisType.Digital, "Y", DeviceInputType.ButtonPress),
+            new InteractionMapping("Button.Start Press", AxisType.Digital, "Start", DeviceInputType.ButtonPress),
+            new InteractionMapping("Button.Back Press", AxisType.Digital, "Back", DeviceInputType.ButtonPress),
+            new InteractionMapping("Button.LShoulder Press", AxisType.Digital, "LShoulder", DeviceInputType.ButtonPress),
+            new InteractionMapping("Axis1D.LIndexTrigger", AxisType.SingleAxis, "LIndexTrigger", DeviceInputType.Trigger),
+            new InteractionMapping("Axis1D.LIndexTrigger Touch", AxisType.Digital, "LIndexTrigger", DeviceInputType.TriggerTouch),
+            new InteractionMapping("Axis1D.LIndexTrigger Near Touch", AxisType.Digital, "LIndexTrigger", DeviceInputType.TriggerNearTouch),
+            new InteractionMapping("Axis1D.LIndexTrigger Press", AxisType.Digital, "LIndexTrigger", DeviceInputType.TriggerPress),
+            new InteractionMapping("Axis1D.LHandTrigger Press", AxisType.SingleAxis, "LHandTrigger", DeviceInputType.Trigger),
+            new InteractionMapping("Axis2D.LThumbstick", AxisType.DualAxis, "PrimaryThumbstick", DeviceInputType.ThumbStick),
+            new InteractionMapping("Button.LThumbstick Touch", AxisType.Digital, "LThumbstick", DeviceInputType.ThumbStickTouch),
+            new InteractionMapping("Button.LThumbstick Near Touch", AxisType.Digital, "LThumbstick", DeviceInputType.ThumbNearTouch),
+            new InteractionMapping("Button.LThumbstick Press", AxisType.Digital, "LThumbstick", DeviceInputType.ThumbStickPress),
+            new InteractionMapping("Button.RShoulder Press", AxisType.Digital, "RShoulder", DeviceInputType.ButtonPress),
+            new InteractionMapping("Axis1D.RIndexTrigger", AxisType.SingleAxis, "RIndexTrigger", DeviceInputType.Trigger),
+            new InteractionMapping("Axis1D.RIndexTrigger Touch", AxisType.Digital, "RIndexTrigger", DeviceInputType.TriggerTouch),
+            new InteractionMapping("Axis1D.RIndexTrigger Near Touch", AxisType.Digital, "RIndexTrigger", DeviceInputType.TriggerNearTouch),
+            new InteractionMapping("Axis1D.RIndexTrigger Press", AxisType.Digital, "RIndexTrigger", DeviceInputType.TriggerPress),
+            new InteractionMapping("Axis1D.RHandTrigger Press", AxisType.SingleAxis, "RHandTrigger", DeviceInputType.Trigger),
+            new InteractionMapping("Axis2D.RThumbstick", AxisType.DualAxis, "SecondaryThumbstick", DeviceInputType.ThumbStick),
+            new InteractionMapping("Button.RThumbstick Touch", AxisType.Digital, "RThumbstick", DeviceInputType.ThumbStickTouch),
+            new InteractionMapping("Button.RThumbstick Near Touch", AxisType.Digital, "RThumbstick", DeviceInputType.ThumbNearTouch),
+            new InteractionMapping("Button.RThumbstick Press", AxisType.Digital, "RThumbstick", DeviceInputType.ThumbStickPress),
+            new InteractionMapping("Axis2D.Dpad", AxisType.DualAxis, DeviceInputType.ThumbStick),
+            new InteractionMapping("Button.DpadUp Press", AxisType.Digital, "DpadUp", DeviceInputType.ThumbStickPress),
+            new InteractionMapping("Button.DpadDown Press", AxisType.Digital, "DpadDown", DeviceInputType.ThumbStickPress),
+            new InteractionMapping("Button.DpadLeft Press", AxisType.Digital, "DpadLeft", DeviceInputType.ThumbStickPress),
+            new InteractionMapping("Button.DpadRight Press", AxisType.Digital, "DpadRight", DeviceInputType.ThumbStickPress),
+            new InteractionMapping("Button.RTouchpad", AxisType.Digital, "RTouchpad", DeviceInputType.ThumbTouch),
+            new InteractionMapping("Grip Pose", AxisType.SixDof, DeviceInputType.SpatialGrip)
         };
 
         /// <inheritdoc />
-        public override MixedRealityInteractionMapping[] DefaultLeftHandedInteractions => DefaultInteractions;
+        public override InteractionMapping[] DefaultLeftHandedInteractions => DefaultInteractions;
 
         /// <inheritdoc />
-        public override MixedRealityInteractionMapping[] DefaultRightHandedInteractions => DefaultInteractions;
+        public override InteractionMapping[] DefaultRightHandedInteractions => DefaultInteractions;
 
         private Pose currentPointerPose = Pose.identity;
         private Pose lastControllerPose = Pose.identity;
@@ -240,7 +240,7 @@ namespace RealityToolkit.MetaPlatform.InputService
                 TrackingState = Definitions.Devices.TrackingState.NotApplicable;
             }
 
-            Pose = OculusApi.GetNodePose(NodeType, OculusApi.stepType).ToMixedRealityPoseFlippedQuaternionXY();
+            Pose = OculusApi.GetNodePose(NodeType, OculusApi.stepType).ToUnityPoseFlippedQuaternionXY();
             currentControllerVelocity = OculusApi.GetNodeState(NodeType, OculusApi.stepType);
             Velocity = currentControllerVelocity.Velocity.ToVector3FlippedZ();
             AngularVelocity = currentControllerVelocity.AngularVelocity.ToVector3FlippedZ();
@@ -248,22 +248,22 @@ namespace RealityToolkit.MetaPlatform.InputService
             // Raise input system events if it is enabled.
             if (lastState != TrackingState)
             {
-                InputSystem?.RaiseSourceTrackingStateChanged(InputSource, this, TrackingState);
+                InputService?.RaiseSourceTrackingStateChanged(InputSource, this, TrackingState);
             }
 
             if (TrackingState == Definitions.Devices.TrackingState.Tracked && lastControllerPose != Pose)
             {
                 if (IsPositionAvailable && IsRotationAvailable)
                 {
-                    InputSystem?.RaiseSourcePoseChanged(InputSource, this, Pose);
+                    InputService?.RaiseSourcePoseChanged(InputSource, this, Pose);
                 }
                 else if (IsPositionAvailable && !IsRotationAvailable)
                 {
-                    InputSystem?.RaiseSourcePositionChanged(InputSource, this, Pose.position);
+                    InputService?.RaiseSourcePositionChanged(InputSource, this, Pose.position);
                 }
                 else if (!IsPositionAvailable && IsRotationAvailable)
                 {
-                    InputSystem?.RaiseSourceRotationChanged(InputSource, this, Pose.rotation);
+                    InputService?.RaiseSourceRotationChanged(InputSource, this, Pose.rotation);
                 }
             }
         }
@@ -275,7 +275,7 @@ namespace RealityToolkit.MetaPlatform.InputService
                    controller == OculusApi.Controller.RTouch;
         }
 
-        private void UpdateButtonDataPress(MixedRealityInteractionMapping interactionMapping)
+        private void UpdateButtonDataPress(InteractionMapping interactionMapping)
         {
             Debug.Assert(interactionMapping.AxisType == AxisType.Digital);
 
@@ -295,7 +295,7 @@ namespace RealityToolkit.MetaPlatform.InputService
             }
         }
 
-        private void UpdateButtonDataTouch(MixedRealityInteractionMapping interactionMapping)
+        private void UpdateButtonDataTouch(InteractionMapping interactionMapping)
         {
             Debug.Assert(interactionMapping.AxisType == AxisType.Digital);
 
@@ -315,7 +315,7 @@ namespace RealityToolkit.MetaPlatform.InputService
             }
         }
 
-        private void UpdateButtonDataNearTouch(MixedRealityInteractionMapping interactionMapping)
+        private void UpdateButtonDataNearTouch(InteractionMapping interactionMapping)
         {
             Debug.Assert(interactionMapping.AxisType == AxisType.Digital);
 
@@ -335,7 +335,7 @@ namespace RealityToolkit.MetaPlatform.InputService
             }
         }
 
-        private void UpdateSingleAxisData(MixedRealityInteractionMapping interactionMapping)
+        private void UpdateSingleAxisData(InteractionMapping interactionMapping)
         {
             Debug.Assert(interactionMapping.AxisType == AxisType.SingleAxis);
 
@@ -372,7 +372,7 @@ namespace RealityToolkit.MetaPlatform.InputService
             interactionMapping.FloatData = singleAxisValue;
         }
 
-        private void UpdateSpatialGripData(MixedRealityInteractionMapping interactionMapping)
+        private void UpdateSpatialGripData(InteractionMapping interactionMapping)
         {
             Debug.Assert(interactionMapping.AxisType == AxisType.SixDof);
             interactionMapping.PoseData = new Pose(
@@ -380,7 +380,7 @@ namespace RealityToolkit.MetaPlatform.InputService
                 Pose.rotation * GripPoseOffset.rotation);
         }
 
-        private void UpdateDualAxisData(MixedRealityInteractionMapping interactionMapping)
+        private void UpdateDualAxisData(InteractionMapping interactionMapping)
         {
             Debug.Assert(interactionMapping.AxisType == AxisType.DualAxis);
 
@@ -421,7 +421,7 @@ namespace RealityToolkit.MetaPlatform.InputService
             interactionMapping.Vector2Data = dualAxisPosition;
         }
 
-        private void UpdatePoseData(MixedRealityInteractionMapping interactionMapping)
+        private void UpdatePoseData(InteractionMapping interactionMapping)
         {
             Debug.Assert(interactionMapping.AxisType == AxisType.SixDof);
 

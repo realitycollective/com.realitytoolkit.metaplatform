@@ -1,11 +1,11 @@
-// Copyright (c) XRTK. All rights reserved.
+// Copyright (c) Reality Collective. All rights reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
 using RealityCollective.ServiceFramework.Attributes;
 using RealityCollective.ServiceFramework.Definitions;
 using RealityCollective.ServiceFramework.Modules;
-using RealityToolkit.BoundarySystem.Definitions;
-using RealityToolkit.BoundarySystem.Interfaces;
+using RealityToolkit.Boundary.Definitions;
+using RealityToolkit.Boundary.Interfaces;
 using RealityToolkit.MetaPlatform.Plugins;
 using System;
 using System.Collections.Generic;
@@ -19,7 +19,7 @@ namespace RealityToolkit.MetaPlatform.BoundaryService
     public class MetaBoundaryServiceModule : BaseServiceModule, IMetaBoundaryServiceModule
     {
         /// <inheritdoc />
-        public MetaBoundaryServiceModule(string name, uint priority, BaseProfile profile, IMixedRealityBoundarySystem parentService)
+        public MetaBoundaryServiceModule(string name, uint priority, BaseProfile profile, IBoundaryService parentService)
             : base(name, priority, profile, parentService)
         {
             boundarySystem = parentService;
@@ -29,7 +29,7 @@ namespace RealityToolkit.MetaPlatform.BoundaryService
         private static readonly OculusApi.OVRNativeBuffer cachedGeometryNativeBuffer = new OculusApi.OVRNativeBuffer(0);
         private static readonly int cachedVector3fSize = Marshal.SizeOf(typeof(OculusApi.Vector3f));
         private static float[] cachedGeometryManagedBuffer = new float[0];
-        private readonly IMixedRealityBoundarySystem boundarySystem;
+        private readonly IBoundaryService boundarySystem;
 
         /// <inheritdoc />
         public BoundaryVisibility Visibility => OculusApi.GetBoundaryVisible() ? BoundaryVisibility.Visible : BoundaryVisibility.Hidden;
