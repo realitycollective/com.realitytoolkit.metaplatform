@@ -14,21 +14,21 @@ namespace RealityToolkit.MetaPlatform.Editor
     [InitializeOnLoad]
     internal static class MetaPackageInstaller
     {
-        private static readonly string destinationPath = $"{MixedRealityPreferences.ProfileGenerationPath}Meta";
-        private static readonly string sourcePath = Path.GetFullPath($"{PathFinderUtility.ResolvePath<IPathFinder>(typeof(MetaPackagePathFinder)).BackSlashes()}{Path.DirectorySeparatorChar}{MixedRealityPreferences.HIDDEN_PACKAGE_ASSETS_PATH}");
+        private static readonly string destinationPath = $"{RealityToolkitPreferences.ProfileGenerationPath}Meta";
+        private static readonly string sourcePath = Path.GetFullPath($"{PathFinderUtility.ResolvePath<IPathFinder>(typeof(MetaPackagePathFinder)).BackSlashes()}{Path.DirectorySeparatorChar}{RealityToolkitPreferences.HIDDEN_PACKAGE_ASSETS_PATH}");
 
         static MetaPackageInstaller()
         {
             EditorApplication.delayCall += CheckPackage;
         }
 
-        [MenuItem(MixedRealityPreferences.Editor_Menu_Keyword + "/Packages/Install Meta Package Assets...", true)]
+        [MenuItem(RealityToolkitPreferences.Editor_Menu_Keyword + "/Packages/Install Meta Package Assets...", true)]
         private static bool ImportPackageAssetsValidation()
         {
             return !Directory.Exists($"{destinationPath}{Path.DirectorySeparatorChar}");
         }
 
-        [MenuItem(MixedRealityPreferences.Editor_Menu_Keyword + "/Packages/Install Meta Package Assets...")]
+        [MenuItem(RealityToolkitPreferences.Editor_Menu_Keyword + "/Packages/Install Meta Package Assets...")]
         private static void ImportPackageAssets()
         {
             EditorPreferences.Set($"{nameof(MetaPackageInstaller)}.Assets", false);

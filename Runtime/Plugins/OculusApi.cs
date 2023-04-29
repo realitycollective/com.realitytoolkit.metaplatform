@@ -1,4 +1,4 @@
-﻿// Copyright (c) XRTK. All rights reserved.
+﻿// Copyright (c) Reality Collective. All rights reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
 using System;
@@ -970,10 +970,10 @@ namespace RealityToolkit.MetaPlatform.Plugins
                 new Pose(p.Position, p.Orientation);
 
             /// <summary>
-            /// Extension method to convert a <see cref="OculusApi.Posef"/> to a <see cref="MixedRealityPose"/>
+            /// Extension method to convert a <see cref="OculusApi.Posef"/> to a <see cref="Pose"/>
             /// </summary>
-            /// <returns>Returns an XRTK MixedRealityPose</returns>
-            public Pose ToMixedRealityPoseFlippedQuaternionXY()
+            /// <returns>Returns an Unity Pose</returns>
+            public Pose ToUnityPoseFlippedQuaternionXY()
             {
                 return new Pose
                 (
@@ -3226,7 +3226,7 @@ namespace RealityToolkit.MetaPlatform.Plugins
         /// <param name="cameraIntrinsics">(Out) Intrinsics defintion for the sepected camera</param>
         /// <param name="calibrationRawPose">(Out) calibration raw pose defintion for the sepected camera</param>
         /// <returns>True if the selected camera returned data</returns>
-        public static bool GetMixedRealityCameraInfo(int cameraId, out CameraExtrinsics cameraExtrinsics, out CameraIntrinsics cameraIntrinsics, out Posef calibrationRawPose)
+        public static bool GetCameraInfo(int cameraId, out CameraExtrinsics cameraExtrinsics, out CameraIntrinsics cameraIntrinsics, out Posef calibrationRawPose)
         {
             cameraExtrinsics = default(CameraExtrinsics);
             cameraIntrinsics = default(CameraIntrinsics);

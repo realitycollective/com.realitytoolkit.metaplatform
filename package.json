@@ -14,7 +14,7 @@
     "oculus",
     "quest"
   ],
-  "version": "1.0.0-pre.2",
+  "version": "1.0.0-pre.3",
   "unity": "2020.3",
   "homepage": "https://github.com/realitycollective",
   "bugs": {
@@ -31,8 +31,8 @@
     "url": "https://github.com/realitycollective"
   },
   "dependencies": {
-    "com.realitytoolkit.core": "1.0.0-pre.6",
-    "com.unity.xr.oculus": "1.12.1"
+    "com.realitytoolkit.core": "1.0.0-pre.12",
+    "com.unity.xr.oculus": "1.13.1"
   },
   "profiles": [
     {
