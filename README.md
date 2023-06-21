@@ -9,7 +9,7 @@ This package enables your Reality Toolkit based project to run on Meta devices.
 
 [![Discord](https://img.shields.io/discord/597064584980987924.svg?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2)](https://discord.gg/hF7TtRCFmB)
 
-## What's included?
+## What is included?
 
 - Service modules for the Reality Toolkit's camera service
 - Service modules for the Reality Toolkit's input service
@@ -48,5 +48,5 @@ Join our community and get in touch with other developers.
 
 | branch | build status |
 | --- | --- |
-| main | [![main](https://github.com/realitycollective/com.realitytoolkit.metaplatform/actions/workflows/main-publish.yml/badge.svg?branch=main)](https://github.com/realitycollective/com.realitytoolkit.metaplatform/actions/workflows/main-publish.yml) |
-| development | [![development](https://github.com/realitycollective/com.realitytoolkit.metaplatform/actions/workflows/development-buildandtestupmrelease.yml/badge.svg?branch=development)](https://github.com/realitycollective/com.realitytoolkit.metaplatform/actions/workflows/development-buildandtestupmrelease.yml)|
+| main | [![main](https://github.com/realitycollective/com.realitytoolkit.metaplatform/actions/workflows/main-publish.yml/badge.svg)](https://github.com/realitycollective/com.realitytoolkit.metaplatform/actions/workflows/main-publish.yml) |
+| development | [![development](https://github.com/realitycollective/com.realitytoolkit.metaplatform/actions/workflows/development-buildandtestupmrelease.yml/badge.svg)](https://github.com/realitycollective/com.realitytoolkit.metaplatform/actions/workflows/development-buildandtestupmrelease.yml)|

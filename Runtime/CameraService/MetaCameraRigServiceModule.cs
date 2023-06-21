@@ -11,10 +11,10 @@ namespace RealityToolkit.MetaPlatform.CameraService
 {
     [RuntimePlatform(typeof(MetaPlatform))]
     [System.Runtime.InteropServices.Guid("83EFF552-ADF4-47C8-AD53-DF7406856D3F")]
-    public class MetaCameraRigServiceModule : BaseCameraServiceModule, IMetaCameraRigServiceModule
+    public class MetaCameraRigServiceModule : BaseCameraRigServiceModule, IMetaCameraRigServiceModule
     {
         /// <inheritdoc />
-        public MetaCameraRigServiceModule(string name, uint priority, BaseCameraServiceModuleProfile profile, ICameraService parentService)
+        public MetaCameraRigServiceModule(string name, uint priority, BaseCameraRigServiceModuleProfile profile, ICameraService parentService)
             : base(name, priority, profile, parentService)
         {
         }
