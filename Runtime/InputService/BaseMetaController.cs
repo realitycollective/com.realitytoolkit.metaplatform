@@ -95,9 +95,10 @@ namespace RealityToolkit.MetaPlatform.InputService
         /// <inheritdoc />
         public override void UpdateController()
         {
-            if (!Enabled) { return; }
-
-            base.UpdateController();
+            if (!Enabled)
+            {
+                return;
+            }
 
             UpdateControllerData();
 
@@ -153,6 +154,8 @@ namespace RealityToolkit.MetaPlatform.InputService
 
                 interactionMapping.RaiseInputAction(InputSource, ControllerHandedness);
             }
+
+            base.UpdateController();
         }
 
         private void UpdateControllerData()
