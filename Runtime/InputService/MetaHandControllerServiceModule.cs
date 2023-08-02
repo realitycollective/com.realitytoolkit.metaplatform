@@ -34,9 +34,9 @@ namespace RealityToolkit.MetaPlatform.InputService
             MinConfidenceRequired = (OculusApi.TrackingConfidence)profile.MinConfidenceRequired;
             handDataConverter = new MetaHandDataConverter();
 
-            var isGrippingThreshold = profile.GripThreshold != inputServiceProfile.GripThreshold
+            var isGrippingThreshold = profile.GripThreshold != inputServiceProfile.HandControllerSettings.GripThreshold
                 ? profile.GripThreshold
-                : inputServiceProfile.GripThreshold;
+                : inputServiceProfile.HandControllerSettings.GripThreshold;
 
             postProcessor = new HandDataPostProcessor(TrackedPoses, isGrippingThreshold)
             {
