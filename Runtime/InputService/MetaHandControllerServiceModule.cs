@@ -4,7 +4,6 @@
 using RealityCollective.Definitions.Utilities;
 using RealityCollective.ServiceFramework.Attributes;
 using RealityCollective.ServiceFramework.Services;
-using RealityToolkit.Definitions.Controllers.Hands;
 using RealityToolkit.Definitions.Devices;
 using RealityToolkit.Input.Controllers.Hands;
 using RealityToolkit.Input.Definitions;
@@ -58,7 +57,7 @@ namespace RealityToolkit.MetaPlatform.InputService
         {
             base.Update();
 
-            if (handDataConverter.TryGetHandData(Handedness.Left, RenderingMode == HandRenderingMode.Mesh, MinConfidenceRequired, out var leftHandData))
+            if (handDataConverter.TryGetHandData(Handedness.Left, MinConfidenceRequired, out var leftHandData))
             {
                 var controller = GetOrAddController(Handedness.Left);
                 leftHandData = postProcessor.PostProcess(Handedness.Left, leftHandData);
@@ -69,7 +68,7 @@ namespace RealityToolkit.MetaPlatform.InputService
                 RemoveController(Handedness.Left);
             }
 
-            if (handDataConverter.TryGetHandData(Handedness.Right, RenderingMode == HandRenderingMode.Mesh, MinConfidenceRequired, out var rightHandData))
+            if (handDataConverter.TryGetHandData(Handedness.Right, MinConfidenceRequired, out var rightHandData))
             {
                 var controller = GetOrAddController(Handedness.Right);
                 rightHandData = postProcessor.PostProcess(Handedness.Right, rightHandData);
