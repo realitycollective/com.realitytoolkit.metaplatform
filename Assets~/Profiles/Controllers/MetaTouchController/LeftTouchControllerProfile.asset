@@ -15,7 +15,7 @@ MonoBehaviour:
   controllerType:
     reference: 1898974a-dbcd-4c88-8e03-726689848d52
   handedness: 1
-  visualizationProfile: {fileID: 11400000, guid: 64083f0c076c83f49a716316f5ce901c, type: 2}
+  controllerPrefab: {fileID: 7292743226245353380, guid: 04f6da56d6dc0f44b91afd00650cf2a7, type: 3}
   useCustomInteractions: 0
   interactionMappingProfiles:
   - {fileID: 11400000, guid: d3c46e95cd50b9347b3ae2b984258b3c, type: 2}
