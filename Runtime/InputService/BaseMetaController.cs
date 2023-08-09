@@ -19,7 +19,7 @@ namespace RealityToolkit.MetaPlatform.InputService
         protected BaseMetaController() { }
 
         /// <inheritdoc />
-        protected BaseMetaController(IControllerServiceModule controllerServiceModule, TrackingState trackingState, Handedness controllerHandedness, ControllerMappingProfile controllerMappingProfile, OculusApi.Controller controllerType = OculusApi.Controller.None, OculusApi.Node nodeType = OculusApi.Node.None)
+        protected BaseMetaController(IControllerServiceModule controllerServiceModule, TrackingState trackingState, Handedness controllerHandedness, ControllerProfile controllerMappingProfile, OculusApi.Controller controllerType = OculusApi.Controller.None, OculusApi.Node nodeType = OculusApi.Node.None)
             : base(controllerServiceModule, trackingState, controllerHandedness, controllerMappingProfile)
         {
             ControllerType = controllerType;
