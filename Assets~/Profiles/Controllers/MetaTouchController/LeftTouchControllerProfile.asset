@@ -38,6 +38,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a28ef8a54b31cd7429a330d53d37bda4, type: 2}
   - {fileID: 11400000, guid: 4c2c7b74b24b9d946af40c80ee0d0e9a, type: 2}
   - {fileID: 11400000, guid: 44d1dac04942dba44ab0f01ee529dec8, type: 2}
+  controllerInteractors:
+  - {fileID: 3487613484555030544, guid: eb885e83bbe8cc24a87d61670583a82d, type: 3}
+  - {fileID: 2507312044101632756, guid: 54d78dc3333741c5b7f30fe3506096ba, type: 3}
+  - {fileID: 114917070612713698, guid: 0c1e5f0d54ce46319152ece13a4b1eeb, type: 3}
   lightThemeLeftControllerTexture: {fileID: 0}
   lightThemeLeftControllerTextureScaled: {fileID: 0}
   darkThemeLeftControllerTexture: {fileID: 0}
