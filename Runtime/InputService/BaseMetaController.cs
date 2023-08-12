@@ -31,9 +31,6 @@ namespace RealityToolkit.MetaPlatform.InputService
         /// </summary>
         private OculusApi.Node NodeType { get; }
 
-        /// <inheritdoc />
-        protected override Pose GripPoseOffset => new Pose(Vector3.zero, Quaternion.Euler(0f, 0f, -90f));
-
         /// <summary>
         /// The Meta Controller Type.
         /// </summary>
@@ -143,9 +140,6 @@ namespace RealityToolkit.MetaPlatform.InputService
                     case DeviceInputType.ThumbStick:
                     case DeviceInputType.Touchpad:
                         UpdateDualAxisData(interactionMapping);
-                        break;
-                    case DeviceInputType.SpatialGrip:
-                        UpdateSpatialGripData(interactionMapping);
                         break;
                     default:
                         Debug.LogError($"Input [{interactionMapping.InputType}] is not handled for this controller [{GetType().Name}]");
@@ -373,14 +367,6 @@ namespace RealityToolkit.MetaPlatform.InputService
 
             // Update the interaction data source
             interactionMapping.FloatData = singleAxisValue;
-        }
-
-        private void UpdateSpatialGripData(InteractionMapping interactionMapping)
-        {
-            Debug.Assert(interactionMapping.AxisType == AxisType.SixDof);
-            interactionMapping.PoseData = new Pose(
-                Pose.position + Pose.rotation * GripPoseOffset.position,
-                Pose.rotation * GripPoseOffset.rotation);
         }
 
         private void UpdateDualAxisData(InteractionMapping interactionMapping)
