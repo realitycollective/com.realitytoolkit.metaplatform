@@ -73,8 +73,7 @@ namespace RealityToolkit.MetaPlatform.InputService
             new InteractionMapping("Button.DpadDown Press", AxisType.Digital, "DpadDown", DeviceInputType.ThumbStickPress),
             new InteractionMapping("Button.DpadLeft Press", AxisType.Digital, "DpadLeft", DeviceInputType.ThumbStickPress),
             new InteractionMapping("Button.DpadRight Press", AxisType.Digital, "DpadRight", DeviceInputType.ThumbStickPress),
-            new InteractionMapping("Button.RTouchpad", AxisType.Digital, "RTouchpad", DeviceInputType.ThumbTouch),
-            new InteractionMapping("Grip Pose", AxisType.SixDof, DeviceInputType.SpatialGrip)
+            new InteractionMapping("Button.RTouchpad", AxisType.Digital, "RTouchpad", DeviceInputType.ThumbTouch)
         };
 
         /// <inheritdoc />

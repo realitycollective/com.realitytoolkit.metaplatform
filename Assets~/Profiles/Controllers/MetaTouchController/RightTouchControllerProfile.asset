@@ -36,7 +36,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: dd3b05d4a1ecb1a4fb8223e48a0e2cd5, type: 2}
   - {fileID: 11400000, guid: 8d874651626c3ec468f4807dc53538b0, type: 2}
   - {fileID: 11400000, guid: a29c31e27b6a4dd478d0baffe9c452bf, type: 2}
-  - {fileID: 11400000, guid: 6bdb400e6c8fb154c973f1e2577f9b24, type: 2}
   controllerInteractors:
   - {fileID: 3487613484555030544, guid: eb885e83bbe8cc24a87d61670583a82d, type: 3}
   - {fileID: 2507312044101632756, guid: 54d78dc3333741c5b7f30fe3506096ba, type: 3}
