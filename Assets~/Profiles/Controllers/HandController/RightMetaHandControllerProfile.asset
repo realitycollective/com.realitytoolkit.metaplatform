@@ -10,13 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d420c170b42dfe0438e2aa2a829775ed, type: 3}
-  m_Name: RightOculusMixedRealityHandControllerProfile
+  m_Name: RightMetaHandControllerProfile
   m_EditorClassIdentifier: 
   controllerType:
     reference: b18a9a6c-e5fd-40ae-89e9-9822415ec62b
   handedness: 2
-  visualizationProfile: {fileID: 11400000, guid: 653d5ae3da9517844a92143c40fc4121,
-    type: 2}
+  controllerPrefab: {fileID: 2802760543285353804, guid: 79eeb06cd1ed4224eb6387ce28855a3c, type: 3}
   useCustomInteractions: 0
   interactionMappingProfiles:
   - {fileID: 11400000, guid: 1cd046ac9617db94cad8545b75de8224, type: 2}
@@ -25,3 +24,15 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4f4da5c965734ec4ebaf390902a843ea, type: 2}
   - {fileID: 11400000, guid: 892991c1f8f6dfb4f839275e347cadf1, type: 2}
   - {fileID: 11400000, guid: 843dd155c92865d4eb1113ae177481b2, type: 2}
+  controllerInteractors:
+  - {fileID: 3487613484555030544, guid: eb885e83bbe8cc24a87d61670583a82d, type: 3}
+  - {fileID: 2507312044101632756, guid: 54d78dc3333741c5b7f30fe3506096ba, type: 3}
+  - {fileID: 8432135464014371632, guid: c61f3eb595c636c438edf4452a4ef65e, type: 3}
+  lightThemeLeftControllerTexture: {fileID: 0}
+  lightThemeLeftControllerTextureScaled: {fileID: 0}
+  darkThemeLeftControllerTexture: {fileID: 0}
+  darkThemeLeftControllerTextureScaled: {fileID: 0}
+  lightThemeRightControllerTexture: {fileID: 0}
+  lightThemeRightControllerTextureScaled: {fileID: 0}
+  darkThemeRightControllerTexture: {fileID: 0}
+  darkThemeRightControllerTextureScaled: {fileID: 0}

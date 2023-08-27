@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d420c170b42dfe0438e2aa2a829775ed, type: 3}
-  m_Name: LeftTouchControllerProfile
+  m_Name: LeftMetaTouchControllerProfile
   m_EditorClassIdentifier: 
   controllerType:
     reference: 1898974a-dbcd-4c88-8e03-726689848d52
@@ -40,7 +40,6 @@ MonoBehaviour:
   controllerInteractors:
   - {fileID: 3487613484555030544, guid: eb885e83bbe8cc24a87d61670583a82d, type: 3}
   - {fileID: 2507312044101632756, guid: 54d78dc3333741c5b7f30fe3506096ba, type: 3}
-  - {fileID: 114917070612713698, guid: 0c1e5f0d54ce46319152ece13a4b1eeb, type: 3}
   - {fileID: 8432135464014371632, guid: c61f3eb595c636c438edf4452a4ef65e, type: 3}
   lightThemeLeftControllerTexture: {fileID: 0}
   lightThemeLeftControllerTextureScaled: {fileID: 0}

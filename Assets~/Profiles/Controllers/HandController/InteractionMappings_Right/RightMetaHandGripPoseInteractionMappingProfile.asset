@@ -10,20 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e3fb79524faca40478c0844c24e542f7, type: 3}
-  m_Name: Button.TwoProfile
+  m_Name: RightMetaHandGripPoseInteractionMappingProfile
   m_EditorClassIdentifier: 
   interactionMapping:
-    description: Button.Two
+    description: Grip Pose
     stateChangeType: 0
-    axisType: 2
-    inputType: 7
+    axisType: 7
+    inputType: 14
     inputAction:
-      profileGuid: 00000000000000000000000000000000
-      id: 0
-      description: None
-      axisConstraint: 0
+      profileGuid: 399335ccc89c4d12b79f3539ca7771db
+      id: 3
+      description: Grip Pose
+      axisConstraint: 7
     keyCode: 0
-    inputName: Two
+    inputName: 
     axisCodeX: 
     axisCodeY: 
     inputProcessors: []

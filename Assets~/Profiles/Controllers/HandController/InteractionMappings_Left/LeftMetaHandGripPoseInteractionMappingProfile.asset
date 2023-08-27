@@ -10,22 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e3fb79524faca40478c0844c24e542f7, type: 3}
-  m_Name: RightOculusHandSpatialPointerPoseInteractionMappingProfile
+  m_Name: LeftMetaHandGripPoseInteractionMappingProfile
   m_EditorClassIdentifier: 
   interactionMapping:
-    description: Spatial Pointer Pose
+    description: Grip Pose
     stateChangeType: 0
     axisType: 7
-    inputType: 3
+    inputType: 14
     inputAction:
       profileGuid: 399335ccc89c4d12b79f3539ca7771db
-      id: 4
-      description: Pointer Pose
+      id: 3
+      description: Grip Pose
       axisConstraint: 7
     keyCode: 0
     inputName: 
     axisCodeX: 
     axisCodeY: 
     inputProcessors: []
-  pointerProfiles:
-  - {fileID: 11400000, guid: 9e0e4acc675a18b4b9c65e9ff85cfe58, type: 2}
+  pointerProfiles: []
