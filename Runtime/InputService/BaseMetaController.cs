@@ -19,7 +19,7 @@ namespace RealityToolkit.MetaPlatform.InputService
         protected BaseMetaController() { }
 
         /// <inheritdoc />
-        protected BaseMetaController(IControllerServiceModule controllerServiceModule, TrackingState trackingState, Handedness controllerHandedness, ControllerMappingProfile controllerMappingProfile, OculusApi.Controller controllerType = OculusApi.Controller.None, OculusApi.Node nodeType = OculusApi.Node.None)
+        protected BaseMetaController(IControllerServiceModule controllerServiceModule, TrackingState trackingState, Handedness controllerHandedness, ControllerProfile controllerMappingProfile, OculusApi.Controller controllerType = OculusApi.Controller.None, OculusApi.Node nodeType = OculusApi.Node.None)
             : base(controllerServiceModule, trackingState, controllerHandedness, controllerMappingProfile)
         {
             ControllerType = controllerType;
@@ -30,9 +30,6 @@ namespace RealityToolkit.MetaPlatform.InputService
         /// The Meta Node Type.
         /// </summary>
         private OculusApi.Node NodeType { get; }
-
-        /// <inheritdoc />
-        protected override Pose GripPoseOffset => new Pose(Vector3.zero, Quaternion.Euler(0f, 0f, -90f));
 
         /// <summary>
         /// The Meta Controller Type.
@@ -76,8 +73,7 @@ namespace RealityToolkit.MetaPlatform.InputService
             new InteractionMapping("Button.DpadDown Press", AxisType.Digital, "DpadDown", DeviceInputType.ThumbStickPress),
             new InteractionMapping("Button.DpadLeft Press", AxisType.Digital, "DpadLeft", DeviceInputType.ThumbStickPress),
             new InteractionMapping("Button.DpadRight Press", AxisType.Digital, "DpadRight", DeviceInputType.ThumbStickPress),
-            new InteractionMapping("Button.RTouchpad", AxisType.Digital, "RTouchpad", DeviceInputType.ThumbTouch),
-            new InteractionMapping("Grip Pose", AxisType.SixDof, DeviceInputType.SpatialGrip)
+            new InteractionMapping("Button.RTouchpad", AxisType.Digital, "RTouchpad", DeviceInputType.ThumbTouch)
         };
 
         /// <inheritdoc />
@@ -143,9 +139,6 @@ namespace RealityToolkit.MetaPlatform.InputService
                     case DeviceInputType.ThumbStick:
                     case DeviceInputType.Touchpad:
                         UpdateDualAxisData(interactionMapping);
-                        break;
-                    case DeviceInputType.SpatialGrip:
-                        UpdateSpatialGripData(interactionMapping);
                         break;
                     default:
                         Debug.LogError($"Input [{interactionMapping.InputType}] is not handled for this controller [{GetType().Name}]");
@@ -373,14 +366,6 @@ namespace RealityToolkit.MetaPlatform.InputService
 
             // Update the interaction data source
             interactionMapping.FloatData = singleAxisValue;
-        }
-
-        private void UpdateSpatialGripData(InteractionMapping interactionMapping)
-        {
-            Debug.Assert(interactionMapping.AxisType == AxisType.SixDof);
-            interactionMapping.PoseData = new Pose(
-                Pose.position + Pose.rotation * GripPoseOffset.position,
-                Pose.rotation * GripPoseOffset.rotation);
         }
 
         private void UpdateDualAxisData(InteractionMapping interactionMapping)
