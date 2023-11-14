@@ -4,8 +4,8 @@
 using RealityCollective.ServiceFramework.Attributes;
 using RealityCollective.ServiceFramework.Definitions;
 using RealityCollective.ServiceFramework.Modules;
+using RealityToolkit.Boundary;
 using RealityToolkit.Boundary.Definitions;
-using RealityToolkit.Boundary.Interfaces;
 using RealityToolkit.MetaPlatform.Plugins;
 using System;
 using System.Collections.Generic;
