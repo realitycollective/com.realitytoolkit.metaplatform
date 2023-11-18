@@ -26,7 +26,7 @@ MonoBehaviour:
       - reference: db1acc26-ec8d-4bc6-afca-c51351b2da2e
   - instancedType:
       reference: 0de5da40-feb8-4891-b9b2-942eafd041b9
-    name: Meta Controller Data Provider
+    name: Meta Controller Service Module
     priority: 1
     profile: {fileID: 11400000, guid: b849f3a28dc36b84a92d2ec4d8239cd6, type: 2}
     platformEntries:
@@ -34,7 +34,7 @@ MonoBehaviour:
       - reference: db1acc26-ec8d-4bc6-afca-c51351b2da2e
   - instancedType:
       reference: ea666456-baef-4412-a829-a4c7132e98c3
-    name: Meta Hand Controller Data Provider
+    name: Meta Hand Controller Service Module
     priority: 2
     profile: {fileID: 11400000, guid: d9b3b9f611dffee4883c089dc35e0ce7, type: 2}
     platformEntries:
@@ -42,7 +42,7 @@ MonoBehaviour:
       - reference: db1acc26-ec8d-4bc6-afca-c51351b2da2e
   - instancedType:
       reference: 8ef0cab5-a37c-4912-ad5e-1e57e92a314d
-    name: Meta Boundary Data Provider
+    name: Meta Boundary Service Module
     priority: 3
     profile: {fileID: 0}
     platformEntries:
