@@ -37,5 +37,5 @@ jobs:
     uses: realitycollective/reusableworkflows/.github/workflows/rununityUPMbuild.yml@v2
     with:
       unityversion: ${{ needs.Validate-Unity.outputs.unityeditorversion }}
-      dependencies: '[{"development": "github.com/realitycollective/com.realitycollective.buildtools.git"},{"development": "github.com/realitycollective/com.realitytoolkit.core.git"},{"development": "github.com/realitycollective/com.realitycollective.utilities.git"},{"development": "github.com/realitycollective/com.realitytoolkit.service-framework.git"},{"development": "github.com/realitycollective/com.realitytoolkit.camera.git"}]'
+      dependencies: '[{"development": "github.com/realitycollective/com.realitycollective.buildtools.git"},{"development": "github.com/realitycollective/com.realitytoolkit.core.git"},{"development": "github.com/realitycollective/com.realitycollective.utilities.git"},{"development": "github.com/realitycollective/com.realitycollective.service-framework.git"},{"development": "github.com/realitycollective/com.realitytoolkit.camera.git"},{"development": "github.com/realitycollective/com.realitytoolkit.boundary.git"}]'
     secrets: inherit
