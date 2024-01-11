@@ -11,10 +11,10 @@ namespace RealityToolkit.MetaPlatform.PlayerService
 {
     [RuntimePlatform(typeof(MetaPlatform))]
     [System.Runtime.InteropServices.Guid("83EFF552-ADF4-47C8-AD53-DF7406856D3F")]
-    public class MetaCameraRigServiceModule : BaseCameraRigServiceModule, IMetaCameraRigServiceModule
+    public class MetaPlayerRigServiceModule : BasePlayerRigServiceModule, IMetaPlayerRigServiceModule
     {
         /// <inheritdoc />
-        public MetaCameraRigServiceModule(string name, uint priority, BaseCameraRigServiceModuleProfile profile, IPlayerService parentService)
+        public MetaPlayerRigServiceModule(string name, uint priority, BasePlayerRigServiceModuleProfile profile, IPlayerService parentService)
             : base(name, priority, profile, parentService)
         {
         }

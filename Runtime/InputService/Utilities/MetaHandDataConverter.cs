@@ -49,8 +49,8 @@ namespace RealityToolkit.MetaPlatform.InputService.Utilities
             {
                 if (rigTransform == null)
                 {
-                    rigTransform = ServiceManager.Instance.TryGetService<IPlayerService>(out var cameraSystem)
-                        ? cameraSystem.CameraRig.RigTransform
+                    rigTransform = ServiceManager.Instance.TryGetService<IPlayerService>(out var playerService)
+                        ? playerService.PlayerRig.RigTransform
                         : Camera.main.transform.parent;
                 }
 

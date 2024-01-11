@@ -6,7 +6,7 @@ using RealityToolkit.PlayerService.Interfaces;
 namespace RealityToolkit.MetaPlatform.PlayerService
 {
     /// <summary>
-    /// Fully qualifies the <see cref="MetaPlatform"/> specific implementation of <see cref="ICameraRigServiceModule"/>.
+    /// Fully qualifies the <see cref="MetaPlatform"/> specific implementation of <see cref="IPlayerRigServiceModule"/>.
     /// </summary>
-    public interface IMetaCameraRigServiceModule : ICameraRigServiceModule { }
+    public interface IMetaPlayerRigServiceModule : IPlayerRigServiceModule { }
 }

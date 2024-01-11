@@ -62,7 +62,7 @@ namespace RealityToolkit.MetaPlatform.BoundaryService
 
         /// <summary>
         /// Returns an array of 3d points (in clockwise order) that define the specified boundary type.
-        /// All points are returned in local tracking space shared by tracked nodes and accessible through OVRCameraRig's trackingSpace anchor.
+        /// All points are returned in local tracking space shared by tracked nodes and accessible through OVRPlayerRig's trackingSpace anchor.
         /// </summary>
         private Vector3[] GetGeometry(OculusApi.BoundaryType boundaryType)
         {
