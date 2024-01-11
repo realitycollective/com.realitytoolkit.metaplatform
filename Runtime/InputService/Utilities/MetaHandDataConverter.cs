@@ -4,7 +4,7 @@
 using RealityCollective.Definitions.Utilities;
 using RealityCollective.Extensions;
 using RealityCollective.ServiceFramework.Services;
-using RealityToolkit.CameraService.Interfaces;
+using RealityToolkit.PlayerService.Interfaces;
 using RealityToolkit.Definitions.Devices;
 using RealityToolkit.Input.Hands;
 using RealityToolkit.Input.Hands.Utilities;
@@ -49,7 +49,7 @@ namespace RealityToolkit.MetaPlatform.InputService.Utilities
             {
                 if (rigTransform == null)
                 {
-                    rigTransform = ServiceManager.Instance.TryGetService<ICameraService>(out var cameraSystem)
+                    rigTransform = ServiceManager.Instance.TryGetService<IPlayerService>(out var cameraSystem)
                         ? cameraSystem.CameraRig.RigTransform
                         : Camera.main.transform.parent;
                 }
