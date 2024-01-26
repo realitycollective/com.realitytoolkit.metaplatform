@@ -2,10 +2,10 @@
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
 using RealityCollective.ServiceFramework.Attributes;
-using RealityToolkit.PlayerService.Definitions;
-using RealityToolkit.PlayerService.Interfaces;
-using RealityToolkit.PlayerService.Modules;
 using RealityToolkit.MetaPlatform.Plugins;
+using RealityToolkit.Player.Definitions;
+using RealityToolkit.Player.Interfaces;
+using RealityToolkit.Player.Modules;
 
 namespace RealityToolkit.MetaPlatform.PlayerService
 {
