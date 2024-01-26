@@ -31,8 +31,8 @@
     "url": "https://github.com/realitycollective"
   },
   "dependencies": {
-    "com.realitytoolkit.core": "1.0.0-pre.29",
-    "com.realitytoolkit.player": "1.0.1-pre.5",
+    "com.realitytoolkit.core": "1.0.0-pre.37",
+    "com.realitytoolkit.player": "1.0.3-pre.1",
     "com.realitytoolkit.boundary": "1.0.0-pre.1",
     "com.unity.xr.oculus": "3.3.0"
   },
